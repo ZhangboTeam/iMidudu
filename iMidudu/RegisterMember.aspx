@@ -52,6 +52,7 @@
                                 
                                 alert("注册成功");
                                
+                                var url = "/UseBouns.aspx?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid;
                             }
                             else {
                                 alert(r);
@@ -62,11 +63,7 @@
     </script>
 </head>
 <body>
-    用户验证 
-    <%//=iMidudu.Biz.IsMembership(this.Request["openid"])
-
-    %>
-    <%=new iMidudu.iMiduduEntities()  %>
+    用户验证  
     <input id="bouns" value="<%=this.Request["bouns"]  %>" type="hidden" />
     <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" />
     <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" />

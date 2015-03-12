@@ -41,6 +41,27 @@ namespace iMidudu
             }
             return "验证码不正确";
         }
+        [WebMethod(EnableSession =true)]
+        public string openBouns(string bouns,string acitvity,string openid )
+        {
+            double amount = Biz.GenerateRandomAmount();
+            try
+            {
+            SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
+                 new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
+                 new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                 new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
+                 new System.Data.SqlClient.SqlParameter("@Amount", amount) 
+                );
+
+                return amount.ToString();
+
+            }
+            catch (Exception ex)
+            {
+                return "-1";
+            }
+        }
 
     }
 }

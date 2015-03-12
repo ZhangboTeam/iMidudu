@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"   %>
+﻿<%@ Page Language="C#" %>
 
 <!DOCTYPE html>
 
@@ -15,7 +15,7 @@
                 //e.err_msg:add_contact:ok 添加成功
                 if (e.err_msg == 'add_contact:added' || e.err_msg == 'add_contact:ok') {
                     //关注成功，或者已经关注过
-                   // alert(message);
+                    // alert(message);
                 }
             })
         }
@@ -23,14 +23,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    code:<%=this.Request["code"] %>
+        <div>
+            code:<%=this.Request["code"] %>
     acitvity:<%=this.Request["acitvity"] %>
-    </div>
+        </div>
         <div>
             bonus:<%= this.Request["state"]%>
         </div>
-        
+
         <%
             var rr = WX.getOpenId();
             var r = WX.getUserInfo(rr);// WX.getOpenId();
@@ -47,50 +47,54 @@
             {
                 acitvity = System.Web.Configuration.WebConfigurationManager.AppSettings["defaultActivityId"];
             }
+            var param = "?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid;
             if (!iMidudu.Biz.IsMembership(rr.openid))
             {
 
-                Response.Redirect("/RegisterMember.aspx?bouns=" + bouns + "&acitvity=" + acitvity+ "&openid=" + rr.openid);
+                Response.Redirect("/RegisterMember.aspx"+param);
+            }
+            else
+            {
+                Response.Redirect("/UseBouns.aspx?bouns="+param);
             }
 
+        %>
 
-            %>  
-        
-    <% if ( focused == false )
-        { 
-            //Response.Redirect("http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd");
-            %> 
-      <%  }
-    %>
+        <% if (focused == false)
+            {
+                //Response.Redirect("http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd");
+        %>
+        <%  }
+        %>
         <h1>当前用户有没有关注?<%=focused %></h1>
-        <fieldset   >
+        <fieldset>
             <legend>关注的用户信息</legend>
-          total :<%=users.total %> <br />
+            total :<%=users.total %>
+            <br />
             <%foreach (var item in users.data.openid)
                 {%>
-                    <%=item  %><br />
-                <%} %>
+            <%=item  %><br />
+            <%} %>
         </fieldset>
 
         <div hidden>
-
-          静默授权:(不点授权按钮):  <% =rr.openid %>
+            静默授权:(不点授权按钮):  <% =rr.openid %>
             <hr />
             以下信息需要点击授权才可获取:
             <br />
-           openid <%=r.openid %><br />
-           country <%=r.country %><br />
-           province <%=r.province %><br />
-           city <%=r.city %><br />
-           headimgurl <%=r.headimgurl %>
+            openid <%=r.openid %><br />
+            country <%=r.country %><br />
+            province <%=r.province %><br />
+            city <%=r.city %><br />
+            headimgurl <%=r.headimgurl %>
             <img src="<%=r.headimgurl %>" width="100" />
             <br />
-           language <%=r.language %><br />
-           nickname <%=r.nickname %><br />
-           sex <%=r.sex==1?"男" :"女" %><br />
-          <%-- subscribe <%=r.subscribe %><%=r.subscribe==0?"No":"Yes" %><br />--%>
+            language <%=r.language %><br />
+            nickname <%=r.nickname %><br />
+            sex <%=r.sex==1?"男" :"女" %><br />
+            <%-- subscribe <%=r.subscribe %><%=r.subscribe==0?"No":"Yes" %><br />--%>
            unionid <%=r.unionid %><br />
-        </div> 
+        </div>
     </form>
 </body>
 </html>
