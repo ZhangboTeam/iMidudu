@@ -31,17 +31,7 @@
                         else {
                             alert("红包领取失败,您可能下手慢了");
                         }
-
-                        //发动到用户红包
-                        //if (r == "OK") {
-
-                        //    alert("注册成功");
-
-                        //    var url = "/UseBouns.aspx?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid;
-                        //}
-                        //else {
-                        //    alert(r);
-                        //}
+                         
                     });
             });
         });
