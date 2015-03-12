@@ -21,6 +21,6 @@ namespace iMidudu
         public double Amount { get; set; }
     
         public virtual Activity Activity { get; set; }
-        public virtual Membership Membership { get; set; }
+        public virtual MembershipInfo MembershipInfo { get; set; }
     }
 }

@@ -28,7 +28,7 @@ namespace iMidudu
         public virtual DbSet<Activity> Activity { get; set; }
         public virtual DbSet<BonusGroup> BonusGroup { get; set; }
         public virtual DbSet<BonusHistory> BonusHistory { get; set; }
-        public virtual DbSet<Membership> Membership { get; set; }
         public virtual DbSet<SystemUser> SystemUser { get; set; }
+        public virtual DbSet<MembershipInfo> MembershipInfo { get; set; }
     }
 }

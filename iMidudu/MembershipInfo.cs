@@ -12,10 +12,10 @@ namespace iMidudu
     using System;
     using System.Collections.Generic;
     
-    public partial class Membership
+    public partial class MembershipInfo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Membership()
+        public MembershipInfo()
         {
             this.BonusHistory = new HashSet<BonusHistory>();
         }

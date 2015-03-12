@@ -10,7 +10,8 @@ namespace iMidudu
         
         public static bool IsMembership(string openId)
         {
-            return Data.Instance.Membership.Count(t => t.OpenId == openId) == 1;
+            //   System.Web.HttpContext.Current.Response.Write(openId);return false;
+            return SystemDAO.SqlHelper.Exists("select count(*) from MembershipInfo where openid=@openid", new System.Data.SqlClient.SqlParameter("@openid", openId));
         }
     }
 }
