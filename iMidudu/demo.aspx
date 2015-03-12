@@ -22,18 +22,10 @@
     </script>
 </head>
 <body>
-    <% if (WX.isIOs())
-        {%>
-    <a href="weixin://contacts/profile/iMidudu">点击这里添加微无锡公众号</a>
-      <%  }
-    else
-    {%>
-    <a href="weixin://profile/iMidudu">【996微信公众导航 】</a>
-    <%} %>
     <form id="form1" runat="server">
     <div>
     code:<%=this.Request["code"] %>
-    group:<%=this.Request["group"] %>
+    acitvity:<%=this.Request["acitvity"] %>
     </div>
         <div>
             bonus:<%= this.Request["state"]%>
@@ -49,7 +41,27 @@
 
             bool focused = WX.isUserFocused(rr.openid);
 
+            var bouns = this.Request["state"];
+            var acitvity = this.Request["acitvity"];//第一次的二维码没有这个参数
+            if (string.IsNullOrEmpty(acitvity))
+            {
+                acitvity = System.Web.Configuration.WebConfigurationManager.AppSettings["defaultActivityId"];
+            }
+            if (!iMidudu.Biz.IsMembership(rr.openid))
+            {
+
+                Response.Redirect("/RegisterMember.aspx?bouns=" + bouns + "&acitvity=" + acitvity+ "&openid=" + rr.openid);
+            }
+
+
             %>  
+        
+    <% if ( focused == false )
+        { 
+            //Response.Redirect("http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd");
+            %> 
+      <%  }
+    %>
         <h1>当前用户有没有关注?<%=focused %></h1>
         <fieldset   >
             <legend>关注的用户信息</legend>

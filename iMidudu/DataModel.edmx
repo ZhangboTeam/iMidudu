@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="iMiduduModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="AcitvityId" />
+          </Key>
+          <Property Name="AcitvityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BonusGroupId" Type="int" Nullable="false" />
+          <Property Name="BonusLimit" Type="int" Nullable="false" />
+          <Property Name="ActivityName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="BeginDate" Type="datetime" Nullable="false" />
+          <Property Name="EndDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BonusGroup">
+          <Key>
+            <PropertyRef Name="BonusGroupId" />
+          </Key>
+          <Property Name="BonusGroupId" Type="int" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="BonusHistory">
+          <Key>
+            <PropertyRef Name="BonusCode" />
+          </Key>
+          <Property Name="BonusCode" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="OpenId" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="AcitvityId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="ReceiptDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="OpenId" />
+          </Key>
+          <Property Name="OpenId" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="RegDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="LoginName" />
+          </Key>
+          <Property Name="LoginName" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ACTIVITY_REFERENCE_BONUSGRO">
+          <End Role="BonusGroup" Type="Self.BonusGroup" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonusGroup">
+              <PropertyRef Name="BonusGroupId" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="BonusGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BONUSHIS_REFERENCE_ACTIVITY">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="BonusHistory" Type="Self.BonusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="AcitvityId" />
+            </Principal>
+            <Dependent Role="BonusHistory">
+              <PropertyRef Name="AcitvityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BONUSHIS_REFERENCE_MEMBERSH">
+          <End Role="Membership" Type="Self.Membership" Multiplicity="1" />
+          <End Role="BonusHistory" Type="Self.BonusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membership">
+              <PropertyRef Name="OpenId" />
+            </Principal>
+            <Dependent Role="BonusHistory">
+              <PropertyRef Name="OpenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iMiduduModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BonusGroup" EntityType="Self.BonusGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BonusHistory" EntityType="Self.BonusHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Membership" EntityType="Self.Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ACTIVITY_REFERENCE_BONUSGRO" Association="Self.FK_ACTIVITY_REFERENCE_BONUSGRO">
+            <End Role="BonusGroup" EntitySet="BonusGroup" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BONUSHIS_REFERENCE_ACTIVITY" Association="Self.FK_BONUSHIS_REFERENCE_ACTIVITY">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="BonusHistory" EntitySet="BonusHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BONUSHIS_REFERENCE_MEMBERSH" Association="Self.FK_BONUSHIS_REFERENCE_MEMBERSH">
+            <End Role="Membership" EntitySet="Membership" />
+            <End Role="BonusHistory" EntitySet="BonusHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iMiduduModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="AcitvityId" />
+          </Key>
+          <Property Name="AcitvityId" Type="Guid" Nullable="false" />
+          <Property Name="BonusGroupId" Type="Int32" Nullable="false" />
+          <Property Name="BonusLimit" Type="Int32" Nullable="false" />
+          <Property Name="ActivityName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BeginDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BonusGroup" Relationship="Self.FK_ACTIVITY_REFERENCE_BONUSGRO" FromRole="Activity" ToRole="BonusGroup" />
+          <NavigationProperty Name="BonusHistory" Relationship="Self.FK_BONUSHIS_REFERENCE_ACTIVITY" FromRole="Activity" ToRole="BonusHistory" />
+        </EntityType>
+        <EntityType Name="BonusGroup">
+          <Key>
+            <PropertyRef Name="BonusGroupId" />
+          </Key>
+          <Property Name="BonusGroupId" Type="Int32" Nullable="false" />
+          <Property Name="GroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_ACTIVITY_REFERENCE_BONUSGRO" FromRole="BonusGroup" ToRole="Activity" />
+        </EntityType>
+        <EntityType Name="BonusHistory">
+          <Key>
+            <PropertyRef Name="BonusCode" />
+          </Key>
+          <Property Name="BonusCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OpenId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AcitvityId" Type="Guid" Nullable="false" />
+          <Property Name="ReceiptDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK_BONUSHIS_REFERENCE_ACTIVITY" FromRole="BonusHistory" ToRole="Activity" />
+          <NavigationProperty Name="Membership" Relationship="Self.FK_BONUSHIS_REFERENCE_MEMBERSH" FromRole="BonusHistory" ToRole="Membership" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Membership">
+          <Key>
+            <PropertyRef Name="OpenId" />
+          </Key>
+          <Property Name="OpenId" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sex" Type="Int32" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="BonusHistory" Relationship="Self.FK_BONUSHIS_REFERENCE_MEMBERSH" FromRole="Membership" ToRole="BonusHistory" />
+        </EntityType>
+        <EntityType Name="SystemUser">
+          <Key>
+            <PropertyRef Name="LoginName" />
+          </Key>
+          <Property Name="LoginName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ACTIVITY_REFERENCE_BONUSGRO">
+          <End Role="BonusGroup" Type="Self.BonusGroup" Multiplicity="1" />
+          <End Role="Activity" Type="Self.Activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BonusGroup">
+              <PropertyRef Name="BonusGroupId" />
+            </Principal>
+            <Dependent Role="Activity">
+              <PropertyRef Name="BonusGroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BONUSHIS_REFERENCE_ACTIVITY">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="BonusHistory" Type="Self.BonusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="AcitvityId" />
+            </Principal>
+            <Dependent Role="BonusHistory">
+              <PropertyRef Name="AcitvityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BONUSHIS_REFERENCE_MEMBERSH">
+          <End Role="Membership" Type="Self.Membership" Multiplicity="1" />
+          <End Role="BonusHistory" Type="Self.BonusHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Membership">
+              <PropertyRef Name="OpenId" />
+            </Principal>
+            <Dependent Role="BonusHistory">
+              <PropertyRef Name="OpenId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iMiduduEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activity" EntityType="Self.Activity" />
+          <EntitySet Name="BonusGroup" EntityType="Self.BonusGroup" />
+          <EntitySet Name="BonusHistory" EntityType="Self.BonusHistory" />
+          <EntitySet Name="Membership" EntityType="Self.Membership" />
+          <EntitySet Name="SystemUser" EntityType="Self.SystemUser" />
+          <AssociationSet Name="FK_ACTIVITY_REFERENCE_BONUSGRO" Association="Self.FK_ACTIVITY_REFERENCE_BONUSGRO">
+            <End Role="BonusGroup" EntitySet="BonusGroup" />
+            <End Role="Activity" EntitySet="Activity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BONUSHIS_REFERENCE_ACTIVITY" Association="Self.FK_BONUSHIS_REFERENCE_ACTIVITY">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="BonusHistory" EntitySet="BonusHistory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BONUSHIS_REFERENCE_MEMBERSH" Association="Self.FK_BONUSHIS_REFERENCE_MEMBERSH">
+            <End Role="Membership" EntitySet="Membership" />
+            <End Role="BonusHistory" EntitySet="BonusHistory" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="iMiduduModelStoreContainer" CdmEntityContainer="iMiduduEntities">
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="iMiduduModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="AcitvityId" ColumnName="AcitvityId" />
+                <ScalarProperty Name="BonusGroupId" ColumnName="BonusGroupId" />
+                <ScalarProperty Name="BonusLimit" ColumnName="BonusLimit" />
+                <ScalarProperty Name="ActivityName" ColumnName="ActivityName" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BonusGroup">
+            <EntityTypeMapping TypeName="iMiduduModel.BonusGroup">
+              <MappingFragment StoreEntitySet="BonusGroup">
+                <ScalarProperty Name="BonusGroupId" ColumnName="BonusGroupId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BonusHistory">
+            <EntityTypeMapping TypeName="iMiduduModel.BonusHistory">
+              <MappingFragment StoreEntitySet="BonusHistory">
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="BonusCode" ColumnName="BonusCode" />
+                <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+                <ScalarProperty Name="AcitvityId" ColumnName="AcitvityId" />
+                <ScalarProperty Name="ReceiptDate" ColumnName="ReceiptDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Membership">
+            <EntityTypeMapping TypeName="iMiduduModel.Membership">
+              <MappingFragment StoreEntitySet="Membership">
+                <ScalarProperty Name="OpenId" ColumnName="OpenId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="RegDate" ColumnName="RegDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUser">
+            <EntityTypeMapping TypeName="iMiduduModel.SystemUser">
+              <MappingFragment StoreEntitySet="SystemUser">
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
