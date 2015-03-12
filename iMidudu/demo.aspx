@@ -22,9 +22,18 @@
     </script>
 </head>
 <body>
+    <% if (WX.isIOs())
+        {%>
+    <a href="weixin://contacts/profile/iMidudu">点击这里添加微无锡公众号</a>
+      <%  }
+    else
+    {%>
+    <a href="weixin://profile/iMidudu">【996微信公众导航 】</a>
+    <%} %>
     <form id="form1" runat="server">
     <div>
     code:<%=this.Request["code"] %>
+    group:<%=this.Request["group"] %>
     </div>
         <div>
             bonus:<%= this.Request["state"]%>

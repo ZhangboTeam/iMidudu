@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 using System.Web.Caching;
 
 public class WX
@@ -27,6 +28,19 @@ public class WX
         }
     }
 
+    public static bool isIOs()
+    {
+        string agent = HttpContext.Current.Request.UserAgent;
+        string[] keywords = {  "iPhone", "iPod", "iPad" };
+        foreach (var item in keywords)
+        {
+            if (agent.Contains(item))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
     public static string Token
     {
         get
