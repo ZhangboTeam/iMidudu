@@ -170,7 +170,8 @@ public class WX
     public static string SendBounsToOpenId(string OpenId,int Money,string BounsCode,Guid AcitvityId)
     {
         var sb = new StringBuilder();
-        sb.AppendFormat("")
+        // sb.AppendFormat("")
+        return sb.ToString();
     }
 
 
