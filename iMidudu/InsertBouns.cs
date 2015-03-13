@@ -18,7 +18,7 @@ public class InsertBouns
         {
             if (string.IsNullOrEmpty(code))
             {
-                break;
+                continue ;
             }
             if (!iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", code)))
             {
