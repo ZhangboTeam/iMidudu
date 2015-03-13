@@ -73,8 +73,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="code.txt" />
-    <Content Include="code2.txt" />
     <Content Include="MAC.aspx" />
     <Content Include="test2.aspx" />
     <Content Include="test.aspx" />

@@ -235,7 +235,7 @@ public class WX
         sb2.Append("</xml>");
         string responseString;
         getResponseCert<PayResult>(url, sb2.ToString(), out responseString);
-        return responseString;
+        return sb2.ToString();
     }
 
 
