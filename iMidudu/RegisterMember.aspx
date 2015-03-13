@@ -59,12 +59,13 @@
                             ValidCode: ValidCode
                         }, function (data) {
                             var r = $(data).text();
-                            alert(r);
+                           
                             if (r == "OK") {
                                 
-                                alert("注册成功");
-                               
-                                var url = "/UseBouns.aspx?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid;
+                                alert("注册成功"); 
+                                var url = "/UseBouns.aspx?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + openid;
+                                //alert(url);
+                                window.location.href = url;
                             }
                             else {
                                 alert(r);

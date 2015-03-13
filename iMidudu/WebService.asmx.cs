@@ -26,8 +26,23 @@ namespace iMidudu
         [WebMethod(EnableSession =true)]
         public string Register(string bouns,string acitvity,string openid,string UserName,int Sex,string Mobile,string ValidCode)
         {
-         
-           
+
+            try
+            {
+
+                SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
+                                new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
+                new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                new System.Data.SqlClient.SqlParameter("@Sex", Sex),
+                new System.Data.SqlClient.SqlParameter("@UserName", UserName));
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+
+            return "OK";
             var code = System.Web.HttpContext.Current.Session["smsCode"];
             if (code == null)
             {
@@ -39,22 +54,7 @@ namespace iMidudu
                 //     Mobile= Mobile, OpenId= openid, RegDate= DateTime.Now, Sex= Sex, UserName = UserName
                 //});
                 //iMidudu.Data.Instance.SaveChanges();
-                try
-                {
-
-                    SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
-                                    new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
-                    new System.Data.SqlClient.SqlParameter("@OpenId", openid),
-                    new System.Data.SqlClient.SqlParameter("@Sex", Sex),
-                    new System.Data.SqlClient.SqlParameter("@UserName", UserName));
-                }
-                catch (Exception ex)
-                {
-                    return ex.ToString();
-                }
-
-
-                return "OK";
+           
             }
             return "验证码不正确";
         }
