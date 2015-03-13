@@ -89,17 +89,6 @@ private static extern Int32 inet_addr(string ip);
     
         
         %>
-    <%
-        var d = iMidudu.Data.Instance.Activity.ToList();
-
-        foreach (var item in d)
-        {
-            Response.Write(item.ActivityName);
-        }
-        //using (iMidudu.iMiduduEntities e = new iMidudu.iMiduduEntities())
-        //{
-        //}
-         %>
-    <%=iMidudu.Biz.IsMembership("222") %>
+ 
 </body>
 </html>
