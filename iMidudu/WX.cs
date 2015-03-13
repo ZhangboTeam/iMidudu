@@ -171,12 +171,12 @@ public class WX
 
     public static string SendBounsToOpenId(string OpenId,int Money,string BounsCode,Guid AcitvityId,out string paramstr)
     {
-        //var actName = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId = @AcitvityId", new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId));
-        //if (actName==null)
-        //{
-        //    throw new Exception("活动不存在");
-        //}
-        var actName = "test";
+        var actName = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId = @AcitvityId", new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId));
+        if (actName == null)
+        {
+            actName = "test";
+        }
+      // var actName = "test";
         var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
         var nickname = "米嘟嘟";
         var tmpstr = nonceStr;

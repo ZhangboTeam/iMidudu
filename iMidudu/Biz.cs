@@ -38,7 +38,7 @@ namespace iMidudu
         { 
             return !SystemDAO.SqlHelper.Exists("select count(*) from BonusHistory where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", BonusCode));
         }
-        public static double GenerateRandomAmount()
+        public static double GenerateRandomAmount(string bouns)
         {
             return new Random().Next(0, 10) / 10.0;
         }

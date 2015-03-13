@@ -17,7 +17,18 @@
                         
                         if (rr.code == 0) {
                             $("#r").html("短信验证码已发送到手机:" + m);
-                            alert("短信验证码已发送到手机:" + m);
+                            var count = 0;
+
+                            $("#sendValidCode").hide();
+
+                          var iii =  setInterval(function () {
+                              $("#r").html(60 - ++count);
+                              if (count >= 60) {
+                                  $("#sendValidCode").show();
+                                  clearInterval(iii); $("#r").html("");
+                              }
+                            }, 1000);
+                           // alert("短信验证码已发送到手机:" + m);
 
                         }
                         else {
@@ -48,6 +59,7 @@
                             ValidCode: ValidCode
                         }, function (data) {
                             var r = $(data).text();
+                            alert(r);
                             if (r == "OK") {
                                 
                                 alert("注册成功");
@@ -67,6 +79,7 @@
     <input id="bouns" value="<%=this.Request["bouns"]  %>" type="hidden" />
     <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" />
     <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" />
+  
     <hr />
     UserName:<input type="text" id="UserName" />
     <br />

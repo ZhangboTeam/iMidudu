@@ -26,6 +26,8 @@ namespace iMidudu
         [WebMethod(EnableSession =true)]
         public string Register(string bouns,string acitvity,string openid,string UserName,int Sex,string Mobile,string ValidCode)
         {
+         
+           
             var code = System.Web.HttpContext.Current.Session["smsCode"];
             if (code == null)
             {
@@ -37,12 +39,20 @@ namespace iMidudu
                 //     Mobile= Mobile, OpenId= openid, RegDate= DateTime.Now, Sex= Sex, UserName = UserName
                 //});
                 //iMidudu.Data.Instance.SaveChanges();
-                SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
-                                new System.Data.SqlClient.SqlParameter("@Mobile", Mobile));
-                 new System.Data.SqlClient.SqlParameter("@OpenId", openid);
-                 new System.Data.SqlClient.SqlParameter("@Sex", Sex);
-                 new System.Data.SqlClient.SqlParameter("@UserName", UserName);
-                 
+                try
+                {
+
+                    SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
+                                    new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
+                    new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                    new System.Data.SqlClient.SqlParameter("@Sex", Sex),
+                    new System.Data.SqlClient.SqlParameter("@UserName", UserName));
+                }
+                catch (Exception ex)
+                {
+                    return ex.ToString();
+                }
+
 
                 return "OK";
             }
@@ -51,15 +61,22 @@ namespace iMidudu
         [WebMethod(EnableSession =true)]
         public string openBouns(string bouns,string acitvity,string openid )
         {
-            double amount = Biz.GenerateRandomAmount();
+            double amount = Biz.GenerateRandomAmount(bouns);
             try
             {
+                //想openid打入真的钱
+                string r;
+                WX.SendBounsToOpenId(openid, (int)amount, bouns, Guid.Parse(acitvity), out r);
+
+
             SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
                  new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
                  new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                  new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
                  new System.Data.SqlClient.SqlParameter("@Amount", amount) 
                 );
+
+
 
                 return amount.ToString();
 
