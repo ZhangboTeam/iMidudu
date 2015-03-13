@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Net;
+using System.Net.Security;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -175,27 +177,33 @@ public class WX
         //    throw new Exception("活动不存在");
         //}
         var actName = "test";
+        var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
+        var nickname = "米嘟嘟";
+        var tmpstr = nonceStr;
+        var remark = "米嘟嘟备注";
+        var sendername = "米嘟嘟";
+        var wishing = "米嘟嘟备注";
         Money *= 1000;
         var sb = new StringBuilder();
         sb.AppendFormat("act_name={0}", actName);
-        sb.AppendFormat("&client_ip={0}", System.Web.HttpContext.Current.Request.UserHostAddress);
+        sb.AppendFormat("&client_ip={0}", ip );
        // sb.AppendFormat("&logo_imgurl={0}",  );
         sb.AppendFormat("&max_value={0}", Money);
         sb.AppendFormat("&mch_billno={0}", BounsCode);
         sb.AppendFormat("&mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
         sb.AppendFormat("&min_value={0}", Money);
-        sb.AppendFormat("&nick_name={0}", "米嘟嘟");
-        sb.AppendFormat("&nonce_str={0}", nonceStr);
+        sb.AppendFormat("&nick_name={0}", nickname);
+        sb.AppendFormat("&nonce_str={0}", tmpstr);
         sb.AppendFormat("&re_openid={0}", OpenId);
-        sb.AppendFormat("&remark={0}", "米嘟嘟备注");
-        sb.AppendFormat("&send_name={0}", "米嘟嘟");
+        sb.AppendFormat("&remark={0}",remark);
+        sb.AppendFormat("&send_name={0}",sendername);
         //sb.AppendFormat("&share_content={0}",  );
         //sb.AppendFormat("&share_imgurl={0}",  );
         //sb.AppendFormat("&share_url={0}",  );
        // sb.AppendFormat("&sub_mch_id={0}",  );
         sb.AppendFormat("&total_amount={0}", Money);
         sb.AppendFormat("&total_num={0}", 1);
-        sb.AppendFormat("&wishing={0}", "米嘟嘟备注");
+        sb.AppendFormat("&wishing={0}", wishing);
         sb.AppendFormat("&wxappid={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
 
         var param = sb.ToString() + "&key=" + System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"];
@@ -204,18 +212,68 @@ public class WX
         // return md5;
         paramstr += "&sign=" + md5;
         var url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
-       
 
+        var sb2 = new StringBuilder();
+        sb2.Append("<xml>");
+        sb2.AppendFormat("<act_name>{0}</act_name>", actName);
+        sb2.AppendFormat("<client_ip>{0}</client_ip>", ip);
+        sb2.AppendFormat("<max_value>{0}</max_value>", Money);
+        sb2.AppendFormat("<mch_billno>{0}</mch_billno>", BounsCode);
+        sb2.AppendFormat("<mch_id>{0}</mch_id>", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
+        sb2.AppendFormat("<min_value>{0}</min_value>", Money);
+        sb2.AppendFormat("<nick_name>{0}</nick_name>", nickname);
+        sb2.AppendFormat("<nonce_str>{0}</nonce_str>", tmpstr);
+        sb2.AppendFormat("<re_openid>{0}</re_openid>", OpenId);
+        sb2.AppendFormat("<remark>{0}</remark>", remark);
+        sb2.AppendFormat("<send_name>{0}</send_name>", sendername);
+        sb2.AppendFormat("<total_amount>{0}</total_amount>", Money);
+        sb2.AppendFormat("<total_num>{0}</total_num>", 1);
+        sb2.AppendFormat("<wishing>{0}</wishing>", wishing);
+        sb2.AppendFormat("<wxappid>{0}</wxappid>", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
+        sb2.AppendFormat("<key>{0}</key>", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
+        sb2.AppendFormat("<sign>{0}</sign>", md5);
+        sb2.Append("</xml>");
         string responseString;
-        getResponseCert<PayResult>(url,paramstr, out responseString);
+        getResponseCert<PayResult>(url, sb2.ToString(), out responseString);
         return responseString;
     }
 
 
-    private static T getResponseCert<T>(string url,string postData,out string responseString) where T :new()
+    private static string getResponseCert<T>(string url,string postData,out string responseString) where T :new()
     {
-        X509Certificate Cert = X509Certificate.CreateFromCertFile("C:\\网站证书\\iMidudu.cer"); //证书存放的绝对路径
-       // ServicePointManager.CertificatePolicy = new CertPolicy(); //处理来自证书服务器的错误信息
+
+//      //testuse
+//postData="<xml>"+
+//"<act_name>test</act_name>"+
+//"<client_ip>139.226.130.219</client_ip>"+
+//"<max_value>1000</max_value>"+
+//"<mch_billno>222</mch_billno>"+
+//"<mch_id>1230283802</mch_id>"+
+//"<min_value>1000</min_value>"+
+//"<nick_name>米嘟嘟</nick_name>"+
+//"<nonce_str>bdb76cfa032945f1a5cd2c26c83ca67d</nonce_str>" +
+//"<re_openid>oo-nWs3meUO4Bu_zEWKoZYvpcr2g</re_openid>" +
+//"<remark>米嘟嘟备注</remark>"+
+//"<send_name>米嘟嘟</send_name>"+
+//"<total_amount>1000</total_amount>"+
+//"<total_num>1</total_num>"+
+//"<wishing>米嘟嘟备注</wishing>"+
+//"<wxappid>wx8cabe7121f5369a3</wxappid>"+
+//"<key>wx8cabe7121f5369a3</key>" +
+//"<sign>B76AAC78A8BE1C04E1467C2F152B24F5</sign>" +
+//"</xml>";
+
+       //  responseString = Send(postData, url);
+        responseString= PostPage(url, postData);
+        return responseString;
+
+       // X509Certificate Cert = X509Certificate.CreateFromCertFile("C:\\网站证书\\iMidudu.cer"); //证书存放的绝对路径
+        var password = "1230283802";
+
+        X509Certificate2 Cert = new System.Security.Cryptography.X509Certificates.X509Certificate2("C:\\网站证书\\iMidudu.cer", password, X509KeyStorageFlags.MachineKeySet);
+
+
+        // ServicePointManager.CertificatePolicy = new CertPolicy(); //处理来自证书服务器的错误信息
         HttpWebRequest Request = (HttpWebRequest)WebRequest.Create(url);  
         Request.ClientCertificates.Add(Cert);
         Request.UserAgent = "Mitchell Chu robot test"; // 使用的客户端，如果服务端没有要求可以随便填写
@@ -237,21 +295,135 @@ public class WX
         StreamReader reader = new StreamReader(dataStreamres);
         // Read the content.
         string responseFromServer = reader.ReadToEnd();
+        responseString = responseFromServer;
         //  Adinnet.SEQ.interfaces.Log.Add(responseFromServer);
         try
         {
 
             T result = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseFromServer);
-            responseString = responseFromServer;
-            return result;
+          //  return result;
         }
         catch (Exception ex )
-        {
-            responseString = responseFromServer;
-            return new T();
+        { 
+          //  return new T();
         }
     }
 
+    /// <summary>
+    /// 发送请求
+    /// </summary>
+    /// <param name="data">发送拼接的参数</param>
+    /// <param name="url">要发送到的链接地址</param>
+    /// <returns>返回xml</returns>
+
+    public static string Send(string data, string url)
+    {
+        return Send(Encoding.GetEncoding("UTF-8").GetBytes(data), url);
+    }
+
+    public static string Send(byte[] data, string url)
+    {
+        string cert = "D:\\网站证书\\rootca.pem";//证书存放的地址
+        string password = "1230283802";//证书密码 即商户号
+        ServicePointManager.ServerCertificateValidationCallback = new RemoteCertificateValidationCallback(CheckValidationResult);
+        X509Certificate cer = new X509Certificate(cert, password);
+
+        #region 该部分是关键，若没有该部分则在IIS下会报 CA证书出错
+        X509Certificate2 certificate = new X509Certificate2(cert, password);
+        X509Store store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
+        store.Open(OpenFlags.ReadOnly);
+        store.Remove(certificate);   //可省略
+        store.Add(certificate);
+        store.Close();
+
+        #endregion
+
+
+        Stream responseStream;
+        HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
+        if (request == null)
+        {
+            throw new ApplicationException(string.Format("Invalid url string: {0}", url));
+        }
+       // request.UserAgent = sUserAgent;
+      //  request.ContentType = sContentType;
+        request.ClientCertificates.Add(cer);
+
+
+        request.Method = "POST";
+        request.ContentLength = data.Length;
+        Stream requestStream = request.GetRequestStream();
+        requestStream.Write(data, 0, data.Length);
+        requestStream.Close();
+        try
+        {
+            responseStream = request.GetResponse().GetResponseStream();
+        }
+        catch (Exception exception)
+        {
+            throw exception;
+        }
+        string str = string.Empty;
+        using (StreamReader reader = new StreamReader(responseStream, Encoding.GetEncoding("UTF-8")))
+        {
+            str = reader.ReadToEnd();
+        }
+        responseStream.Close();
+        return str;
+    }
+    private static bool CheckValidationResult(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors errors)
+    {
+        if (errors == SslPolicyErrors.None)
+            return true;
+        return false;
+    } 
+public static string PostPage(string posturl, string postData)
+    {
+        Stream outstream = null;
+        Stream instream = null;
+        StreamReader sr = null;
+        HttpWebResponse response = null;
+        HttpWebRequest request = null;
+        Encoding encoding = Encoding.UTF8;
+        byte[] data = encoding.GetBytes(postData);
+        // 准备请求...  
+        try
+        {
+            //CerPath证书路径
+            string certPath = "D:\\网站证书\\apiclient_cert.p12";
+            //证书密码
+            string password = "1230283802";
+            X509Certificate2 cert = new System.Security.Cryptography.X509Certificates.X509Certificate2(certPath, password, X509KeyStorageFlags.MachineKeySet);
+
+            // 设置参数  
+            request = WebRequest.Create(posturl) as HttpWebRequest;
+            CookieContainer cookieContainer = new CookieContainer();
+            request.CookieContainer = cookieContainer;
+            request.AllowAutoRedirect = true;
+            request.Method = "POST";
+            request.ContentType = "text/xml";
+            request.ContentLength = data.Length;
+            request.ClientCertificates.Add(cert);
+            outstream = request.GetRequestStream();
+            outstream.Write(data, 0, data.Length);
+            outstream.Close();
+            //发送请求并获取相应回应数据  
+            response = request.GetResponse() as HttpWebResponse;
+            //直到request.GetResponse()程序才开始向目标网页发送Post请求  
+            instream = response.GetResponseStream();
+            sr = new StreamReader(instream, encoding);
+            //返回结果网页（html）代码  
+            string content = sr.ReadToEnd();
+            string err = string.Empty;
+            return content;
+
+        }
+        catch (Exception ex)
+        {
+            string err = ex.Message;
+            return string.Empty;
+        }
+    }
     public class PayResult
     {
         public string return_code { get; set; }
