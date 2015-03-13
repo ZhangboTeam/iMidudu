@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title></title>  
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     <script>
         $(function () {

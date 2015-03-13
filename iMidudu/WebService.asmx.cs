@@ -33,10 +33,17 @@ namespace iMidudu
             }
             if (code.ToString().Equals(ValidCode))
             {
-                iMidudu.Data.Instance.MembershipInfo.Add(new MembershipInfo() {
-                     Mobile= Mobile, OpenId= openid, RegDate= DateTime.Now, Sex= Sex, UserName = UserName
-                });
-                iMidudu.Data.Instance.SaveChanges();
+                //iMidudu.Data.Instance.MembershipInfo.Add(new MembershipInfo() {
+                //     Mobile= Mobile, OpenId= openid, RegDate= DateTime.Now, Sex= Sex, UserName = UserName
+                //});
+                //iMidudu.Data.Instance.SaveChanges();
+                SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
+                                new System.Data.SqlClient.SqlParameter("@Mobile", Mobile));
+                 new System.Data.SqlClient.SqlParameter("@OpenId", openid);
+                 new System.Data.SqlClient.SqlParameter("@Sex", Sex);
+                 new System.Data.SqlClient.SqlParameter("@UserName", UserName);
+                 
+
                 return "OK";
             }
             return "验证码不正确";

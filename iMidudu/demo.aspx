@@ -24,6 +24,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
+           
             code:<%=this.Request["code"] %>
     acitvity:<%=this.Request["acitvity"] %>
         </div>

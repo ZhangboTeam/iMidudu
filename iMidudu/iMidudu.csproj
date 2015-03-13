@@ -77,13 +77,6 @@
     <Content Include="test.aspx" />
     <Content Include="UseBouns.aspx" />
     <Content Include="WebService.asmx" />
-    <EntityDeploy Include="DataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DataModel.edmx.diagram">
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Content>
     <None Include="Properties\PublishProfiles\iMidudu.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -96,16 +89,6 @@
     <Content Include="App_Data\iMidudu.mdf" />
     <Content Include="App_Data\iMidudu_log.ldf">
       <DependentUpon>iMidudu.mdf</DependentUpon>
-    </Content>
-    <Content Include="DataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-      <LastGenOutput>DataModel.cs</LastGenOutput>
     </Content>
     <Content Include="demo.aspx" />
     <Content Include="HtmlPage1.html" />
@@ -125,32 +108,7 @@
     <Content Include="Scripts\jquery-2.1.3.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Activity.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Biz.cs" />
-    <Compile Include="BonusGroup.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="BonusHistory.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data.cs" />
-    <Compile Include="DataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="MAC.aspx.cs">
       <DependentUpon>MAC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -158,19 +116,13 @@
     <Compile Include="MAC.aspx.designer.cs">
       <DependentUpon>MAC.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MembershipInfo.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SMS.cs" />
     <Compile Include="SQLHelper.cs" />
-    <Compile Include="SystemUser.cs">
-      <DependentUpon>DataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="WebService.asmx.cs">
       <DependentUpon>WebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WeixinConfig.cs" />
     <Compile Include="WX.cs" />
   </ItemGroup>
   <ItemGroup>
