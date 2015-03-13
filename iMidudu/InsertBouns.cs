@@ -20,7 +20,7 @@ public class InsertBouns
             {
                 break;
             }
-            if (!iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BounsCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", code)))
+            if (!iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", code)))
             {
 
                 iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into Bonus(BonusCode) values (@BonusCode)",
