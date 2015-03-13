@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net;
 using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Web;
 using System.Web.Caching;
@@ -165,6 +167,32 @@ public class WX
         return result;
     }
 
+    public static string SendBounsToOpenId(string OpenId,int Money,string BounsCode,Guid AcitvityId)
+    {
+        var sb = new StringBuilder();
+        sb.AppendFormat("")
+    }
+
+
+    private static T getResponseCert<T>(string url,out string responseString)
+    {
+        X509Certificate Cert = X509Certificate.CreateFromCertFile("D:\\网站证书\\iMidudu.cer"); //证书存放的绝对路径
+       // ServicePointManager.CertificatePolicy = new CertPolicy(); //处理来自证书服务器的错误信息
+        HttpWebRequest Request = (HttpWebRequest)WebRequest.Create(url);  
+        Request.ClientCertificates.Add(Cert);
+        Request.UserAgent = "Mitchell Chu robot test"; // 使用的客户端，如果服务端没有要求可以随便填写
+        Request.Method = "POST"; // 请求的方式：POST/GET
+        var response = Request.GetResponse();
+        Stream dataStream = response.GetResponseStream();
+        // Open the stream using a StreamReader for easy access.
+        StreamReader reader = new StreamReader(dataStream);
+        // Read the content.
+        string responseFromServer = reader.ReadToEnd();
+      //  Adinnet.SEQ.interfaces.Log.Add(responseFromServer);
+        T result = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseFromServer);
+        responseString = responseFromServer;
+        return result;
+    }
     public static bool isUserFocused(string openid)
     {
         FocusedUserResponse users = null;
@@ -264,6 +292,36 @@ public class WX
 
     //    return hex.ToString();
     //}
+}
+
+public class BounsPostParams
+{
+    public string nonce_str { get; set; }
+    public string sign { get; set; }
+    public string mch_billno { get; set; }
+    public string mch_id { get; set; }
+    public string sub_mch_id { get; set; }
+    public string wxappid { get; set; }
+    public string nick_name { get; set; }
+    public string send_name { get; set; }
+    public string re_openid { get; set; }
+    public int total_amount { get; set; }
+    public int min_value { get; set; }
+    public int max_value { get; set; }  
+    public int total_num { get; set; }   
+    public string wishing { get; set; }   
+    public string client_ip { get; set; }
+    public string act_name { get; set; }
+
+    public string remark { get; set; }
+
+    public string logo_imgurl { get; set; }
+
+    public string share_content { get; set; }
+
+    public string share_url { get; set; }
+
+    public string share_imgurl { get; set; }
 }
 
 public class WXconfig
