@@ -6,9 +6,9 @@ using System.Web;
 using System.Text;
 using System.Web.Services;
 
-public class InsertBouns
+public  class  InsertBouns
 {
-    public void Insert()
+    public static  void  Insert()
     {
         // string txt_str = String.Empty;
 
