@@ -12,7 +12,7 @@ public class InsertBouns
     {
         // string txt_str = String.Empty;
 
-        var file = System.Web.HttpContext.Current.Server.MapPath("~/code.txt");
+        var file = System.Web.HttpContext.Current.Server.MapPath("~/code2.txt");
         var datas = System.IO.File.ReadAllLines(file);
         foreach (var code in datas)
         {
