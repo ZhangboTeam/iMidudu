@@ -167,32 +167,95 @@ public class WX
         return result;
     }
 
-    public static string SendBounsToOpenId(string OpenId,int Money,string BounsCode,Guid AcitvityId)
+    public static string SendBounsToOpenId(string OpenId,int Money,string BounsCode,Guid AcitvityId,out string paramstr)
     {
+        //var actName = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId = @AcitvityId", new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId));
+        //if (actName==null)
+        //{
+        //    throw new Exception("活动不存在");
+        //}
+        var actName = "test";
+        Money *= 1000;
         var sb = new StringBuilder();
-        // sb.AppendFormat("")
-        return sb.ToString();
+        sb.AppendFormat("act_name={0}", actName);
+        sb.AppendFormat("&client_ip={0}", System.Web.HttpContext.Current.Request.UserHostAddress);
+       // sb.AppendFormat("&logo_imgurl={0}",  );
+        sb.AppendFormat("&max_value={0}", Money);
+        sb.AppendFormat("&mch_billno={0}", BounsCode);
+        sb.AppendFormat("&mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
+        sb.AppendFormat("&min_value={0}", Money);
+        sb.AppendFormat("&nick_name={0}", "米嘟嘟");
+        sb.AppendFormat("&nonce_str={0}", nonceStr);
+        sb.AppendFormat("&re_openid={0}", OpenId);
+        sb.AppendFormat("&remark={0}", "米嘟嘟备注");
+        sb.AppendFormat("&send_name={0}", "米嘟嘟");
+        //sb.AppendFormat("&share_content={0}",  );
+        //sb.AppendFormat("&share_imgurl={0}",  );
+        //sb.AppendFormat("&share_url={0}",  );
+       // sb.AppendFormat("&sub_mch_id={0}",  );
+        sb.AppendFormat("&total_amount={0}", Money);
+        sb.AppendFormat("&total_num={0}", 1);
+        sb.AppendFormat("&wishing={0}", "米嘟嘟备注");
+        sb.AppendFormat("&wxappid={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
+
+        var param = sb.ToString() + "&key=" + System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"];
+        paramstr = param;
+        var md5 =  System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(param, "MD5");
+        // return md5;
+        paramstr += "&sign=" + md5;
+        var url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
+       
+
+        string responseString;
+        getResponseCert<PayResult>(url,paramstr, out responseString);
+        return responseString;
     }
 
 
-    private static T getResponseCert<T>(string url,out string responseString)
+    private static T getResponseCert<T>(string url,string postData,out string responseString) where T :new()
     {
-        X509Certificate Cert = X509Certificate.CreateFromCertFile("D:\\网站证书\\iMidudu.cer"); //证书存放的绝对路径
+        X509Certificate Cert = X509Certificate.CreateFromCertFile("C:\\网站证书\\iMidudu.cer"); //证书存放的绝对路径
        // ServicePointManager.CertificatePolicy = new CertPolicy(); //处理来自证书服务器的错误信息
         HttpWebRequest Request = (HttpWebRequest)WebRequest.Create(url);  
         Request.ClientCertificates.Add(Cert);
         Request.UserAgent = "Mitchell Chu robot test"; // 使用的客户端，如果服务端没有要求可以随便填写
-        Request.Method = "POST"; // 请求的方式：POST/GET
+        Request.Method = "POST"; // 请求的方式：POST/GET 
+        byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+        // Set the ContentType property of the WebRequest.
+        Request.ContentType = "application/x-www-form-urlencoded";
+        // Set the ContentLength property of the WebRequest.
+        Request.ContentLength = byteArray.Length;
+        // Get the request stream.
+        Stream dataStream = Request.GetRequestStream();
+        // Write the data to the request stream.
+        dataStream.Write(byteArray, 0, byteArray.Length);
+        // Close the Stream object.
+        dataStream.Close();
         var response = Request.GetResponse();
-        Stream dataStream = response.GetResponseStream();
+        Stream dataStreamres = response.GetResponseStream();
         // Open the stream using a StreamReader for easy access.
-        StreamReader reader = new StreamReader(dataStream);
+        StreamReader reader = new StreamReader(dataStreamres);
         // Read the content.
         string responseFromServer = reader.ReadToEnd();
-      //  Adinnet.SEQ.interfaces.Log.Add(responseFromServer);
-        T result = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseFromServer);
-        responseString = responseFromServer;
-        return result;
+        //  Adinnet.SEQ.interfaces.Log.Add(responseFromServer);
+        try
+        {
+
+            T result = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseFromServer);
+            responseString = responseFromServer;
+            return result;
+        }
+        catch (Exception ex )
+        {
+            responseString = responseFromServer;
+            return new T();
+        }
+    }
+
+    public class PayResult
+    {
+        public string return_code { get; set; }
+        public string return_msg { get; set; }
     }
     public static bool isUserFocused(string openid)
     {

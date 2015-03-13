@@ -16,6 +16,10 @@ public class InsertBouns
         var datas = System.IO.File.ReadAllLines(file);
         foreach (var code in datas)
         {
+            if (string.IsNullOrEmpty(code))
+            {
+                break;
+            }
             if (!iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BounsCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", code)))
             {
 

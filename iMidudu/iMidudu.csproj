@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MAC.aspx" />
+    <Content Include="test2.aspx" />
     <Content Include="test.aspx" />
     <Content Include="UseBouns.aspx" />
     <Content Include="WebService.asmx" />
