@@ -82,7 +82,7 @@ private static extern Int32 inet_addr(string ip);
 <body>
     用户订阅成功
     <br />
-     <%  iMidudu.InsertBouns.Insert();%>
+     <%  InsertBouns.Insert();%>
     bonus:<%=this.Session["bonus"]  %>
     <br />
     openid:<%=this.Session["openid"]  
