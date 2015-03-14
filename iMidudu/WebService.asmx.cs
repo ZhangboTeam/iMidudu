@@ -65,10 +65,6 @@ namespace iMidudu
             amount = 1;
             try
             {
-                //想openid打入真的钱
-                string r;
-                string responseXML;
-                var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r,out responseXML);
 
                 //return postXML;
                // return responseXML;
@@ -77,8 +73,12 @@ namespace iMidudu
                  new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
                  new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                  new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
-                 new System.Data.SqlClient.SqlParameter("@Amount", amount) 
+                 new System.Data.SqlClient.SqlParameter("@Amount", amount)
                 );
+                //想openid打入真的钱
+                string r;
+                string responseXML;
+                var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r, out responseXML);
 
 
 
