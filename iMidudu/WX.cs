@@ -227,13 +227,13 @@ public class WX
         //{
         //    actName = "test";
         //}
-        var actName = "aaa";
+        var actName = "perfetti";
         var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
-        var nickname = "mm";
+        var nickname = "米嘟嘟";
         var tmpstr = "d56ace11210245d2aed5f0243f9b68e3";// nonceStr;
-        var remark = "mm";
-        var sendername = "mm";
-        var wishing = "mm";
+        var remark = "米嘟嘟";
+        var sendername = "米嘟嘟";
+        var wishing = "米嘟嘟";
         Money *= 100;
 
         var payKey = "d56ace11210245d2aed5f0243f9b68e3";
@@ -241,7 +241,7 @@ public class WX
         var sb = new StringBuilder();
         sb.AppendFormat("act_name={0}", actName);
         sb.AppendFormat("&client_ip={0}", ip );
-       // sb.AppendFormat("&logo_imgurl={0}",  );
+       //  sb.AppendFormat("&logo_imgurl={0}", "https://ss0.bdstatic.com/5a21bjqh_Q23odCf/static/superplus/img/logo_white_ee663702.png");
         sb.AppendFormat("&max_value={0}", Money);
         sb.AppendFormat("&mch_billno={0}", billNo);
         sb.AppendFormat("&mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
@@ -251,10 +251,10 @@ public class WX
         sb.AppendFormat("&re_openid={0}", OpenId);
         sb.AppendFormat("&remark={0}",remark);
         sb.AppendFormat("&send_name={0}",sendername);
-        //sb.AppendFormat("&share_content={0}",  );
-        //sb.AppendFormat("&share_imgurl={0}",  );
-        //sb.AppendFormat("&share_url={0}",  );
-       // sb.AppendFormat("&sub_mch_id={0}",  );
+        //sb.AppendFormat("&share_content={0}",  "iMidudu");
+       // sb.AppendFormat("&share_imgurl={0}", "http://img0.bdstatic.com/img/image/shouye/bizhi0313.jpg");
+       // sb.AppendFormat("&share_url={0}", "http://www.baidu.com/"  );
+        // sb.AppendFormat("&sub_mch_id={0}",  );
         sb.AppendFormat("&total_amount={0}", Money);
         sb.AppendFormat("&total_num={0}", 1);
         sb.AppendFormat("&wishing={0}", wishing);
@@ -263,35 +263,35 @@ public class WX
         var param = sb.ToString() + "&key=" + payKey;
 
 
-        Dictionary<string, string> parameters = new Dictionary<string, string>();      
+        //Dictionary<string, string> parameters = new Dictionary<string, string>();      
 
-        parameters.Add("act_name={0}", actName);
-        parameters.Add("client_ip={0}", ip);
-        //  parameters.Add("logo_imgurl={0}",null  );
-        parameters.Add("max_value={0}", Money.ToString());
-        parameters.Add("mch_billno={0}", billNo);
-        parameters.Add("mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
-        parameters.Add("min_value={0}", Money.ToString());
-        parameters.Add("nick_name={0}", nickname);
-        parameters.Add("nonce_str={0}", tmpstr);
-        parameters.Add("re_openid={0}", OpenId);
-        parameters.Add("remark={0}", remark);
-        parameters.Add("send_name={0}", sendername);
-        //parameters.Add("share_content={0}", null);
-        //parameters.Add("share_imgurl={0}", null);
-        //parameters.Add("share_url={0}", null);
-        //parameters.Add("sub_mch_id={0}", null);
-        parameters.Add("total_amount={0}", Money.ToString());
-        parameters.Add("total_num={0}", "1");
-        parameters.Add("wishing={0}", wishing);
-        parameters.Add("wxappid={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]); 
+        //parameters.Add("act_name={0}", actName);
+        //parameters.Add("client_ip={0}", ip);
+        ////  parameters.Add("logo_imgurl={0}",null  );
+        //parameters.Add("max_value={0}", Money.ToString());
+        //parameters.Add("mch_billno={0}", billNo);
+        //parameters.Add("mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
+        //parameters.Add("min_value={0}", Money.ToString());
+        //parameters.Add("nick_name={0}", nickname);
+        //parameters.Add("nonce_str={0}", tmpstr);
+        //parameters.Add("re_openid={0}", OpenId);
+        //parameters.Add("remark={0}", remark);
+        //parameters.Add("send_name={0}", sendername);
+        ////parameters.Add("share_content={0}", null);
+        ////parameters.Add("share_imgurl={0}", null);
+        ////parameters.Add("share_url={0}", null);
+        ////parameters.Add("sub_mch_id={0}", null);
+        //parameters.Add("total_amount={0}", Money.ToString());
+        //parameters.Add("total_num={0}", "1");
+        //parameters.Add("wishing={0}", wishing);
+        //parameters.Add("wxappid={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]); 
 
 
 
 
         paramstr = param;
         var md5 =  System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(paramstr, "MD5");
-       // md5 = GetMd5(paramstr).ToUpper();
+       //  md5 = GetMd5(paramstr).ToUpper();
       //  md5 = CreateSignString(parameters, System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
         // return md5;
         paramstr += "&sign=" + md5;

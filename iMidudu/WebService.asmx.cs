@@ -62,15 +62,18 @@ namespace iMidudu
         public string openBouns(string bouns,string acitvity,string openid )
         {
             double amount = Biz.GenerateRandomAmount(bouns);
+            amount = 1;
             try
             {
                 //想openid打入真的钱
                 string r;
                 string responseXML;
-                WX.SendBounsToOpenId(openid, (int)amount, bouns, Guid.Parse(acitvity), out r,out responseXML);
+                var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r,out responseXML);
 
+                //return postXML;
+               // return responseXML;
 
-            SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
+                SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
                  new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
                  new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                  new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),

@@ -72,7 +72,7 @@
             }
             else
             {
-                Response.Redirect("/UseBouns.aspx?bouns="+param);
+                Response.Redirect("/UseBouns.aspx"+param);
             }
 
         %>

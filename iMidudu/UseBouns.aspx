@@ -13,6 +13,10 @@
                 var bouns = $("#bouns").val();
                 var acitvity = $("#acitvity").val();
                 var openid = $("#openid").val();
+                //alert(openid);
+                //alert(acitvity);
+                //alert(bouns);
+                //return false;
                 $.post("/WebService.asmx/openBouns",
                     {
                         bouns: bouns,
@@ -20,7 +24,7 @@
                         openid: openid
                     }, function (data) {
                         var r = $(data).text();
-                        //alert(r);
+                         alert(r);
                         
 
                         var amount = parseFloat(r);
