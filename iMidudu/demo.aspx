@@ -44,6 +44,10 @@
 
             var bouns = this.Request["state"];
             var acitvity = this.Request["acitvity"];//第一次的二维码没有这个参数
+            if(!InsertBouns.exist(bouns)){
+                Response.Write("红包码非法！"); 
+                  
+            }
             if (string.IsNullOrEmpty(acitvity))
             {
                 acitvity = System.Web.Configuration.WebConfigurationManager.AppSettings["defaultActivityId"];
