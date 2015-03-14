@@ -65,13 +65,23 @@ public class InsertBouns
 
         // }
     }
-     public static bool exist(String bounscode)
+    public static bool exist(String bounscode)
     {
+        try
+        {
+            if (string.IsNullOrEmpty(bounscode))
+            {
+                return false;
+            }
             if (iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", bounscode)))
             {
                 return true;
             }
             return false;
         }
+        catch(Exception exe){
+            return false;
+        }
+    }
         
 }

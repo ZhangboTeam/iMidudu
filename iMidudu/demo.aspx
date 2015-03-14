@@ -42,9 +42,11 @@
 
             bool focused = WX.isUserFocused(rr.openid);
 
+            var code = this.Request["code"];
             var bouns = this.Request["state"];
             var acitvity = this.Request["acitvity"];//第一次的二维码没有这个参数
-            if(!InsertBouns.exist(bouns)){
+            if (!iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", code)))
+            {
                 Response.Write("红包码非法！"); 
                   
             }
