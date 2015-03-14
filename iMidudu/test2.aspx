@@ -9,14 +9,17 @@
      <%
 
          var p = "";
-         var r = WX.SendBounsToOpenId("oo-nWs3meUO4Bu_zEWKoZYvpcr2g", 1, "222", Guid.Parse("53c9b412-d1a5-44a6-957f-b948cd54ce86"), out p);
+         string responseXML;
+         var r = WX.SendBounsToOpenId("oo-nWs3meUO4Bu_zEWKoZYvpcr2g", 1, "1230283802201503148903532924", Guid.Parse("53c9b412-d1a5-44a6-957f-b948cd54ce86"), out p,out responseXML);
 
- 
+
 
           %>
     <%=p %>
     <br />
     <% = r %>
+    <hr />
+    <%=responseXML %>
  
 </body>
 </html>

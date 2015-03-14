@@ -9,7 +9,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Web;
 using System.Web.Caching;
-
+using System.Linq;
 public class WX
 {
 	public WX()
@@ -154,7 +154,11 @@ public class WX
         return result;
         //return getResponse<UserInfo>(url);
     }
-
+    public static string newBillNo()
+    {
+        var rnd = new Random();
+        return string.Format("{0}{1}{2}{3}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"], DateTime.Now.ToString("yyyyMMdd"),rnd.Next(10000, 99999), rnd.Next(10000, 99999));
+    }
     public static T getResponse<T>(string url)
     {
 
@@ -168,28 +172,78 @@ public class WX
         T result = Newtonsoft.Json.JsonConvert.DeserializeObject<T>(responseFromServer);
         return result;
     }
-
-    public static string SendBounsToOpenId(string OpenId,int Money,string BounsCode,Guid AcitvityId,out string paramstr)
+    public static string GetMd5(string inputStr)
     {
-        var actName = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId = @AcitvityId", new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId));
-        if (actName == null)
+        byte[] md5Bytes = Encoding.UTF8.GetBytes(inputStr);
+
+        // compute MD5 hash.
+        MD5 md5 = new MD5CryptoServiceProvider();
+        byte[] cryptString = md5.ComputeHash(md5Bytes);
+
+        int len;
+        string temp = String.Empty;
+
+        len = cryptString.Length;
+
+        for (int i = 0; i < len; i++)
         {
-            actName = "test";
+            temp += cryptString[i].ToString("X2");
         }
-      // var actName = "test";
+        return temp;
+    }
+    /// <summary>
+    /// 创建签名
+    /// </summary>
+    /// <returns></returns>
+    /// <remarks>必须保证所有传入的参数都有值，没有值的要过滤掉</remarks>
+    static  string CreateSignString(Dictionary<string, string> parameters, string paySecret)
+    {
+        foreach (var key in parameters.Keys.Where(key => string.IsNullOrEmpty(parameters[key])))
+        {
+            parameters.Remove(key);
+        }
+
+        //第一步，设所有収送戒者接收到的数据为集合 M，将集合 M 内非空参数值的参数按照参数名ASCII码从小到大排序（字典序），
+        //使用URL键值对的格式（即key1=value1&key2=value2…）拼接成字符串 stringA。
+        //特别注意以下重要规则：
+        //1.参数名 ASCII 码从小到大排序（字典序） ；
+        //2.如果参数的值为空不参与签名；
+        //3.参数名区分大小写；
+        //4.验证调用返回戒微信主劢通知签名时，传送的 sign 参数不参与签名，将生成的签名与该 sign 值作校验。
+        var keyArray = parameters.Keys.ToArray();
+        Array.Sort(keyArray);
+        var keyString = keyArray.Aggregate("", (current, t) => current + (t + "=" + parameters[t] + "&"));
+
+        //第二步，在 stringA 最后拼接上 key=商户支付密钥得到 stringSignTemp 字符串，
+        //并对 stringSignTemp 进行 MD5 运算，再将得到的字符串所有字符转换为大写，得到 sign的值 signValue
+        keyString += "key=" + paySecret;
+
+        return GetMd5(keyString).ToUpper();
+    }
+    public static string SendBounsToOpenId(string OpenId,int Money,string billNo,Guid AcitvityId,out string paramstr,out string responseXML)
+    {
+        //var actName = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId = @AcitvityId", new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId));
+        //if (actName == null)
+        //{
+        //    actName = "test";
+        //}
+        var actName = "aaa";
         var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
-        var nickname = "米嘟嘟";
-        var tmpstr = nonceStr;
-        var remark = "米嘟嘟备注";
-        var sendername = "米嘟嘟";
-        var wishing = "米嘟嘟备注";
-        Money *= 1000;
+        var nickname = "mm";
+        var tmpstr = "d56ace11210245d2aed5f0243f9b68e3";// nonceStr;
+        var remark = "mm";
+        var sendername = "mm";
+        var wishing = "mm";
+        Money *= 100;
+
+        var payKey = "d56ace11210245d2aed5f0243f9b68e3";
+
         var sb = new StringBuilder();
         sb.AppendFormat("act_name={0}", actName);
         sb.AppendFormat("&client_ip={0}", ip );
        // sb.AppendFormat("&logo_imgurl={0}",  );
         sb.AppendFormat("&max_value={0}", Money);
-        sb.AppendFormat("&mch_billno={0}", BounsCode);
+        sb.AppendFormat("&mch_billno={0}", billNo);
         sb.AppendFormat("&mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
         sb.AppendFormat("&min_value={0}", Money);
         sb.AppendFormat("&nick_name={0}", nickname);
@@ -206,9 +260,39 @@ public class WX
         sb.AppendFormat("&wishing={0}", wishing);
         sb.AppendFormat("&wxappid={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
 
-        var param = sb.ToString() + "&key=" + System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"];
+        var param = sb.ToString() + "&key=" + payKey;
+
+
+        Dictionary<string, string> parameters = new Dictionary<string, string>();      
+
+        parameters.Add("act_name={0}", actName);
+        parameters.Add("client_ip={0}", ip);
+        //  parameters.Add("logo_imgurl={0}",null  );
+        parameters.Add("max_value={0}", Money.ToString());
+        parameters.Add("mch_billno={0}", billNo);
+        parameters.Add("mch_id={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
+        parameters.Add("min_value={0}", Money.ToString());
+        parameters.Add("nick_name={0}", nickname);
+        parameters.Add("nonce_str={0}", tmpstr);
+        parameters.Add("re_openid={0}", OpenId);
+        parameters.Add("remark={0}", remark);
+        parameters.Add("send_name={0}", sendername);
+        //parameters.Add("share_content={0}", null);
+        //parameters.Add("share_imgurl={0}", null);
+        //parameters.Add("share_url={0}", null);
+        //parameters.Add("sub_mch_id={0}", null);
+        parameters.Add("total_amount={0}", Money.ToString());
+        parameters.Add("total_num={0}", "1");
+        parameters.Add("wishing={0}", wishing);
+        parameters.Add("wxappid={0}", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]); 
+
+
+
+
         paramstr = param;
-        var md5 =  System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(param, "MD5");
+        var md5 =  System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(paramstr, "MD5");
+       // md5 = GetMd5(paramstr).ToUpper();
+      //  md5 = CreateSignString(parameters, System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
         // return md5;
         paramstr += "&sign=" + md5;
         var url = "https://api.mch.weixin.qq.com/mmpaymkttransfers/sendredpack";
@@ -218,7 +302,7 @@ public class WX
         sb2.AppendFormat("<act_name>{0}</act_name>", actName);
         sb2.AppendFormat("<client_ip>{0}</client_ip>", ip);
         sb2.AppendFormat("<max_value>{0}</max_value>", Money);
-        sb2.AppendFormat("<mch_billno>{0}</mch_billno>", BounsCode);
+        sb2.AppendFormat("<mch_billno>{0}</mch_billno>", billNo);
         sb2.AppendFormat("<mch_id>{0}</mch_id>", System.Web.Configuration.WebConfigurationManager.AppSettings["mch_id"]);
         sb2.AppendFormat("<min_value>{0}</min_value>", Money);
         sb2.AppendFormat("<nick_name>{0}</nick_name>", nickname);
@@ -230,11 +314,13 @@ public class WX
         sb2.AppendFormat("<total_num>{0}</total_num>", 1);
         sb2.AppendFormat("<wishing>{0}</wishing>", wishing);
         sb2.AppendFormat("<wxappid>{0}</wxappid>", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
-        sb2.AppendFormat("<key>{0}</key>", System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"]);
+        sb2.AppendFormat("<key>{0}</key>", payKey);
         sb2.AppendFormat("<sign>{0}</sign>", md5);
         sb2.Append("</xml>");
         string responseString;
-        getResponseCert<PayResult>(url, sb2.ToString(), out responseString);
+         getResponseCert<PayResult>(url, sb2.ToString(), out responseString);
+        //responseString = PostPage(url, sb2.ToString());
+        responseXML = responseString;
         return sb2.ToString();
     }
 

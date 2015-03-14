@@ -66,7 +66,8 @@ namespace iMidudu
             {
                 //想openid打入真的钱
                 string r;
-                WX.SendBounsToOpenId(openid, (int)amount, bouns, Guid.Parse(acitvity), out r);
+                string responseXML;
+                WX.SendBounsToOpenId(openid, (int)amount, bouns, Guid.Parse(acitvity), out r,out responseXML);
 
 
             SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
