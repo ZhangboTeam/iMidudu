@@ -90,10 +90,15 @@ private static extern Int32 inet_addr(string ip);
         
         %>
     <%
-        
-        iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo;");  
-        
-         %>>
+        try
+        {
+            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo;");
+        }
+        catch (Exception ex)
+        {
+            Response.Write(ex.Message);
+        }
+         %>
  
 </body>
 </html>
