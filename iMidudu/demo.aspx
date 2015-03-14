@@ -45,10 +45,20 @@
             var code = this.Request["code"];
             var bouns = this.Request["state"];
             var acitvity = this.Request["acitvity"];//第一次的二维码没有这个参数
-            if (!iMidudu.SystemDAO.SqlHelper.Exists("select * from Bouns where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", code)))
+
+            //   Response.Write(bouns);
+            //   Response.End();
+            //bouns += "1";//测试错误代码
+            var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", bouns);
+           // Response.Write(sql);
+            //Response.End();
+            var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
+
+            if (!exists)
             {
-                Response.Write("红包码非法！"); 
-                  
+                Response.Write("红包码非法！");
+                Response.End();
+
             }
             if (string.IsNullOrEmpty(acitvity))
             {
