@@ -44,6 +44,9 @@
 
             var code = this.Request["code"];
             var bouns = this.Request["state"];
+            if (bouns == null) {
+                bouns = "df019e14ec7b2fc3fd29834451b1865e";       
+            }
             var acitvity = this.Request["acitvity"];//第一次的二维码没有这个参数
 
             //   Response.Write(bouns);
