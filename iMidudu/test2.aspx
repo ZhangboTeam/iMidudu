@@ -32,14 +32,28 @@
 
    <%
        var d50 = 6042;
-       var d2 =604801;
+       var d2 =604800;
+       var c50 = 0;
+       var c2 = 0;
        //for (int i = 0; i < d50+d2; i++)
-       for (int i = 0; i < 100; i++)
+       for (int i = 0; i < d2; i++)
        {
            %>
-  <%=i %>:  <%=iMidudu.Biz.GenerateRandomAmount() %><br />
+  <%var m = iMidudu.Biz.GenerateRandomAmount();
+      if (m==50)
+      {
+          c50++;
+      }
+      if (m==2)
+      {
+          c2++;
+      }
+       %><br />
     <%
        } %>
+    50:<%=c50 %><br />
+    2:<%=c2 %>
+    <%=d2 - c50 - c2 %>
  
 </body>
 </html>
