@@ -29,6 +29,17 @@
     <%// = r %>
     <hr />
     <%//=responseXML %>
+
+   <%
+       var d50 = 6042;
+       var d2 =604801;
+       //for (int i = 0; i < d50+d2; i++)
+       for (int i = 0; i < 100; i++)
+       {
+           %>
+  <%=i %>:  <%=iMidudu.Biz.GenerateRandomAmount("") %><br />
+    <%
+       } %>
  
 </body>
 </html>

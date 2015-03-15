@@ -38,19 +38,23 @@ namespace iMidudu
         { 
             return !SystemDAO.SqlHelper.Exists("select count(*) from BonusHistory where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", BonusCode));
         }
+
+        private static int d50 = 6042;
+        private static int d2 = 604801;//d50是50元红包的数量，d2是总共红包数量
         public static double GenerateRandomAmount(string bouns)
         {
-            //  static var d50=6042,d2=604801;//d50是50元红包的数量，d2是总共红包数量
-            //  var amount=new Random().Next(1,604801);
-            // if(amount<=d50){
-            //      d50=d50-1;
-            //      d2=d2-1;
-            //  }
-            //  else{
-            //       d2=d2-1;
-            //   }
-            //   return amount;
-            return 1;
+            var amount = new Random().Next(1, 604801);
+            if (amount <= d50)
+            {
+                d50 = d50 - 1;
+                d2 = d2 - 1;
+            }
+            else
+            {
+                d2 = d2 - 1;
+            }
+           // return amount;
+               return 1;
             return new Random().Next(0, 10) / 10.0;
         }
 
