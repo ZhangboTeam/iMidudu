@@ -53,8 +53,8 @@
             //   Response.End();
             //bouns += "1";//测试错误代码
             var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", bouns);
-           // Response.Write(sql);
-            //Response.End();
+            Response.Write(sql);
+           //Response.End();
             var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
 
             if (!exists)

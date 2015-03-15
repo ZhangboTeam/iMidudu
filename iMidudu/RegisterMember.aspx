@@ -88,7 +88,7 @@
     Sex:<input type="radio" name="Sex" value="1" checked="checked" />男<input type="radio" name="Sex" value="0" />女
     <br />
 
-    Mobile:<input type="text" id="Mobile" value="15000208834" /><input type="button" value="发送验证码" id="sendValidCode" />
+    Mobile:<input type="text" id="Mobile" value="" /><input type="button" value="发送验证码" id="sendValidCode" />
     <span id="r"></span>
     <br />
 
