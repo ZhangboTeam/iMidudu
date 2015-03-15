@@ -37,7 +37,7 @@
        for (int i = 0; i < 100; i++)
        {
            %>
-  <%=i %>:  <%=iMidudu.Biz.GenerateRandomAmount("") %><br />
+  <%=i %>:  <%=iMidudu.Biz.GenerateRandomAmount() %><br />
     <%
        } %>
  

@@ -41,21 +41,24 @@ namespace iMidudu
 
         private static int d50 = 6042;
         private static int d2 = 604801;//d50是50元红包的数量，d2是总共红包数量
-        public static double GenerateRandomAmount(string bouns)
+        public static double GenerateRandomAmount()
         {
-            var amount = new Random().Next(1, 604801);
-            if (amount <= d50)
+            var number = new Random().Next(1, d2);
+            var bouns=0;
+            if (number <= d50)
             {
                 d50 = d50 - 1;
                 d2 = d2 - 1;
+                bouns = 50;
             }
             else
             {
                 d2 = d2 - 1;
+                bouns = 2;
             }
-           // return amount;
-               return 1;
-            return new Random().Next(0, 10) / 10.0;
+            return bouns;
+           //    return 1;
+            //return new Random().Next(0, 10) / 10.0;
         }
 
     }

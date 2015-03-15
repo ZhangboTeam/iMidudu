@@ -61,7 +61,7 @@ namespace iMidudu
         [WebMethod(EnableSession =true)]
         public string openBouns(string bouns,string acitvity,string openid )
         {
-            double amount = Biz.GenerateRandomAmount(bouns);
+            double amount = Biz.GenerateRandomAmount();
             amount = 1;
             try
             {
