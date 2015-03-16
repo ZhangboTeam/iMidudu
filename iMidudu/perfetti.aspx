@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#"   %> 
 <%
+    this.Response.Write("未开启活动");
+    this.Response.End();
     var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8cabe7121f5369a3&redirect_uri=" + System.Web.Configuration.WebConfigurationManager.AppSettings["Domain"] +"/demo.aspx&response_type=code&scope=snsapi_base&state=" + Request["bonus"];
     this.Response.Redirect(url);
 

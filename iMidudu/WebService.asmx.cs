@@ -62,6 +62,10 @@ namespace iMidudu
         public string openBouns(string bouns,string acitvity,string openid )
         {
             double amount = Biz.GenerateRandomAmount();
+            if (amount==0)
+            {
+                return "-1";
+            }
             amount = 1;
             try
             {

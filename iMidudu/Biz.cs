@@ -39,21 +39,28 @@ namespace iMidudu
             return !SystemDAO.SqlHelper.Exists("select count(*) from BonusHistory where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", BonusCode));
         }
 
-        private static int d50 = 6042;
-        private static int d2 = 604800;//d50是50元红包的数量，d2是总共红包数量
+      
         public static double GenerateRandomAmount()
         {
+            int d50 = 6042 -(int)SystemDAO.SqlHelper.ExecuteScalarText(string.Format("select count(1) from BonusHistory where Amount=50"));
+           int d2 =  (int)SystemDAO.SqlHelper.ExecuteScalarText(string.Format("select count(1) from Bonus"))
+               -(int)SystemDAO.SqlHelper.ExecuteScalarText(string.Format("select count(1) from BonusHistory"))
+                ;//d50是50元红包的数量，d2是总共红包数量
+            if (d2==0)
+            {
+                return 0;
+            }
             var number = new Random().Next(0, d2);
             var bouns=0;
             if (number < d50)
             {
-                d50 = d50 - 1;
-                d2 = d2 - 1;
+                //d50 = d50 - 1;
+                //d2 = d2 - 1;
                 bouns = 50;
             }
             else
             {
-                d2 = d2 - 1;
+                //d2 = d2 - 1;
                 bouns = 2;
             }
             return bouns;
