@@ -71,17 +71,18 @@
             var r = WX.getUserInfo(rr);// WX.getOpenId();
                                        //TODO:1.判断openid是否关注过本公众号
 
-
-            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into TMembershipInfo(OpenId,Country,Province,City,NickName) values (@OpenId,@Country,@Province,@City,@NickName)",
+           
+            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into TMembershipInfo(OpenId,Country,Province,City,NickName,Pic) values (@OpenId,@Country,@Province,@City,@NickName,@Pic)",
             new System.Data.SqlClient.SqlParameter("@OpenId", r.openid),
             new System.Data.SqlClient.SqlParameter("@Country", r.country),
             new System.Data.SqlClient.SqlParameter("@Province", r.province),
             new System.Data.SqlClient.SqlParameter("@City", r.city),
-            new System.Data.SqlClient.SqlParameter("@NickName", r.nickname));
-            
+            new System.Data.SqlClient.SqlParameter("@NickName", r.nickname),
+            new System.Data.SqlClient.SqlParameter("@Pic", r.headimgurl));
 
-                                       
-                                       
+
+
+
             FocusedUserResponse users = null;
             WX.FocusedUser(ref users);
 
@@ -115,7 +116,7 @@
             var param = "?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid;
             var toUrl = "";
 
-           // rr = new OpenIdResponse() { openid = "oo-nWs8BdPXDWSKODck-1TtlMa3c" };
+            // rr = new OpenIdResponse() { openid = "oo-nWs8BdPXDWSKODck-1TtlMa3c" };
             if (!iMidudu.Biz.IsMembership(rr.openid))
             {
                 toUrl = "/RegisterMember.aspx" + param;

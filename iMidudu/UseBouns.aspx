@@ -56,6 +56,19 @@
     <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" />
     <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" />
     <%
+           var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", this.Request["bouns"]);
+            //Response.Write(sql);
+            //Response.End();
+            var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
+
+            if (!exists)
+            {
+            //insert bad.....
+                
+                Response.Write("红包码非法！");
+                Response.End();
+
+            }
         var limit = iMidudu.Biz.BounsLimt(this.Request["acitvity"]);
         var usedCount = iMidudu.Biz.CountByAcitivtyAndOpenId(this.Request["acitvity"], this.Request["openid"]);
     %>
