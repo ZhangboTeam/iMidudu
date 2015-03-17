@@ -24,17 +24,21 @@ namespace iMidudu
         }
 
         [WebMethod(EnableSession =true)]
-        public string Register(string bouns,string acitvity,string openid,string UserName,int Sex,string Mobile,string ValidCode)
+       public string Register(string bouns,string acitvity,string openid,string UserName,int Sex,string Mobile,string ValidCode,string Country,string Province,string City,string NickName)
         {
 
             try
             {
 
                 SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
-                                new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
+                new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
                 new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                 new System.Data.SqlClient.SqlParameter("@Sex", Sex),
-                new System.Data.SqlClient.SqlParameter("@UserName", UserName));
+                new System.Data.SqlClient.SqlParameter("@UserName", UserName),
+                new System.Data.SqlClient.SqlParameter("@Country", Country),
+                new System.Data.SqlClient.SqlParameter("@Province", Province),
+                new System.Data.SqlClient.SqlParameter("@City", City),
+                new System.Data.SqlClient.SqlParameter("@NickName", NickName));
             }
             catch (Exception ex)
             {
