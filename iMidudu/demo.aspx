@@ -153,7 +153,25 @@
             <%-- subscribe <%=r.subscribe %><%=r.subscribe==0?"No":"Yes" %><br />--%>
            unionid <%=r.unionid %><br />
         </div> 
+        <%
+            var openid =r.openid ;
+            var country =r.country ;
+            var province =r.province ;
+            var city =r.city ;
+            var nickname =r.nickname ;
+            
+                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into TMembershipInfo(OpenId,Country,Province,City,NickName) values (@OpenId,@Country,@Province,@City,@NickName)",
+                new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                new System.Data.SqlClient.SqlParameter("@Country", country),
+                new System.Data.SqlClient.SqlParameter("@Province", province),
+                new System.Data.SqlClient.SqlParameter("@City", city),
+                new System.Data.SqlClient.SqlParameter("@NickName", nickname));
 
+
+                }  
+            
+            
+             %>
 
 
     

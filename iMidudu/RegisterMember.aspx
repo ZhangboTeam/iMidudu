@@ -43,12 +43,6 @@
                     var bouns = $("#bouns").val();
                     var acitvity = $("#acitvity").val();
                     var openid = $("#openid").val();
-
-                    var Country = $("#country").val();
-                    var Province = $("#province").val();
-                    var City = $("#city").val();
-                    var NickName = $("#nickname").val();
-
                     var UserName = $("#UserName").val();
                     var Sex = $("input[name=Sex]:checked").val();
                     var Mobile = $("#Mobile").val();
@@ -62,10 +56,6 @@
                             Sex: Sex,
                             Mobile: Mobile,
                             ValidCode: ValidCode,
-                            Country: Country,
-                            Province: Province,
-                            City: City,
-                            NickName: NickName
                 }, function (data) {
                     var r = $(data).text();
                            
@@ -90,10 +80,7 @@
     <input id="bouns" value="<%=this.Request["bouns"]  %>" type="hidden" />
     <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" />
     <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" />
-    <input id="country" value="<%=this.Request["country"]  %>" type="hidden" />
-    <input id="province" value="<%=this.Request["province"]  %>" type="hidden" />
-    <input id="city" value="<%=this.Request["city"]  %>" type="hidden" />
-    <input id="nickname" value="<%=this.Request["nickname"]  %>" type="hidden" />
+
 
   
     <hr />
