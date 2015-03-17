@@ -71,6 +71,17 @@
             var r = WX.getUserInfo(rr);// WX.getOpenId();
                                        //TODO:1.判断openid是否关注过本公众号
 
+
+            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into TMembershipInfo(OpenId,Country,Province,City,NickName) values (@OpenId,@Country,@Province,@City,@NickName)",
+            new System.Data.SqlClient.SqlParameter("@OpenId", r.openid),
+            new System.Data.SqlClient.SqlParameter("@Country", r.country),
+            new System.Data.SqlClient.SqlParameter("@Province", r.province),
+            new System.Data.SqlClient.SqlParameter("@City", r.city),
+            new System.Data.SqlClient.SqlParameter("@NickName", r.nickname));
+            
+
+                                       
+                                       
             FocusedUserResponse users = null;
             WX.FocusedUser(ref users);
 
@@ -135,7 +146,7 @@
             <%} %>
         </fieldset>
 
-        <div hidden>
+        <div >
             静默授权:(不点授权按钮):  <% =rr.openid %>
             <hr />
             以下信息需要点击授权才可获取:
@@ -153,25 +164,7 @@
             <%-- subscribe <%=r.subscribe %><%=r.subscribe==0?"No":"Yes" %><br />--%>
            unionid <%=r.unionid %><br />
         </div> 
-        <%
-            var openid =r.openid ;
-            var country =r.country ;
-            var province =r.province ;
-            var city =r.city ;
-            var nickname =r.nickname ;
-            
-                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into TMembershipInfo(OpenId,Country,Province,City,NickName) values (@OpenId,@Country,@Province,@City,@NickName)",
-                new System.Data.SqlClient.SqlParameter("@OpenId", openid),
-                new System.Data.SqlClient.SqlParameter("@Country", country),
-                new System.Data.SqlClient.SqlParameter("@Province", province),
-                new System.Data.SqlClient.SqlParameter("@City", city),
-                new System.Data.SqlClient.SqlParameter("@NickName", nickname));
 
-
-                }  
-            
-            
-             %>
 
 
     
