@@ -60,10 +60,17 @@
             //Response.Write(sql);
             //Response.End();
             var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
+            var openid = this.Request["openid"];
+            var bounscode = this.Request["bouns"];
+            var activityid = this.Request["acitvity"];
 
             if (!exists)
             {
             //insert bad.....
+                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BadBonusHistory(OpenId,BounsCode,ActivityId,ReceiptDate) values (@OpenId,@BounsCode,@ActivityId,getdate())",
+                    new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                    new System.Data.SqlClient.SqlParameter("@BounsCode", bounscode),
+                    new System.Data.SqlClient.SqlParameter("@ActivityId", activityid));
                 
                 Response.Write("红包码非法！");
                 Response.End();

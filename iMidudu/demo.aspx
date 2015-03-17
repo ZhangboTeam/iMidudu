@@ -147,7 +147,7 @@
             <%} %>
         </fieldset>
 
-        <div >
+        <div hidden>
             静默授权:(不点授权按钮):  <% =rr.openid %>
             <hr />
             以下信息需要点击授权才可获取:
