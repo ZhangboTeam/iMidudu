@@ -30,7 +30,7 @@ namespace iMidudu
             try
             {
 
-                SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName,Country,Province,City,NickName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName,@Country,@Province,@City,@NickName)",
+                SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
                 new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
                 new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                 new System.Data.SqlClient.SqlParameter("@Sex", Sex),
@@ -50,7 +50,7 @@ namespace iMidudu
             var code = System.Web.HttpContext.Current.Session["smsCode"];
             if (code == null)
             {
-              //  return "没有发送验证码";
+                return "没有发送验证码";
             }
             if (code.ToString().Equals(ValidCode))
             {
@@ -83,8 +83,6 @@ namespace iMidudu
                  new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
                  new System.Data.SqlClient.SqlParameter("@Amount", amount)
                 );
-
-
                 //想openid打入真的钱
                 string r;
                 string responseXML;
