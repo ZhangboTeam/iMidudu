@@ -8,7 +8,10 @@
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     <script>
         $(function () {
-            $("#openBouns").click(function () {
+            $("#openBouns").click(function () {                
+                 // window.location = "/perfetti50.aspx";               
+                   window.location = "/perfetti2.aspx";
+                    return;
 
                 var bouns = $("#bouns").val();
                 var acitvity = $("#acitvity").val();
@@ -30,9 +33,14 @@
                         var amount = parseFloat(r);
                         if (amount>0) {
     
-                            alert("红包开出金额:" + amount);
-                            alert("转到公众号首页");
-                            window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+                           // alert("红包开出金额:" + amount);
+                           // alert("转到公众号首页");
+                            // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+                            if (amount==50) {
+                                window.location = "/perfetti50.aspx";
+                            } else {
+                                window.location = "/perfetti2.aspx";
+                            }
                         } 
                         else {
                             alert("红包领取失败,您可能下手慢了");

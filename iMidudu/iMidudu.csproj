@@ -96,6 +96,8 @@
     <Content Include="MAC.aspx" />
     <Content Include="page-1.html" />
     <Content Include="page-2.html" />
+    <Content Include="perfetti50.aspx" />
+    <Content Include="perfetti2.aspx" />
     <Content Include="test2.aspx" />
     <Content Include="test.aspx" />
     <Content Include="UseBouns.aspx" />
