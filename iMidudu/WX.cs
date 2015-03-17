@@ -112,6 +112,26 @@ public class WX
             System.Web.HttpContext.Current.Cache.Add("ticket", newTicket.ticket, null, DateTime.Now.AddSeconds(newTicket.expires_in-5), TimeSpan.Zero, System.Web.Caching.CacheItemPriority.High, TicketItemRemovedCallback);
         }
     }
+    public static OpenIdResponse getOpenId(string code)
+    {
+
+        var url = string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code",
+            System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"],
+            System.Web.Configuration.WebConfigurationManager.AppSettings["AppSecret"],
+           code);
+
+      //  Adinnet.SEQ.interfaces.Log.Add(url);
+        var response = System.Net.WebRequest.Create(url).GetResponse();
+        Stream dataStream = response.GetResponseStream();
+        // Open the stream using a StreamReader for easy access.
+        StreamReader reader = new StreamReader(dataStream);
+        // Read the content.
+        string responseFromServer = reader.ReadToEnd();
+        var result = Newtonsoft.Json.JsonConvert.DeserializeObject<OpenIdResponse>(responseFromServer);
+      //  Adinnet.SEQ.interfaces.Log.Add(responseFromServer);
+      //  Adinnet.SEQ.interfaces.Log.Add("CODE:" +System.Web.HttpContext.Current.Request["code"]);
+        return result;
+    }
 
     public static OpenIdResponse getOpenId()
     {

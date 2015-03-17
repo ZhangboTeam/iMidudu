@@ -85,15 +85,18 @@
         });
     </script>
 </head>
+    <% var openid = WX.getOpenId(this.Request["code"]);
+        var user = WX.getUserInfo(openid);
+         %>
 <body>
-    用户验证  
+    用户验证  <%= this.Request["code"] %>
     <input id="bouns" value="<%=this.Request["bouns"]  %>" type="hidden" />
     <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" />
     <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" />
-    <input id="country" value="<%=this.Request["country"]  %>" type="hidden" />
-    <input id="province" value="<%=this.Request["province"]  %>" type="hidden" />
-    <input id="city" value="<%=this.Request["city"]  %>" type="hidden" />
-    <input id="nickname" value="<%=this.Request["nickname"]  %>" type="hidden" />
+    <input id="country" value="<%=user.country  %>" type="hidden" /><%=user.country  %>
+    <input id="province" value="<%=user.province  %>" type="hidden" /><%=user.province  %>
+    <input id="city" value="<%=user.city  %>" type="hidden" /><%=user.city  %>
+    <input id="nickname" value="<%=user.nickname  %>" type="hidden" /><%=user.nickname  %>
 
   
     <hr />

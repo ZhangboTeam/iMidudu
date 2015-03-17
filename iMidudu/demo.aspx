@@ -101,7 +101,7 @@
             {
                 acitvity = System.Web.Configuration.WebConfigurationManager.AppSettings["defaultActivityId"];
             }
-            var param = "?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid;
+            var param = "?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + rr.openid + "&code=" +  this.Request["code"];
             var toUrl = "";
 
            // rr = new OpenIdResponse() { openid = "oo-nWs8BdPXDWSKODck-1TtlMa3c" };
@@ -135,7 +135,7 @@
             <%} %>
         </fieldset>
 
-        <div hidden>
+        <div  >
             静默授权:(不点授权按钮):  <% =rr.openid %>
             <hr />
             以下信息需要点击授权才可获取:
