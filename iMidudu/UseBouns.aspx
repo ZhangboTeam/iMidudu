@@ -52,9 +52,9 @@
     </script>
 </head>
 <body>
-    <input id="bouns" value="<%=this.Request["bouns"]  %>" type="hidden" />
-    <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" />
-    <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" />
+    <input id="bouns" value="<%=this.Request["bouns"]  %>" type="hidden" /><%//=this.Request["bouns"]  %>
+    <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" /><%//=this.Request["acitvity"]  %>
+    <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" /><%//=this.Request["openid"]  %>
     <%
            var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", this.Request["bouns"]);
             //Response.Write(sql);
