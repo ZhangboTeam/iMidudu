@@ -56,7 +56,7 @@
     <input id="acitvity" value="<%=this.Request["acitvity"]  %>" type="hidden" /><%//=this.Request["acitvity"]  %>
     <input id="openid" value="<%=this.Request["openid"]  %>" type="hidden" /><%//=this.Request["openid"]  %>
     <%
-           var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", this.Request["bouns"]);
+           var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", this.Request["bouns"] );
             //Response.Write(sql);
             //Response.End();
             var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
@@ -67,7 +67,7 @@
             if (!exists)
             {
             //insert bad.....
-                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BadBonusHistory(OpenId,BounsCode,ActivityId,ReceiptDate) values (@OpenId,@BounsCode,@ActivityId,getdate())",
+                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BadBonusHistory(OpenId,BonusCode,AcitvityId,ReceiptDate) values (@OpenId,@BounsCode,@ActivityId,getdate())",
                     new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                     new System.Data.SqlClient.SqlParameter("@BounsCode", bounscode),
                     new System.Data.SqlClient.SqlParameter("@ActivityId", activityid));

@@ -71,14 +71,14 @@
             var r = WX.getUserInfo(rr);// WX.getOpenId();
                                        //TODO:1.判断openid是否关注过本公众号
 
-/*            var sql2 = string.Format("select count(*) from TMembershipInfo where OpenId='{0}'", r.openid);
+           var sql2 = string.Format("select count(*) from TMembershipInfo where OpenId='{0}'", r.openid);
             //Response.Write(sql);
             //Response.End();
             var exists2 = iMidudu.SystemDAO.SqlHelper.Exists(sql2);
 
             if (exists2)
             {
-                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("update TMembershipInfo set Country=@Country,Province=@Province,City=@City,NickName=@NickName,Pic=@Pic where OpenId=@OpenId)",
+                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("update TMembershipInfo set Country=@Country,Province=@Province,City=@City,NickName=@NickName,Pic=@Pic where OpenId=@OpenId",
                 new System.Data.SqlClient.SqlParameter("@Country", r.country),
                 new System.Data.SqlClient.SqlParameter("@Province", r.province),
                 new System.Data.SqlClient.SqlParameter("@City", r.city),
@@ -96,7 +96,7 @@
                 new System.Data.SqlClient.SqlParameter("@City", r.city),
                 new System.Data.SqlClient.SqlParameter("@NickName", r.nickname),
                 new System.Data.SqlClient.SqlParameter("@Pic", r.headimgurl));
-            }*/
+            } 
 
 
 
