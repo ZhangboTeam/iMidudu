@@ -64,7 +64,7 @@ namespace iMidudu
             {
                 return "-1";
             }
-            amount = 1;
+          //  amount = 1;
             try
             {
 
