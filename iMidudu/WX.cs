@@ -10,6 +10,12 @@ using System.Text;
 using System.Web;
 using System.Web.Caching;
 using System.Linq;
+
+public class Param
+{
+    public string  b { get; set; }
+    public string a { get; set; }
+}
 public class WX
 {
 	public WX()
@@ -113,13 +119,13 @@ public class WX
         }
     }
 
-    public static OpenIdResponse getOpenId()
+    public static OpenIdResponse getOpenId(string    code)
     {
 
         var url = string.Format("https://api.weixin.qq.com/sns/oauth2/access_token?appid={0}&secret={1}&code={2}&grant_type=authorization_code",
             System.Web.Configuration.WebConfigurationManager.AppSettings["AppID"],
             System.Web.Configuration.WebConfigurationManager.AppSettings["AppSecret"],
-            System.Web.HttpContext.Current.Request["code"] );
+            code );
 
       //  Adinnet.SEQ.interfaces.Log.Add(url);
         var response = System.Net.WebRequest.Create(url).GetResponse();

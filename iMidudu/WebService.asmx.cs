@@ -27,34 +27,32 @@ namespace iMidudu
        public string Register(string bouns,string acitvity,string openid,string UserName,int Sex,string Mobile,string ValidCode)
         {
 
-            try
-            {
+         
 
-                SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
-                new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
-                new System.Data.SqlClient.SqlParameter("@OpenId", openid),
-                new System.Data.SqlClient.SqlParameter("@Sex", Sex),
-                new System.Data.SqlClient.SqlParameter("@UserName", UserName));
-            }
-            catch (Exception ex)
-            {
-                return ex.ToString();
-            }
-
-
-            return "OK";
+           
             var code = System.Web.HttpContext.Current.Session["smsCode"];
             if (code == null)
             {
-                return "没有发送验证码";
+                 return "没有发送验证码";
             }
-            if (code.ToString().Equals(ValidCode))
-            {
-                //iMidudu.Data.Instance.MembershipInfo.Add(new MembershipInfo() {
-                //     Mobile= Mobile, OpenId= openid, RegDate= DateTime.Now, Sex= Sex, UserName = UserName
-                //});
-                //iMidudu.Data.Instance.SaveChanges();
-           
+            if (  code.ToString().Equals(ValidCode)  )
+            { 
+                try
+                {
+
+                    SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
+                    new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
+                    new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                    new System.Data.SqlClient.SqlParameter("@Sex", Sex),
+                    new System.Data.SqlClient.SqlParameter("@UserName", UserName));
+                }
+                catch (Exception ex)
+                {
+                    return ex.Message;
+                }
+                return "OK";
+
+
             }
             return "验证码不正确";
         }
@@ -71,27 +69,32 @@ namespace iMidudu
             {
 
                 //return postXML;
-               // return responseXML;
-
+                // return responseXML;
+                if (!iMidudu.Biz.BounsCanUse(bouns))
+                {
+                    return "-1";
+                }
                 SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
                  new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
                  new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                  new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
                  new System.Data.SqlClient.SqlParameter("@Amount", amount)
                 );
+
+              //  return amount.ToString();
                 //想openid打入真的钱
-                string r;
+               string r;
                 string responseXML;
                 var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r, out responseXML);
 
-
+               // return responseXML;
 
                 return amount.ToString();
 
             }
             catch (Exception ex)
             {
-                return "-1";
+                return ex.ToString();
             }
         }
 

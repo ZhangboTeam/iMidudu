@@ -39,9 +39,23 @@ namespace iMidudu
             return !SystemDAO.SqlHelper.Exists("select count(*) from BonusHistory where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", BonusCode));
         }
 
-      
+        public static void Log(string log)
+        {
+            var file = System.Web.HttpContext.Current.Server.MapPath("~/userInfo.txt");
+            System.IO.File.AppendAllText(file, "\r\n"); 
+            System.IO.File.AppendAllText(file, log);
+            System.IO.File.AppendAllText(file, "\r\n");
+        }
+
+
         public static double GenerateRandomAmount()
         {
+            return new Random().Next(0, 2) == 0 ? 2 : 1;
+
+
+
+
+
             int d50 = 6042 -(int)SystemDAO.SqlHelper.ExecuteScalarText(string.Format("select count(1) from BonusHistory where Amount=50"));
            int d2 =  (int)SystemDAO.SqlHelper.ExecuteScalarText(string.Format("select count(1) from Bonus"))
                -(int)SystemDAO.SqlHelper.ExecuteScalarText(string.Format("select count(1) from BonusHistory"))

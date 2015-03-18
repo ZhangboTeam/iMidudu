@@ -73,6 +73,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="clear.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\style.css" />
     <Content Include="images\bag-bg.png" />
@@ -97,11 +98,13 @@
     <Content Include="page-1.html" />
     <Content Include="page-2.html" />
     <Content Include="page-3.html" />
+    <Content Include="getUserInfo.aspx" />
     <Content Include="perfetti50.aspx" />
     <Content Include="perfetti2.aspx" />
     <Content Include="test2.aspx" />
     <Content Include="test.aspx" />
     <Content Include="UseBouns.aspx" />
+    <Content Include="userInfo.txt" />
     <Content Include="WebService.asmx" />
     <None Include="Properties\PublishProfiles\iMidudu.pubxml" />
     <None Include="Web.Debug.config">
