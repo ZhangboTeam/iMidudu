@@ -69,9 +69,9 @@
                     new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                     new System.Data.SqlClient.SqlParameter("@BounsCode", bounscode),
                     new System.Data.SqlClient.SqlParameter("@ActivityId", activityid));
-
-                Response.Write(bounscode + "红包码非法！");
-                Response.End();
+                       Response.Redirect("/illegal.aspx");
+             //   Response.Write(bounscode + "红包码非法！");
+             //   Response.End();
 
             }
             var limit = iMidudu.Biz.BounsLimt(this.Request["acitvity"]);

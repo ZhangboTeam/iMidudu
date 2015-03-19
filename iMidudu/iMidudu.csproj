@@ -76,6 +76,7 @@
     <Content Include="clear.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\style.css" />
+    <Content Include="illegal.aspx" />
     <Content Include="images\bag-bg.png" />
     <Content Include="images\bag-highlight.png" />
     <Content Include="images\btn-bg.png" />
@@ -102,6 +103,7 @@
     <Content Include="getUserInfo.aspx" />
     <Content Include="page-4.html" />
     <Content Include="page-5.html" />
+    <Content Include="page-6.html" />
     <Content Include="perfetti50.aspx" />
     <Content Include="perfetti2.aspx" />
     <Content Include="test2.aspx" />
@@ -137,6 +139,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biz.cs" />
+    <Compile Include="illegal.aspx.cs">
+      <DependentUpon>illegal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="illegal.aspx.designer.cs">
+      <DependentUpon>illegal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InsertBouns.cs" />
     <Compile Include="limit.aspx.cs">
       <DependentUpon>limit.aspx</DependentUpon>
