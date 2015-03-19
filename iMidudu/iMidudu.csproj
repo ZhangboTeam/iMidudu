@@ -99,6 +99,7 @@
     <Content Include="page-2.html" />
     <Content Include="page-3.html" />
     <Content Include="getUserInfo.aspx" />
+    <Content Include="page-4.html" />
     <Content Include="perfetti50.aspx" />
     <Content Include="perfetti2.aspx" />
     <Content Include="test2.aspx" />
