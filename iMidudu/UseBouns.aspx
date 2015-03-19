@@ -198,7 +198,7 @@
             }
             else
             {%>
-    超出领取上限<%// ,上限:<%=limit ,当前:=usedCount %>
+        <% Response.Redirect("/limit.aspx");  %>
         <%}
     %>
     </form>

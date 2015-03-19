@@ -94,12 +94,14 @@
     <Content Include="images\word-05.png" />
     <Content Include="index.html" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="limit.aspx" />
     <Content Include="MAC.aspx" />
     <Content Include="page-1.html" />
     <Content Include="page-2.html" />
     <Content Include="page-3.html" />
     <Content Include="getUserInfo.aspx" />
     <Content Include="page-4.html" />
+    <Content Include="page-5.html" />
     <Content Include="perfetti50.aspx" />
     <Content Include="perfetti2.aspx" />
     <Content Include="test2.aspx" />
@@ -136,6 +138,13 @@
   <ItemGroup>
     <Compile Include="Biz.cs" />
     <Compile Include="InsertBouns.cs" />
+    <Compile Include="limit.aspx.cs">
+      <DependentUpon>limit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="limit.aspx.designer.cs">
+      <DependentUpon>limit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MAC.aspx.cs">
       <DependentUpon>MAC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
