@@ -10,6 +10,7 @@ using System.Text;
 using System.Web;
 using System.Web.Caching;
 using System.Linq;
+using iMidudu;
 
 public class Param
 {
@@ -226,6 +227,47 @@ public class WX
 
         return GetMd5(keyString).ToUpper();
     }
+    public static string openBouns(string bouns, string acitvity, string openid)
+    {
+        double amount = Biz.GenerateRandomAmount();
+        if (amount == 0)
+        {
+            return "-1";
+        }
+        //  amount = 1;
+        try
+        {
+
+            //return postXML;
+            // return responseXML;
+            if (!iMidudu.Biz.BounsCanUse(bouns))
+            {
+                return "-1";
+            }
+            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
+             new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
+             new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+             new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
+             new System.Data.SqlClient.SqlParameter("@Amount", amount)
+            );
+
+            //  return amount.ToString();
+            //想openid打入真的钱
+            string r;
+            string responseXML;
+            var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r, out responseXML);
+
+            // return responseXML;
+
+            return amount.ToString();
+
+        }
+        catch (Exception ex)
+        {
+            return ex.ToString();
+        }
+    }
+
     public static string SendBounsToOpenId(string OpenId,int Money,string billNo,Guid AcitvityId,out string paramstr,out string responseXML)
     {
         //var actName = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId = @AcitvityId", new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId));
@@ -235,11 +277,11 @@ public class WX
         //}
         var actName = "perfetti";
         var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
-        var nickname = "米嘟嘟";
+        var nickname = "米嘟嘟nickname";
         var tmpstr = "d56ace11210245d2aed5f0243f9b68e3";// nonceStr;
-        var remark = "米嘟嘟";
-        var sendername = "米嘟嘟";
-        var wishing = "不凡帝小店活动红包";
+        var remark = "米嘟嘟remark";
+        var sendername = "米嘟嘟sendername";
+        var wishing = "不凡帝小店活动红包wishing";
         Money *= 100;
 
         var payKey = "d56ace11210245d2aed5f0243f9b68e3";

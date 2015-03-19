@@ -69,9 +69,9 @@
                     new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                     new System.Data.SqlClient.SqlParameter("@BounsCode", bounscode),
                     new System.Data.SqlClient.SqlParameter("@ActivityId", activityid));
-                       Response.Redirect("/illegal.aspx");
-             //   Response.Write(bounscode + "红包码非法！");
-             //   Response.End();
+                Response.Redirect("/illegal.aspx");
+                //   Response.Write(bounscode + "红包码非法！");
+                //   Response.End();
 
             }
             var limit = iMidudu.Biz.BounsLimt(this.Request["acitvity"]);
@@ -93,12 +93,23 @@
             //new System.Data.SqlClient.SqlParameter("@Pic", this.Request["Pic"]) { SqlDbType = System.Data.SqlDbType.NVarChar },
             //new System.Data.SqlClient.SqlParameter("@OpenId", this.Request["openid"]));
 
-            var data = iMidudu.SystemDAO.SqlHelper.ExecuteDataSetText("select * from MembershipInfo");
-            foreach (System.Data.DataRow item in data.Tables[0].Rows)
+            var rrr =  WX.openBouns(this.Request["bouns"], this.Request["acitvity"], this.Request["openid"]);
+            var amount = int.Parse(rrr);
+            if (amount > 0) {
 
-            {
-                //   Response.Write(item["Nickname"]);
+                // alert("红包开出金额:" + amount);
+                // alert("转到公众号首页");
+                // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+                if (amount == 2) {
+                   Response.Redirect( "/perfetti50.aspx");
+                } else {  Response.Redirect( "/perfetti2.aspx");
+                }
             }
+            else {
+               
+                Response.Write("红包领取失败,您可能下手慢了");
+            }
+
     %>
         <%//=sql2 %>
            
@@ -127,7 +138,7 @@
             //  window.location = "/perfetti2.aspx"; 
             //   return;
             $(function () {
-               tikeIt();
+              // tikeIt();
             });
 
             function tikeIt() {
