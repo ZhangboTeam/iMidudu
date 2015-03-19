@@ -122,7 +122,7 @@
         FocusedUserResponse users = null;
         WX.FocusedUser(ref users);
 
-        bool focused = WX.isUserFocused(rr.openid);
+     //   bool focused = WX.isUserFocused(rr.openid);
 
         var code = this.Request["code"];
         
@@ -168,24 +168,24 @@
 
         %>
 
-    <% if (focused == false)
-        {
+    <% //if (focused == false)
+       // {
             //Response.Redirect("http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd");
         %>
-    <%  }
+    <% // }
         %>
     <script>
       
     </script>
     <fieldset hidden>
-        <h1>当前用户有没有关注?<%=focused %></h1>
+        <h1>当前用户有没有关注?<%//=focused %></h1>
         <legend>关注的用户信息</legend>
         total :<%=users.total %>
         <br />
-        <%foreach (var item in users.data.openid)
-            {%>
-        <%=item  %><br />
-        <%} %>
+        <%//foreach (var item in users.data.openid)
+            //{%>
+        <%//=item  %><br />
+        <%//} %>
     </fieldset>
 
     <div hidden>

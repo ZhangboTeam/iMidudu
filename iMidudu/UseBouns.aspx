@@ -66,14 +66,14 @@
     %>
         <%//=sql2 %>
            
-   上限: <%=limit %>
+   <% //上限: %><%//=limit %>
         <br />
         <script>
         </script>
-        已领取: <%=usedCount %>
+        <% //已领取:%> <%//=usedCount %>
         <%if (usedCount < limit)
             {%>
-    没有超出领取上限
+   <% // 没有超出领取上限%>
        
         <%
             var canUse = iMidudu.Biz.BounsCanUse(this.Request["bouns"]);
@@ -138,7 +138,7 @@
             else
             {%>
         <br />
-        但是, 红包已被领取
+         红包已被领取
                 
         <%}
 
@@ -146,7 +146,7 @@
             }
             else
             {%>
-    超出领取上限,上限:<%=limit %>,当前:<%=usedCount %>
+    超出领取上限<%// ,上限:<%=limit ,当前:=usedCount %>
         <%}
     %>
     </form>
