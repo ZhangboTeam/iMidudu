@@ -7,30 +7,30 @@
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     	<!-- Basic Page Needs
 	================================================== -->
-	<meta charset="utf-8">
+	<meta charset="utf-8"/>
 	<title>不凡帝红包--已领取</title>
-	<meta name="description" content="">
-	<meta name="author" content="PaulWang">
+	<meta name="description" content=""/>
+	<meta name="author" content="PaulWang"/>
 	<meta content="telephone=no" name="format-detection" />
 	<!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
 	================================================== -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<!-- IOS6全屏 Chrome高版本全屏
 	================================================== -->
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="mobile-web-app-capable" content="yes"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"/>
+	<meta name="mobile-web-app-capable" content="yes"/> 
 	<!-- 让360双核浏览器用webkit内核渲染页面
 	================================================== -->
-	<meta name="renderer" content="webkit">
+	<meta name="renderer" content="webkit"/>
 	<!-- Mobile Specific Metas
 	================================================== -->
 	<!-- !!!注意 minimal-ui 是IOS7.1的新属性，最小化浏览器UI，但是在iOS8.1突然被取消 -->
-	<meta name="viewport" content="width=device-width,maximum-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width,maximum-scale=1, maximum-scale=1"/>
 	<meta content="telephone=no" name="format-detection" />
 	<!-- CSS
 	================================================== -->
-	<link href="css/reset.css" rel="stylesheet" type="text/css">
-	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<link href="css/reset.css" rel="stylesheet" type="text/css"/>
+	<link href="css/style.css" rel="stylesheet" type="text/css"/>
 	<!-- Favicons
 	================================================== -->
 <!--	<link rel="shortcut icon" href="favicon.ico" >-->
@@ -112,9 +112,9 @@
    <% // 没有超出领取上限%>
        
         <%
-            var canUse = iMidudu.Biz.BounsCanUse(this.Request["bouns"]);
-            if (canUse)
-            {
+          //  var canUse = iMidudu.Biz.BounsCanUse(this.Request["bouns"]);
+          //  if (canUse)
+          //  {
 
                 // Response.Redirect("/perfetti2.aspx");
                 // Response.End();
@@ -170,29 +170,10 @@
                     });
             } 
     </script>
-        <%}
-            else
-            {%>
-        <br />
-<div class="wrap">
-    <header>
-        <a href="#" class="logo logo01"><img src="images/logo-01.png" alt=""/></a>
-        <a href="#" class="logo logo02"><img src="images/logo-02.png" alt=""/></a>
-    </header>
-    <section>
-        <div class="mainWrap">
-            <div class="msgTips">
-                <p class="tc">您扫描的二维码已被领取<br />感谢参加本次活动</p>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <img src="images/foot-bg.png" alt=""/>
-    </footer>
-</div>
-        <script src="js/jquery.min.js"></script>
-                
-        <%}
+        <%//}
+         //   else
+          //  {%>                
+        <%//}
 
 
             }

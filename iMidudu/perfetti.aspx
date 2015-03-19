@@ -1,6 +1,23 @@
 ﻿<%@ Page Language="C#"   %> 
 <%
+  
+    var sql = string.Format("select count(*) from BonusHistory where BonusCode='{0}'", this.Request["bonus"]);
+    //Response.Write(sql);
+    //Response.End();
+    var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
+   
+    if (exists)
+    {
+        //insert bad.....
+        // iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BadBonusHistory(HistoryId,OpenId,BonusCode,AcitvityId,ReceiptDate) values (newid(),@OpenId,@BounsCode,@ActivityId,getdate())",
+        //    new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+        //     new System.Data.SqlClient.SqlParameter("@BounsCode", bounscode),
+        //    new System.Data.SqlClient.SqlParameter("@ActivityId", activityid));
+        Response.Redirect("/BounsUsed.aspx");
+        //   Response.Write(bounscode + "红包码非法！");
+         Response.End();
 
+    } 
 
     var now = DateTime.Now;
     if (now.Hour>=0 && now.Hour<8)

@@ -73,6 +73,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="BounsUsed.aspx" />
     <Content Include="clear.aspx" />
     <Content Include="css\reset.css" />
     <Content Include="css\style.css" />
@@ -139,6 +140,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Biz.cs" />
+    <Compile Include="BounsUsed.aspx.cs">
+      <DependentUpon>BounsUsed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BounsUsed.aspx.designer.cs">
+      <DependentUpon>BounsUsed.aspx</DependentUpon>
+    </Compile>
     <Compile Include="illegal.aspx.cs">
       <DependentUpon>illegal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
