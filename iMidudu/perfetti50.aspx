@@ -39,6 +39,14 @@
 <!--	<link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">-->
 <!--	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">-->
 <!--	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
+        <script type ="text/javascript">
+            function closewindow() {
+                window.close();
+            }
+            function guanzhu() {
+                window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+            }
+    </script>
 </head>
 <body>
 <div class="wrap">
@@ -54,8 +62,9 @@
                 <div class="bagCon bagCon2" style=""><img src="images/price-02.png" alt=""></div>
                 <h3 class="tc">“幸运超级大礼-IPHONE 6”</h3>
                 <p class="txt">每月超级大奖公布情况，敬请关注</p>
-                <p class="txt">不凡帝官方微信号<span>“PVM中国”</span></p>
+                <p class="txt">不凡帝官方微信号<span><input type="button" id="guanzhu" value="“PVM中国”" onclick="guanzhu()"/></span></p>
             </div>
+            <input type="button" id="close" value="关闭" onclick="closewindow()"/>
         </div>
     </section>
     <footer>
