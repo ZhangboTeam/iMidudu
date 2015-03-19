@@ -239,7 +239,7 @@ public class WX
         var tmpstr = "d56ace11210245d2aed5f0243f9b68e3";// nonceStr;
         var remark = "米嘟嘟";
         var sendername = "米嘟嘟";
-        var wishing = "米嘟嘟";
+        var wishing = "不凡帝小店活动红包";
         Money *= 100;
 
         var payKey = "d56ace11210245d2aed5f0243f9b68e3";
