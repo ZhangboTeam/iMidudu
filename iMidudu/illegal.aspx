@@ -7,7 +7,7 @@
 	<!-- Basic Page Needs
 	================================================== -->
 	<meta charset="utf-8">
-	<title>不凡帝红包--提取红包50元</title>
+	<title>非法红包</title>
 	<meta name="description" content="">
 	<meta name="author" content="PaulWang">
 	<meta content="telephone=no" name="format-detection" />
