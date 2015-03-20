@@ -74,6 +74,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\ManagerCenter.aspx" />
+    <Content Include="Admin\ViewBounsHistory.aspx" />
+    <Content Include="Admin\UserManagement.aspx" />
+    <Content Include="Admin\ViewActivitygroup.aspx" />
+    <Content Include="Admin\ViewActivity.aspx" />
     <Content Include="BounsUsed.aspx" />
     <Content Include="clear.aspx" />
     <Content Include="css\reset.css" />
@@ -152,8 +157,37 @@
       <DependentUpon>main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\main.Master.designer.cs">
-      <DependentUpon>main.Master</DependentUpon>
+    <Compile Include="Admin\ManagerCenter.aspx.cs">
+      <DependentUpon>ManagerCenter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewBounsHistory.aspx.cs">
+      <DependentUpon>ViewBounsHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewBounsHistory.aspx.designer.cs">
+      <DependentUpon>ViewBounsHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewActivitygroup.aspx.cs">
+      <DependentUpon>ViewActivitygroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewActivitygroup.aspx.designer.cs">
+      <DependentUpon>ViewActivitygroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewActivity.aspx.cs">
+      <DependentUpon>ViewActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewActivity.aspx.designer.cs">
+      <DependentUpon>ViewActivity.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">

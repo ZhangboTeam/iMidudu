@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="iMidudu.Admin.main" %>
+﻿<%@ Master Language="C#" CodeBehind="main.master.cs" %>
 
 <!DOCTYPE html>
 
@@ -12,13 +12,53 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="head1" runat="server">
         
-            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="ViewBounsHistory.aspx">红包历史查看</asp:HyperLink>
-        
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Admin/ViewBounsHistory.aspx">红包活动详情</asp:HyperLink>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Admin/UserManagement.aspx">用户管理</asp:HyperLink>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Admin/ViewActivitygroup.aspx">活动分组查看</asp:HyperLink>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Admin/ViewActivity.aspx">活动查看</asp:HyperLink>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Admin/ManagerCenter.aspx">管理员中心</asp:HyperLink>
+                    
         </asp:ContentPlaceHolder>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
+        <asp:ContentPlaceHolder ID="main" runat="server">
+            <p>
+                <br />
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+            <p>
+            </p>
+        </asp:ContentPlaceHolder>
     </form>
 </body>
 </html>

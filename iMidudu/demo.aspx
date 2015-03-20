@@ -162,6 +162,7 @@
         }
         else
         {
+            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("update MembershipInfo set RecentLoginDate = getDate() where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", rr.openid));
             toUrl = "/UseBouns.aspx" + param;
             // Response.Redirect("/UseBouns.aspx"+param);
         }

@@ -44,7 +44,7 @@
                 window.close();
             }
             function guanzhu() {
-                window.location.href = "http://mp.weixin.qq.com/s?__biz=MjM5MDAwMzQ5OA==&mid=200502075&idx=1&sn=a2fad3a2665eb6757fe8f630ad9b9e1c#rd";
+                window.location.href = "http://mp.weixin.qq.com/s?__biz=MjM5MDAwMzQ5OA==&mid=204358087&idx=1&sn=8a896c7665e658e9962969fd5949ab8a#rd";
             }
     </script>
 </head>

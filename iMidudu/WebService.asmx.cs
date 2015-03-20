@@ -40,7 +40,7 @@ namespace iMidudu
                 try
                 {
 
-                    SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName) values (@Mobile,@OpenId,getDate(),@Sex,@UserName)",
+                    SystemDAO.SqlHelper.ExecteNonQueryText("insert into MembershipInfo(Mobile,OpenId,RegDate,Sex,UserName,RecentLoginDate) values (@Mobile,@OpenId,getDate(),@Sex,@UserName,getDate())",
                     new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
                     new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                     new System.Data.SqlClient.SqlParameter("@Sex", Sex),
@@ -74,7 +74,7 @@ namespace iMidudu
                 {
                     return "-1";
                 }
-                SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
+                SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate,RecentLoginDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate(),getDate())",
                  new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
                  new System.Data.SqlClient.SqlParameter("@OpenId", openid),
                  new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
