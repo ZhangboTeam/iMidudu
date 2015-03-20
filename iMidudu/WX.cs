@@ -227,11 +227,12 @@ public class WX
 
         return GetMd5(keyString).ToUpper();
     }
-    public static string openBouns(string bouns, string acitvity, string openid)
+    public static string openBouns(string bouns, string acitvity, string openid,out string responseXML)
     {
         double amount = Biz.GenerateRandomAmount();
         if (amount == 0)
         {
+            responseXML = "";
             return "-1";
         }
         //  amount = 1;
@@ -242,6 +243,7 @@ public class WX
             // return responseXML;
             if (!iMidudu.Biz.BounsCanUse(bouns))
             {
+                responseXML = "";
                 return "-1";
             }
             iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
@@ -253,8 +255,7 @@ public class WX
 
             //  return amount.ToString();
             //想openid打入真的钱
-            string r;
-            string responseXML;
+            string r; 
             var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r, out responseXML);
 
             // return responseXML;
@@ -264,6 +265,7 @@ public class WX
         }
         catch (Exception ex)
         {
+            responseXML = ex.ToString();
             return ex.ToString();
         }
     }
