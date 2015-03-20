@@ -275,7 +275,7 @@ public class WX
         //{
         //    actName = "test";
         //}
-        var actName = "perfetti";
+        var actName = "不凡帝小店活动红包actname";
         var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
         var nickname = "米嘟嘟nickname";
         var tmpstr = "d56ace11210245d2aed5f0243f9b68e3";// nonceStr;

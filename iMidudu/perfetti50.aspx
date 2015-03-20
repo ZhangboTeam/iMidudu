@@ -64,7 +64,7 @@
                 <p class="txt">每月超级大奖公布情况，敬请关注</p>
                 <p class="txt">不凡帝官方微信号<span><input type="button" id="guanzhu" value="“PVM中国”" onclick="guanzhu()"/></span></p>
             </div>
-            <input type="button" id="close" value="关闭" onclick="closewindow()"/>
+     <%    //  <input type="button" id="close" value="关闭" onclick="closewindow()"/> %> 
         </div>
     </section>
     <footer>
