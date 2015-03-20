@@ -73,6 +73,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\AdminManageEdit.html" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\AdminManage.html" />
