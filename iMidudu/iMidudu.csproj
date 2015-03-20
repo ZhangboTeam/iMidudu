@@ -77,6 +77,7 @@
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\AdminManage.html" />
+    <Content Include="Admin\IllegalInformation.html" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\UserManage.html" />
     <Content Include="Admin\Default.html" />
