@@ -22,10 +22,10 @@
                         }
                     }
                     else {
-                        alert("login failed");
+                        $(".errorArea").empty().html("login failed");
                     }
                 }, function (err) {
-                    alert(err.responseText);
+                    $(".errorArea").empty().html(err.responseText);
                 });
             });
         });
@@ -45,6 +45,7 @@
     <br />
         <br />
     <input type="button" value="确定" id="ok" />
+    <input type="reset" value="重置" />
     </div>
     </center>
 </body>
