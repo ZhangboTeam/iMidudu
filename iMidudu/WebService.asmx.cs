@@ -98,5 +98,16 @@ namespace iMidudu
             }
         }
 
+
+        [WebMethod(EnableSession =true)]
+        public bool     Login(string userName,string password)
+        {
+            var ok = iMidudu.SystemDAO.SqlHelper.Exists("select count(1) from SystemUser where LoginName=@LoginName and Password= @Password", new System.Data.SqlClient.SqlParameter("@LoginName", userName), new System.Data.SqlClient.SqlParameter("@Password", password));
+            if (ok)
+            {
+                System.Web.HttpContext.Current.Session["UserName"] = userName;
+            }
+            return ok;
+        }
     }
 }

@@ -10,7 +10,8 @@
     <script>
         $(function () {
             $("#ok").click(function(){
-                Login($("UserName").val(),$("pwd").val(),function (success) {
+                Login($("#UserName").val(), $("#pwd").val(), function (success) {
+                    alert(success);
                     if (success){
                         var returnUrl = getQueryStringByName("ReturnUrl");
                         if (returnUrl != "") {
@@ -18,7 +19,7 @@
                             window.location.href = returnUrl;
                         }
                         else {
-                            window.location.href = "/";
+                            window.location.href = "/Admin/";
                         }
                     }
                     else {
@@ -29,7 +30,21 @@
                 });
             });
         });
-
+//"{userName:'" + username +"',password:'" +  password+ "'}"
+        function Login(username, password, successHanler, failed) {
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/Login",
+                data: "{userName:'" + username + "',password:'" + password + "'}",
+                dataType: 'json',
+                success: function (result) {
+                    if (successHanler != null) {
+                        successHanler(result.d);
+                    }
+                }
+            });
+        } 
     </script>
 </head>
 <body>
@@ -47,6 +62,7 @@
     <input type="button" value="确定" id="ok" />
     <input type="reset" value="重置" />
     </div>
+        <div class="errorArea"></div>
     </center>
 </body>
 </html>
