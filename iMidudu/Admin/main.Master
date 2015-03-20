@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="main.master.cs" Inherits="iMidudu.Admin.main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="ViewBounsHistory.aspx">红包历史查看</asp:HyperLink>
+        
+        </asp:ContentPlaceHolder>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </div>
+    </form>
+</body>
+</html>

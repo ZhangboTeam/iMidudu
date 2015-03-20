@@ -13,30 +13,15 @@
                 function () {
                     var UserName = $("#UserName").val();
                     var PassWord = $("#pwd").val();
-                    $.post("/WebService.asmx/Register",
-                        {
-                            bouns: bouns,
-                            acitvity: acitvity,
-                            openid: openid,
-                            UserName: UserName,
-                            Sex: Sex,
-                            Mobile: Mobile,
-                            ValidCode: ValidCode,
-                        }, function (data) {
-                            var r = $(data).text();
 
-                            if (r == "OK") {
+                    var sql = string.Format("select count(*) from SystemUser where LoginName='UserName' and Password='PassWord'");
+                    //Response.Write(sql);
+                    //Response.End();
+                    var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
 
-                                alert("注册成功");
-                                var url = "/UseBouns.aspx?bouns=" + bouns + "&acitvity=" + acitvity + "&openid=" + openid;
-                                //alert(url);
-                                window.location.href = url;
-                            }
-                            else {
-                                alert(r);
-                            }
-
-                        });
+                    if (exists) {
+                        Response.Redirect("/ViewBounsHistory.aspx");
+                    }
                 });
         });
     </script>
