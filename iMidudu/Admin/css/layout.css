@@ -165,6 +165,13 @@ line-height: 23px;
 }
 
 .breadcrumbs a.current, .breadcrumbs a.current:hover {
+color:#000;
+font-weight: bold;
+text-shadow: 0 1px 0 #fff;
+text-decoration: none;
+}
+
+.breadcrumbs a.current2, .breadcrumbs a.current2:hover {
 color: #9E9E9E;
 font-weight: bold;
 text-shadow: 0 1px 0 #fff;
