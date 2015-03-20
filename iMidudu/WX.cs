@@ -279,11 +279,11 @@ public class WX
         //}
         var actName = "perfetti";
         var ip = System.Web.HttpContext.Current.Request.UserHostAddress;
-        var nickname = "米嘟嘟nickname";
+        var nickname = "米嘟嘟";
         var tmpstr = "d56ace11210245d2aed5f0243f9b68e3";// nonceStr;
-        var remark = "米嘟嘟remark";
-        var sendername = "米嘟嘟sendername";
-        var wishing = "不凡帝小店活动红包wishing";
+        var remark = "米嘟嘟";
+        var sendername = "不凡帝";
+        var wishing = "不凡帝小店活动红包";
         Money *= 100;
 
         var payKey = "d56ace11210245d2aed5f0243f9b68e3";
