@@ -65,9 +65,9 @@
         </div>
         <div class="breadcrumbs_container">
             <article class="breadcrumbs">
-                <a class="current">Website Admin</a> 
+                <a class="current">数据管理</a> 
             <div class="breadcrumb_divider"></div> 
-                <a class="current2">Dashboard</a>
+                <a class="current2">用户员管理</a>
             </article>
         </div>
     </section><!-- end of secondary bar -->
@@ -77,9 +77,9 @@
 		<h3>数据管理</h3>
 		<ul class="toggle">
             <li class="icn_profile"><a href="/Admin/AdminManage.html">管理员管理</a></li>
-            <li class="icn_view_users"><a href="#">用户员管理</a></li>
-            <li class="icn_tags"><a href="#">活动管理</a></li>
-            <li class="icn_tags"><a href="#">活动分组查看</a></li>
+            <li class="icn_view_users"><a href="/Admin/UserManage.html">用户员管理</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityManage.html">活动管理</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityDividedSearch.html">活动分组查看</a></li>
 		</ul>
 		<h3>红包历史查看</h3>
 		<ul class="toggle">
@@ -103,7 +103,7 @@
 	<section id="main" class="column">
         <article class="module width_3_quarter">
             <header>
-                <h3 class="tabs_involved">Content Manager</h3>
+
                 <ul class="tabs">
                     <li><a href="#tab1">Show</a></li>
                     <li><a href="#tab2">Create</a></li>
@@ -115,48 +115,25 @@
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Entry Name</th>
-                                <th>Category</th>
-                                <th>Created On</th>
-                                <th>Actions</th>
+                                <th>用户ID</th>
+                                <th>用户名</th>
+                                <th>性别</th>
+                                <th>电话</th>
+                                <th>注册时间</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td><input type="checkbox"></td>
-                                <td>Lorem Ipsum Dolor Sit Amet</td>
-                                <td>Articles</td>
-                                <td>5th April 2011</td>
+                                <td>XXXXX</td>
+                                <td>杨继孟</td>
+                                <td>未知</td>
+                                <td>XXXXXXXXXXX</td>
+                                <td>XXXX-XX-XX</td>
                                 <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
                             </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Ipsum Lorem Dolor Sit Amet</td>
-                                <td>Freebies</td>
-                                <td>6th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Sit Amet Dolor Ipsum</td>
-                                <td>Tutorials</td>
-                                <td>10th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Dolor Lorem Amet</td>
-                                <td>Articles</td>
-                                <td>16th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                            </tr>
-                            <tr>
-                                <td><input type="checkbox"></td>
-                                <td>Dolor Lorem Amet</td>
-                                <td>Articles</td>
-                                <td>16th April 2011</td>
-                                <td><input type="image" src="images/icn_edit.png" title="Edit"><input type="image" src="images/icn_trash.png" title="Trash"></td>
-                            </tr>
+                           
                         </tbody>
                     </table>
                 </div><!-- end of #tab1 -->
@@ -164,12 +141,24 @@
                 <div id="tab2" class="tab_content">
                     <table class="tablesorter2" cellspacing="0">
                         <fieldset>
-                            <label>Post Title</label>
+                            <label>用户ID</label>
                             <input type="text" style="width:30%"><br /><br />
                             <p></p>
                             <p></p>
-                            <label>Post Title</label>
-                            <input type="text" style="width:30%">
+                            <label>用户名</label>
+                            <input type="text" style="width:30%"><br /><br />
+                            <p></p>
+                            <p></p>
+                            <label>性别</label>
+                            <input type="text" style="width:30%"><br /><br />
+                            <p></p>
+                            <p></p>
+                            <label>电话</label>
+                            <input type="text" style="width:30%"><br /><br />
+                            <p></p>
+                            <p></p>
+                            <label>注册时间</label>
+                            <input type="text" style="width:30%"><br /><br />
                         </fieldset>
 
 
