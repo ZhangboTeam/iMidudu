@@ -80,6 +80,7 @@
     <Content Include="Admin\IllegalInformation.html" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.html" />
+    <Content Include="Admin\NumberTop10.html" />
     <Content Include="Admin\UserManage.html" />
     <Content Include="Admin\Default.html" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
