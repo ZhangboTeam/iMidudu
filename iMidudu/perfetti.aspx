@@ -23,7 +23,7 @@
     if (now.Hour>=0 && now.Hour<8)
     {
         Response.Write("0点到8点之间不能领取红包,请先休息一下");
-   //     Response.End();
+        Response.End();
     }
     //this.Response.Write("未开启活动");
     //this.Response.End();
