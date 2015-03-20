@@ -9,21 +9,27 @@
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     <script>
         $(function () {
-            $("#ok").click(
-                function () {
-                    var UserName = $("#UserName").val();
-                    var PassWord = $("#pwd").val();
-
-                    var sql = string.Format("select count(*) from SystemUser where LoginName='UserName' and Password='PassWord'");
-                    //Response.Write(sql);
-                    //Response.End();
-                    var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
-
-                    if (exists) {
-                        Response.Redirect("/ViewBounsHistory.aspx");
+            $("#ok").click(function(){
+                Login($("UserName").val(),$("pwd").val(),function (success) {
+                    if (success){
+                        var returnUrl = getQueryStringByName("ReturnUrl");
+                        if (returnUrl != "") {
+                            returnUrl = decodeURIComponent(returnUrl);
+                            window.location.href = returnUrl;
+                        }
+                        else {
+                            window.location.href = "/";
+                        }
                     }
+                    else {
+                        $(".errorArea").empty().html("login failed");
+                    }
+                }, function (err) {
+                    $(".errorArea").empty().html(err.responseText);
                 });
+            });
         });
+
     </script>
 </head>
 <body>
