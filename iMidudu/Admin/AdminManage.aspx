@@ -68,16 +68,15 @@
                }, function (data) {
 
                    });
-                            var r = $(data).text();
-                            if (r == "OK") {
-                                window.location = "/AdminManage.aspx";
-                            }
-                            else {
-                                alert(r);
-                            }
+           var r = $(data).text();
+           if (r == "OK") {
+                 window.location = "/AdminManage.aspx";
+            }
+           else {
+               alert(r);
+             }
 
-                        });
-                });
+     });
 
 </script>
 
@@ -154,8 +153,8 @@
 			<tbody> 
 				<tr> 
 
-    				<td><Label id="user" text=""></Label></td> 
-    				<td><Label id="pass"text=""></Label></td> 
+    				<td><label><% %></label></td> 
+    				<td><label><% %></label></td> 
     				
 				</tr> 
 				
