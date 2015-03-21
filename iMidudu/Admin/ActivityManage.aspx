@@ -79,14 +79,18 @@
            }
            $.post("/WebService.asmx/UpdateActivity",
                {
-                   LoginName: UserName,
-                   Password: Password,
+                   AcitvityId: AcitvityId,
+                   BonusGroupId: BonusGroupId,
+                   BonusLimit: BonusLimit,
+                   ActivityName: ActivityName,
+                   BeginDate: BeginDate,
+                   EndDate: EndDate,
                }, function (data) {
 
                });
            var r = $(data).text();
            if (r == "OK") {
-               window.location = "/AdminManage.aspx";
+               window.location = "/ActivityManage.aspx";
            }
            else {
                alert(r);

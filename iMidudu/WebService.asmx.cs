@@ -151,9 +151,13 @@ namespace iMidudu
             try
             {
 
-                SystemDAO.SqlHelper.ExecteNonQueryText("update SystemUser set LoginName=@UserName，Password=@Password where id='1')",
-                new System.Data.SqlClient.SqlParameter("@UserName", UserName),
-                new System.Data.SqlClient.SqlParameter("@Password", Password));
+                SystemDAO.SqlHelper.ExecteNonQueryText("insert into Activity(AcitvityId,BonusGroupId,BonusLimit,ActivityName,BeginDate,EndDate) vlues AcitvityId=@AcitvityId，BonusGroupId=@BonusGroupId ,BonusLimit=@BonusLimit，ActivityName=@ActivityName,BeginDate=@BeginDate，EndDate=@EndDate)",
+                new System.Data.SqlClient.SqlParameter("@AcitvityId", AcitvityId),
+                new System.Data.SqlClient.SqlParameter("@BonusGroupId", BonusGroupId),
+                new System.Data.SqlClient.SqlParameter("@BonusLimit", BonusLimit),
+                new System.Data.SqlClient.SqlParameter("@ActivityName", ActivityName),
+                new System.Data.SqlClient.SqlParameter("@BeginDate", BeginDate),
+                new System.Data.SqlClient.SqlParameter("@EndDate", EndDate));
             }
             catch (Exception ex)
             {
