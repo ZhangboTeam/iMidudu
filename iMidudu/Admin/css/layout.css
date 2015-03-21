@@ -663,6 +663,7 @@ background-position: 0 -24px;
 .post_message {
 text-align: left;
 padding: 5px 0;
+float:left;
 }
 
 .post_message input[type=text] {
@@ -915,5 +916,13 @@ color: #32510F;
 padding: 10px 0;
 text-indent: 40px;
 font-size: 14px;}
+
+.post_message label{
+    font-weight:bolder;
+    height: 1.5em;
+line-height: 1.5em;
+overflow: hidden;
+    margin-left:10px;
+}
 
 
