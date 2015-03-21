@@ -80,6 +80,7 @@
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\IllegalInformation.aspx" />
+    <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
