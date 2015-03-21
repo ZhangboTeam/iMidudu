@@ -128,6 +128,7 @@
     <Content Include="Admin\js\jquery.equalHeight.js" />
     <Content Include="Admin\js\jquery.tablesorter.min.js" />
     <Content Include="Admin\login.aspx" />
+    <Content Include="Admin\UserSearch.aspx" />
     <Content Include="BounsUsed.aspx" />
     <Content Include="clear.aspx" />
     <Content Include="css\reset.css" />
@@ -270,6 +271,13 @@
     </Compile>
     <Compile Include="Admin\UserManage.aspx.designer.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserSearch.aspx.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserSearch.aspx.designer.cs">
+      <DependentUpon>UserSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">
