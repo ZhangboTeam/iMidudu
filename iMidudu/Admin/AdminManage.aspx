@@ -76,10 +76,10 @@
 		<hr/>
 		<h3>数据管理</h3>
 		<ul class="toggle">
-            <li class="icn_profile"><a href="/Admin/AdminManage.html">管理员管理</a></li>
-            <li class="icn_view_users"><a href="/Admin/UserManage.html">用户员管理</a></li>
-            <li class="icn_tags"><a href="/Admin/ActivityManage.html">活动管理</a></li>
-            <li class="icn_tags"><a href="/Admin/ActivityDividedSearch.html">活动分组查看</a></li>
+            <li class="icn_profile"><a href="/Admin/AdminManage.aspx">管理员管理</a></li>
+            <li class="icn_view_users"><a href="/Admin/UserManage.aspx">用户员管理</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityManage.aspx">活动管理</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityDividedSearch.aspx">活动分组查看</a></li>
 		</ul>
 		<h3>红包历史查看</h3>
 		<ul class="toggle">
@@ -124,7 +124,7 @@
                                
                                 <td>Admin</td>
                                 <td>123456</td>
-                                <td><a href="/Admin/AdminManageEdit.html"><input type="image" src="images/icn_edit.png" title="Edit"></a></td>
+                                <td><a href="/Admin/AdminManageEdit.aspx"><input type="image" src="images/icn_edit.png" title="Edit"></a></td>
                             </tr>
                            
                         </tbody>
