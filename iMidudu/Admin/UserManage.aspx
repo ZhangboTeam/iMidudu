@@ -100,6 +100,17 @@
 	</aside><!-- end of sidebar -->
 	
 	<section id="main" class="column">
+
+        <form class="quick_search width_half_search">
+			<input type="text" value="按用户名查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form><br /><br /><br /><br />
+        <form class="quick_search width_half_search">
+			<input type="text" value="按电话查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form>
+
+            
+
+        
         <article class="module width_full">
             <header>
                 <h3 class="tabs_involved">Show</h3>

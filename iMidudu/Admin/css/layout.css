@@ -430,6 +430,7 @@ color: #666;}
 
 .width_full {
 width: 95%;
+float:left;
 }
 
 .width_half {
@@ -437,6 +438,13 @@ width: 46%;
 margin-right: 0;
 float: left;
 }
+
+.width_half_search {
+width: 25%;
+margin-right: 0;
+float: right;
+}
+
 
 .width_quarter {
 width: 26%;
