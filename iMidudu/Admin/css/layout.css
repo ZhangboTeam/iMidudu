@@ -800,6 +800,20 @@ height: 20px;
 color: #666666;
 }
 
+.submit_link2 {
+float: right;
+margin-right: 3%;
+margin-top:2%;
+padding: 5px 0;
+}
+
+.submit_link2 select {
+width: 150px;
+border: 1px solid #bbb;
+height: 20px;
+color: #666666;
+}
+
 #main .module_content h1 {
 color: #333333;
 text-transform: none;
