@@ -48,6 +48,56 @@
     $(function(){
         $('.column').equalHeight();
     });
+
+
+
+    $("#createactivity").click(
+       function () {
+           var AcitvityId = $("#AcitvityId").val();
+           var BonusGroupId = $("#BonusGroupId").val();
+           var BonusLimit = $("#BonusLimit").val();
+           var ActivityName = $("#ActivityName").val();
+           var BeginDate = $("#BeginDate").val();
+           var EndDate = $("#EndDate").val();
+           if (UserName == "") {
+               alert("请输入活动id"); return;
+           }
+           if (PassWord == "") {
+               alert("请输入红包分组"); return;
+           }
+           if (UserName == "") {
+               alert("请输入活动名称"); return;
+           }
+           if (PassWord == "") {
+               alert("请输入限令次数"); return;
+           }
+           if (UserName == "") {
+               alert("请输入开始时间"); return;
+           }
+           if (PassWord == "") {
+               alert("请输入结束时间"); return;
+           }
+           $.post("/WebService.asmx/UpdateActivity",
+               {
+                   LoginName: UserName,
+                   Password: Password,
+               }, function (data) {
+
+               });
+           var r = $(data).text();
+           if (r == "OK") {
+               window.location = "/AdminManage.aspx";
+           }
+           else {
+               alert(r);
+           }
+
+       });
+
+
+
+
+
 </script>
 </head>
 <body>
@@ -142,34 +192,33 @@
 			    
                 <fieldset>
                                 <label>活动ID</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text" id="AcitvityId"style="width:30%"/><br /><br />
                                 <p></p>
                                 <p></p>
                                 <label>红包分组</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text"id="BonusGroupId" style="width:30%"/><br /><br />
                                 <p></p>
                                 <p></p>
                                 <label>活动名称</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text"id="BonusLimit" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
                                 <label>限令次数</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text"id="ActivityName" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
                                 <label>开始时间</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text"id="BeginDate" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
                                 <label>结束时间</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text"id="EndDate" style="width:30%"/><br /><br />
                             </fieldset>
 
 
                             <footer>
                                 <div class="submit_link">
-                                    <input type="submit" value="Publish" class="alt_btn">
-                                    <input type="submit" value="Reset">
+                                    <input type="submit" value="确定" id="createactivity" class="alt_btn"/>
                                 </div>
                             </footer>
 			</table>

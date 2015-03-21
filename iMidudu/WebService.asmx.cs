@@ -127,5 +127,39 @@ namespace iMidudu
                 }
                 return "OK";
         }
+
+        [WebMethod(EnableSession = true)]
+        public string DeleteUser(string OpenId)
+        {
+            try
+            {
+
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo where OpenId=@OpenId)",
+                new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "OK";
+        }
+
+
+        [WebMethod(EnableSession = true)]
+        public string UpdateActivity(string AcitvityId, string BonusGroupId, string BonusLimit, string ActivityName, string BeginDate, string EndDate)
+        {
+            try
+            {
+
+                SystemDAO.SqlHelper.ExecteNonQueryText("update SystemUser set LoginName=@UserName，Password=@Password where id='1')",
+                new System.Data.SqlClient.SqlParameter("@UserName", UserName),
+                new System.Data.SqlClient.SqlParameter("@Password", Password));
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "OK";
+        }
     }
 }

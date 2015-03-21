@@ -48,6 +48,30 @@
     $(function(){
         $('.column').equalHeight();
     });
+
+
+    $("#delete").click(
+       function () {
+           var UserName = $("#userid").val();
+           $.post("/WebService.asmx/DeleteUser",
+               {
+                   OpenId: userid,
+               }, function (data) {
+
+               });
+           var r = $(data).text();
+           if (r == "OK") {
+               window.location = "/UserManage.aspx";
+           }
+           else {
+               alert(r);
+           }
+
+       });
+
+
+
+
 </script>
 </head>
 <body>
@@ -132,12 +156,12 @@
                         <tbody>
                             <tr>
 
-                                <td>XXXXX</td>
+                                <td id="userid">XXXXX</td>
                                 <td>杨继孟</td>
                                 <td>未知</td>
                                 <td>XXXXXXXXXXX</td>
                                 <td>XXXX-XX-XX</td>
-                                <td><input type="image" src="images/icn_trash.png" title="Trash"></td>
+                                <td><input type="image" src="images/icn_trash.png" id="delete" title="Trash"></td>
                             </tr>
                            
                         </tbody>
