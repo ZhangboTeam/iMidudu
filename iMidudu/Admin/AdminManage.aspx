@@ -66,12 +66,11 @@
                    LoginName: UserName,
                    Password: Password,
                }, function (data) {
-                   var json = JSON.stringify({
-                       b: bouns, a: acitvity
+
                    });
                             var r = $(data).text();
                             if (r == "OK") {
-                                window.location.href = url;
+                                window.location = "/AdminManage.aspx";
                             }
                             else {
                                 alert(r);
