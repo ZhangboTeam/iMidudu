@@ -78,7 +78,7 @@
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\Default.aspx" />
-    <Content Include="Admin\IllegalInformation.html" />
+    <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
@@ -211,6 +211,13 @@
     </Compile>
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\IllegalInformation.aspx.cs">
+      <DependentUpon>IllegalInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\IllegalInformation.aspx.designer.cs">
+      <DependentUpon>IllegalInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
