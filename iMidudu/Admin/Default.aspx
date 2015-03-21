@@ -82,12 +82,12 @@
 		</ul>
 		<h3>红包历史查看</h3>
 		<ul class="toggle">
-            <li class="icn_settings"><a href="#">按时段查询</a></li>
-            <li class="icn_settings"><a href="#">按用户名查询</a></li>
+            <li class="icn_settings"><a href="/Admin/TimeSearch.aspx">按时段查询</a></li>
+            <li class="icn_settings"><a href="/Admin/UserNameSearch.aspx">按用户名查询</a></li>
             <li class="icn_categories"><a href="/Admin/MoneyTop10.aspx">领取金额top10</a></li>
             <li class="icn_categories"><a href="/Admin/NumberTop10.aspx">领取次数top10</a></li>
-            <li class="icn_settings"><a href="#">查看所有参加活动用户</a></li>
-            <li class="icn_categories"><a href="#">红包统计</a></li>
+            <li class="icn_settings"><a href="/Admin/AllActivityUserSearch.aspx">查看所有参加活动用户</a></li>
+            <li class="icn_categories"><a href="/Admin/RedBagTotal.aspx">红包统计</a></li>
             <li class="icn_settings"><a href="/Admin/IllagalInformation.aspx">非法领取人的信息</a></li>
 
 		</ul>
