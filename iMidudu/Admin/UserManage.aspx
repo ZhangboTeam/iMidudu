@@ -150,6 +150,11 @@
                                 <th>性别</th>
                                 <th>电话</th>
                                 <th>注册时间</th>
+                                <th>国家</th>
+                                <th>省</th>
+                                <th>区</th>
+                                <th>昵称</th>
+                                <th>最近登录时间</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -159,6 +164,11 @@
                                 <td id="userid">XXXXX</td>
                                 <td>杨继孟</td>
                                 <td>未知</td>
+                                <td>XXXXXXXXXXX</td>
+                                <td>XXXX-XX-XX</td>
+                                <td>XXXXX</td>
+                                <td>XXX</td>
+                                <td>XXX</td>
                                 <td>XXXXXXXXXXX</td>
                                 <td>XXXX-XX-XX</td>
                                 <td><input type="image" src="images/icn_trash.png" id="delete" title="Trash"></td>

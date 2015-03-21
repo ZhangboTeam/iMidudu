@@ -174,6 +174,7 @@
     				<th>红包分组</th> 
     				<th>活动名称</th> 
                     <th>限令次数</th>
+                    <th>开始时间</th>
                     <th>结束时间</th>
 				</tr> 
 			</thead> 
@@ -183,6 +184,7 @@
     				<td>XXXXX</td> 
     				<td>XXXXX</td> 
                     <td>XXXXX</td> 
+                    <td>XXXXX</td>
                     <td>XXXXX</td> 
     			
 				</tr> 

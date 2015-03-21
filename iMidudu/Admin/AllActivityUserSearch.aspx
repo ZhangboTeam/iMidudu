@@ -114,7 +114,9 @@
                                 <th>用户ID</th>
                                 <th>用户名</th>
                                 <th>手机</th>
-                                <th>城市地址</th>
+                                <th>国家</th>
+                                <th>省</th>
+                                <th>区</th>
                                 <th>活动名称</th>
                                 <th>领取金额</th>
                                 <th>领取数量</th>
@@ -123,6 +125,8 @@
                         <tbody>
                             <tr>
 
+                                <td>XXXXX</td>
+                                <td>XXXXX</td>
                                 <td>XXXXX</td>
                                 <td>XXXXX</td>
                                 <td>XXXXX</td>

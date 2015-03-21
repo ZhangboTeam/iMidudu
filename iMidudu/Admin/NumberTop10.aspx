@@ -111,7 +111,9 @@
                                 <th>用户ID</th>
                                 <th>用户名</th>
                                 <th>手机</th>
-                                <th>城市地址</th>
+                                <th>国家</th>
+                                <th>省</th>
+                                <th>区</th>
                                 <th>活动名称</th>
                                 <th>领取总金额</th>
                                 <th>2元次数</th>
@@ -125,60 +127,14 @@
                                 <td>1</td>
                                 <td>小二</td>
                                 <td>13112344321</td>
-                                <td>上海浦东新区</td>
+                                <td>中国</td>
+                                <td>上海</td>
+                                <td>浦东新区</td>
                                 <td>不凡帝</td>
                                 <td>2</td>
                                 <td>1</td>
                                 <th>4</th>
                                 <th>3</th>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>小三</td>
-                                <td>13112344321</td>
-                                <td>上海浦东新区</td>
-                                <td>不凡帝</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <th>3</th>
-                                <th>4</th>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>3</td>
-                                <td>小四</td>
-                                <td>13112344321</td>
-                                <td>上海浦东新区</td>
-                                <td>不凡帝</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <th>3</th>
-                                <th>2</th>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>4</td>
-                                <td>小五</td>
-                                <td>13112344321</td>
-                                <td>上海浦东新区</td>
-                                <td>不凡帝</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <th>4</th>
-                                <th>6</th>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>5</td>
-                                <td>小六</td>
-                                <td>13112344321</td>
-                                <td>上海浦东新区</td>
-                                <td>不凡帝</td>
-                                <td>2</td>
-                                <td>1</td>
-                                <th>2</th>
-                                <th>5</th>
                             </tr>
                         </tbody>
                     </table>
