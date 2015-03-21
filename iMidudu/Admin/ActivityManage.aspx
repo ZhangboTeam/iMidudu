@@ -100,6 +100,9 @@
 	</aside><!-- end of sidebar -->
 
     <section id="main" class="column">
+        <form class="quick_search width_half_search">
+			<input type="text" value="按活动名称查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;">
+		</form>
 		<article class="module width_full">
 		<header>
 		<ul class="tabs">
