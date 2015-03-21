@@ -102,40 +102,61 @@
 	
 	<section id="main" class="column">
 		
-        <article class="module width_full">
+        <article class="module width_3_quarter">
+		<header><h3 class="tabs_involved"></h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Show</a></li>
+    		<li><a href="#tab2">Edit</a></li>
+		</ul>
+		</header>
 
-            <header>
-                <h3 class="tabs_involved">Show</h3>
-                
-            </header>
-            <div class="tab_container">
-                <div id="tab1" class="tab_content">
-                    <table class="tablesorter" cellspacing="0">
-                        <thead>
-                            <tr>
-      
-                                <th>用户名</th>
-                                <th>密码</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                               
-                                <td>Admin</td>
-                                <td>123456</td>
-                                <td><a href="/Admin/AdminManageEdit.aspx"><input type="image" src="images/icn_edit.png" title="Edit"></a></td>
-                            </tr>
-                           
-                        </tbody>
-                    </table>
-                </div><!-- end of #tab1 -->
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
 
-                
+    				<th>用户名</th> 
+    				<th>密码</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+				<tr> 
 
-            </div><!-- end of .tab_container -->
+    				<td>XXXXX</td> 
+    				<td>XXXXX</td> 
+    				
+				</tr> 
+				
+			</tbody> 
+			</table>
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			    <fieldset>
+                                <label>用户名</label>
+                                <input type="text" style="width:30%"><br /><br />
+                                <p></p>
+                                <p></p>
+                                <label>密码</label>
+                                <input type="text" style="width:30%">
+                            </fieldset>
 
-        </article>
+
+                            <footer>
+                                <div class="submit_link">
+                                    <input type="submit" value="Publish" class="alt_btn">
+                                    <input type="submit" value="Reset">
+                                </div>
+                            </footer> 
+			</table>
+
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->
 		
 	</section>
 </body>
