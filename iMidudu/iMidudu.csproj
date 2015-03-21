@@ -83,7 +83,6 @@
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.html" />
     <Content Include="Admin\NumberTop10.aspx" />
-    <Content Include="Admin\NumberTop10.html" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
     <Content Include="Admin\images\btn_submit.png" />
