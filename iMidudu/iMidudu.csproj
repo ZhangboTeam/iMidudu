@@ -82,7 +82,7 @@
     <Content Include="Admin\IllegalInformation.html" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.html" />
-    <Content Include="Admin\NumberTop10.html" />
+    <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
     <Content Include="Admin\images\btn_submit.png" />
@@ -226,6 +226,13 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NumberTop10.aspx.cs">
+      <DependentUpon>NumberTop10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NumberTop10.aspx.designer.cs">
+      <DependentUpon>NumberTop10.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserManage.aspx.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
