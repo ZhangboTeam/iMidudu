@@ -75,7 +75,6 @@
   <ItemGroup>
     <Content Include="Admin\ActivityManage.aspx" />
     <Content Include="Admin\AdminManage.aspx" />
-    <Content Include="Admin\AdminManageEdit.aspx" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\Default.aspx" />
@@ -205,13 +204,6 @@
     </Compile>
     <Compile Include="Admin\AdminManage.aspx.designer.cs">
       <DependentUpon>AdminManage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\AdminManageEdit.aspx.cs">
-      <DependentUpon>AdminManageEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AdminManageEdit.aspx.designer.cs">
-      <DependentUpon>AdminManageEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
