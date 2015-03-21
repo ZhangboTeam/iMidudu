@@ -88,7 +88,7 @@
             <li class="icn_categories"><a href="/Admin/NumberTop10.aspx">领取次数top10</a></li>
             <li class="icn_settings"><a href="/Admin/AllActivityUserSearch.aspx">查看所有参加活动用户</a></li>
             <li class="icn_categories"><a href="/Admin/RedBagTotal.aspx">红包统计</a></li>
-            <li class="icn_settings"><a href="/Admin/IllagalInformation.aspx">非法领取人的信息</a></li>
+            <li class="icn_settings"><a href="/Admin/IllegalInformation.aspx">非法领取人的信息</a></li>
 
 		</ul>
 		
