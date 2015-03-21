@@ -53,7 +53,7 @@
 <body>
     <header id="header">
     <hgroup>
-			<h1 class="site_title"><a href="index.html">iMidudu</a></h1>
+			<h1 class="site_title"><a href="/Admin/RedBagTotal.aspx">iMidudu</a></h1>
 			<h2 class="section_title">后台数据管理平台</h2>
 		</hgroup>
 	</header> <!-- end of header bar -->

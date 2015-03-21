@@ -84,7 +84,7 @@
 <body>
     <header id="header">
 		<hgroup>
-			<h1 class="site_title"><a href="index.html">iMidudu</a></h1>
+			<h1 class="site_title"><a href="/Admin/RedBagTotal.aspx">iMidudu</a></h1>
 			<h2 class="section_title">后台数据管理平台</h2>
 		</hgroup>
 	</header> <!-- end of header bar -->
@@ -113,13 +113,13 @@
 		</ul>
 		<h3>红包历史查看</h3>
 		<ul class="toggle">
-            <li class="icn_settings"><a href="#">按时段查询</a></li>
-            <li class="icn_settings"><a href="#">按用户名查询</a></li>
-            <li class="icn_categories"><a href="#">领取金额top10</a></li>
-            <li class="icn_categories"><a href="#">领取次数top10</a></li>
-            <li class="icn_settings"><a href="#">查看所有参加活动用户</a></li>
-            <li class="icn_categories"><a href="#">红包统计</a></li>
-            <li class="icn_settings"><a href="#">非法领取人的信息</a></li>
+            <li class="icn_settings"><a href="/Admin/TimeSearch.aspx">按时段查询</a></li>
+            <li class="icn_settings"><a href="/Admin/UserNameSearch.aspx">按用户名查询</a></li>
+            <li class="icn_categories"><a href="/Admin/MoneyTop10.aspx">领取金额top10</a></li>
+            <li class="icn_categories"><a href="/Admin/NumberTop10.aspx">领取次数top10</a></li>
+            <li class="icn_settings"><a href="/Admin/AllActivityUserSearch.aspx">查看所有参加活动用户</a></li>
+            <li class="icn_categories"><a href="/Admin/RedBagTotal.aspx">红包统计</a></li>
+            <li class="icn_settings"><a href="/Admin/IllegalInformation.aspx">非法领取人的信息</a></li>
 
 		</ul>
 		
