@@ -48,6 +48,38 @@
     $(function(){
         $('.column').equalHeight();
     });
+
+
+
+    $("#submit").click(
+       function () {
+           var UserName = $("#username").val();
+           var Password = $("#password").val();
+           if (UserName == "") {
+               alert("请输入姓名"); return;
+           }
+           if (PassWord == "") {
+               alert("请输入密码"); return;
+           }
+           $.post("/WebService.asmx/UpdateManager",
+               {
+                   LoginName: UserName,
+                   Password: Password,
+               }, function (data) {
+                   var json = JSON.stringify({
+                       b: bouns, a: acitvity
+                   });
+                            var r = $(data).text();
+                            if (r == "OK") {
+                                window.location.href = url;
+                            }
+                            else {
+                                alert(r);
+                            }
+
+                        });
+                });
+
 </script>
 
 </head>
@@ -123,8 +155,8 @@
 			<tbody> 
 				<tr> 
 
-    				<td>XXXXX</td> 
-    				<td>XXXXX</td> 
+    				<td><Label id="user" text=""></Label></td> 
+    				<td><Label id="pass"text=""></Label></td> 
     				
 				</tr> 
 				
@@ -136,18 +168,17 @@
 			<table class="tablesorter" cellspacing="0"> 
 			    <fieldset>
                                 <label>用户名</label>
-                                <input type="text" style="width:30%"><br /><br />
+                                <input type="text" id="username" style="width:30%"><br /><br />
                                 <p></p>
                                 <p></p>
                                 <label>密码</label>
-                                <input type="text" style="width:30%">
+                                <input type="text"id="password" style="width:30%">
                             </fieldset>
 
 
                             <footer>
                                 <div class="submit_link">
-                                    <input type="submit" value="Publish" class="alt_btn">
-                                    <input type="submit" value="Reset">
+                                    <input type="submit" id="submit" value="确定" class="alt_btn">
                                 </div>
                             </footer> 
 			</table>

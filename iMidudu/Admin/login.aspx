@@ -60,7 +60,6 @@
     <br />
         <br />
     <input type="button" value="确定" id="ok" />
-    <input type="reset" value="重置" />
     </div>
         <div class="errorArea"></div>
     </center>
