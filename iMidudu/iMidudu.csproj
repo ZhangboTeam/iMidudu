@@ -76,6 +76,7 @@
     <Content Include="Admin\ActivityDividedSearch.aspx" />
     <Content Include="Admin\ActivityManage.aspx" />
     <Content Include="Admin\AdminManage.aspx" />
+    <Content Include="Admin\AllActivityUserSearch.aspx" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\Default.aspx" />
@@ -216,6 +217,13 @@
     </Compile>
     <Compile Include="Admin\AdminManage.aspx.designer.cs">
       <DependentUpon>AdminManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AllActivityUserSearch.aspx.cs">
+      <DependentUpon>AllActivityUserSearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AllActivityUserSearch.aspx.designer.cs">
+      <DependentUpon>AllActivityUserSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
