@@ -77,7 +77,7 @@
             <li class="icn_profile"><a href="/Admin/AdminManage.aspx">管理员管理</a></li>
             <li class="icn_view_users"><a href="/Admin/UserManage.aspx">用户员管理</a></li>
             <li class="icn_tags"><a href="/Admin/ActivityManage.aspx">活动管理</a></li>
-            <li class="icn_tags"><a href="/Admin/ActivityDividedManage.aspx">活动分组查看</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityDividedSearch.aspx">活动分组查看</a></li>
 		</ul>
 		<h3>红包历史查看</h3>
 		<ul class="toggle">
