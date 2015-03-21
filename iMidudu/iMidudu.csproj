@@ -73,13 +73,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\AdminManageEdit.html" />
+    <Content Include="Admin\ActivityManage.aspx" />
+    <Content Include="Admin\AdminManage.aspx" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
-    <Content Include="Admin\AdminManage.html" />
+    <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\js\Login.js" />
-    <Content Include="Admin\UserManage.html" />
-    <Content Include="Admin\Default.html" />
+    <Content Include="Admin\MoneyTop10.aspx" />
+    <Content Include="Admin\NumberTop10.aspx" />
+    <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
     <Content Include="Admin\images\btn_submit.png" />
     <Content Include="Admin\images\btn_submit_2.png" />
@@ -188,12 +191,61 @@
     <Content Include="Scripts\jquery-2.1.3.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\ActivityManage.aspx.cs">
+      <DependentUpon>ActivityManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ActivityManage.aspx.designer.cs">
+      <DependentUpon>ActivityManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminManage.aspx.cs">
+      <DependentUpon>AdminManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminManage.aspx.designer.cs">
+      <DependentUpon>AdminManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\IllegalInformation.aspx.cs">
+      <DependentUpon>IllegalInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\IllegalInformation.aspx.designer.cs">
+      <DependentUpon>IllegalInformation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MoneyTop10.aspx.cs">
+      <DependentUpon>MoneyTop10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MoneyTop10.aspx.designer.cs">
+      <DependentUpon>MoneyTop10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\NumberTop10.aspx.cs">
+      <DependentUpon>NumberTop10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\NumberTop10.aspx.designer.cs">
+      <DependentUpon>NumberTop10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\UserManage.aspx.cs">
+      <DependentUpon>UserManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\UserManage.aspx.designer.cs">
+      <DependentUpon>UserManage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">

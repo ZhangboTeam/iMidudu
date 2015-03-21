@@ -1,8 +1,11 @@
-﻿<!doctype html>
-<html lang="en">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminManage.aspx.cs" Inherits="iMidudu.Admin.AdminManage" %>
 
-<head>
-	<meta charset="utf-8"/>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta charset="utf-8"/>
 	<title>Dashboard I Admin Panel</title>
 	
 	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
@@ -48,11 +51,8 @@
 </script>
 
 </head>
-
-
 <body>
-
-	<header id="header">
+    <header id="header">
 		<hgroup>
 			<h1 class="site_title"><a href="index.html">iMidudu</a></h1>
 			<h2 class="section_title">后台数据管理平台</h2>
@@ -65,9 +65,9 @@
         </div>
         <div class="breadcrumbs_container">
             <article class="breadcrumbs">
-                <a class="current">Website Admin</a> 
+                <a class="current">数据管理</a> 
             <div class="breadcrumb_divider"></div> 
-                <a class="current2">Dashboard</a>
+                <a class="current2">管理员管理</a>
             </article>
         </div>
     </section><!-- end of secondary bar -->
@@ -76,10 +76,10 @@
 		<hr/>
 		<h3>数据管理</h3>
 		<ul class="toggle">
-            <li class="icn_profile"><a href="/Admin/AdminManage.html">管理员管理</a></li>
-            <li class="icn_view_users"><a href="#">用户员管理</a></li>
-            <li class="icn_tags"><a href="#">活动管理</a></li>
-            <li class="icn_tags"><a href="#">活动分组查看</a></li>
+            <li class="icn_profile"><a href="/Admin/AdminManage.aspx">管理员管理</a></li>
+            <li class="icn_view_users"><a href="/Admin/UserManage.aspx">用户员管理</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityManage.aspx">活动管理</a></li>
+            <li class="icn_tags"><a href="/Admin/ActivityDividedSearch.aspx">活动分组查看</a></li>
 		</ul>
 		<h3>红包历史查看</h3>
 		<ul class="toggle">
@@ -102,10 +102,62 @@
 	
 	<section id="main" class="column">
 		
+        <article class="module width_full">
+		<header><h3 class="tabs_involved"></h3>
+		<ul class="tabs">
+   			<li><a href="#tab1">Show</a></li>
+    		<li><a href="#tab2">Edit</a></li>
+		</ul>
+		</header>
+
+		<div class="tab_container">
+			<div id="tab1" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			<thead> 
+				<tr> 
+
+    				<th>用户名</th> 
+    				<th>密码</th> 
+				</tr> 
+			</thead> 
+			<tbody> 
+				<tr> 
+
+    				<td>XXXXX</td> 
+    				<td>XXXXX</td> 
+    				
+				</tr> 
+				
+			</tbody> 
+			</table>
+			</div><!-- end of #tab1 -->
+			
+			<div id="tab2" class="tab_content">
+			<table class="tablesorter" cellspacing="0"> 
+			    <fieldset>
+                                <label>用户名</label>
+                                <input type="text" style="width:30%"><br /><br />
+                                <p></p>
+                                <p></p>
+                                <label>密码</label>
+                                <input type="text" style="width:30%">
+                            </fieldset>
+
+
+                            <footer>
+                                <div class="submit_link">
+                                    <input type="submit" value="Publish" class="alt_btn">
+                                    <input type="submit" value="Reset">
+                                </div>
+                            </footer> 
+			</table>
+
+			</div><!-- end of #tab2 -->
+			
+		</div><!-- end of .tab_container -->
+		
+		</article><!-- end of content manager article -->
 		
 	</section>
-
-
 </body>
-
 </html>
