@@ -1,8 +1,11 @@
-﻿<!doctype html>
-<html lang="en">
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserManage.aspx.cs" Inherits="iMidudu.Admin.UserManage" %>
 
-<head>
-	<meta charset="utf-8"/>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <meta charset="utf-8"/>
 	<title>Dashboard I Admin Panel</title>
 	
 	<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
@@ -46,14 +49,10 @@
         $('.column').equalHeight();
     });
 </script>
-
 </head>
-
-
 <body>
-
-	<header id="header">
-		<hgroup>
+    <header id="header">
+    <hgroup>
 			<h1 class="site_title"><a href="index.html">iMidudu</a></h1>
 			<h2 class="section_title">后台数据管理平台</h2>
 		</hgroup>
@@ -142,8 +141,5 @@
         </article>
 		
 	</section>
-
-
 </body>
-
 </html>
