@@ -19,7 +19,7 @@
                             window.location.href = returnUrl;
                         }
                         else {
-                            window.location.href = "/Admin/";
+                            window.location.href = "/Admin/Default.html";
                         }
                     }
                     else {
