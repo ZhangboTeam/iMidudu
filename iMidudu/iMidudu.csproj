@@ -80,7 +80,7 @@
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\IllegalInformation.html" />
     <Content Include="Admin\js\Login.js" />
-    <Content Include="Admin\MoneyTop10.html" />
+    <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
@@ -218,6 +218,13 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\MoneyTop10.aspx.cs">
+      <DependentUpon>MoneyTop10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\MoneyTop10.aspx.designer.cs">
+      <DependentUpon>MoneyTop10.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\NumberTop10.aspx.cs">
       <DependentUpon>NumberTop10.aspx</DependentUpon>
