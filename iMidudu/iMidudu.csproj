@@ -79,7 +79,6 @@
     <Content Include="Admin\AllActivityUserSearch.aspx" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
-    <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
@@ -170,6 +169,7 @@
     <Content Include="UseBouns.aspx" />
     <Content Include="userInfo.txt" />
     <Content Include="WebService.asmx" />
+    <Content Include="Admin\SiteAdmin.Master" />
     <None Include="Properties\PublishProfiles\iMidudu.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,13 +225,6 @@
     <Compile Include="Admin\AllActivityUserSearch.aspx.designer.cs">
       <DependentUpon>AllActivityUserSearch.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\IllegalInformation.aspx.cs">
       <DependentUpon>IllegalInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -266,6 +259,13 @@
     </Compile>
     <Compile Include="Admin\RedBagTotal.aspx.designer.cs">
       <DependentUpon>RedBagTotal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\SiteAdmin.Master.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
+      <SubType>aspxcodebehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SiteAdmin.Master.designer.cs">
+      <DependentUpon>SiteAdmin.Master</DependentUpon>
     </Compile>
     <Compile Include="Admin\TimeSearch.aspx.cs">
       <DependentUpon>TimeSearch.aspx</DependentUpon>
@@ -344,7 +344,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>5906</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
