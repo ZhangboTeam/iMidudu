@@ -243,13 +243,6 @@
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\NumberTop10.aspx.cs">
-      <DependentUpon>NumberTop10.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\NumberTop10.aspx.designer.cs">
-      <DependentUpon>NumberTop10.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
       <SubType>aspxcodebehind</SubType>
