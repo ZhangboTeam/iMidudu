@@ -13,52 +13,52 @@
 					</div>
 					<div class="overview_previous">
 						<p class="overview_day">已用二维码总数</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.TotalBonusUsed %></p>
-						<p class="overview_type">个</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.TotalBonusMoneyUsed %></p>
-						<p class="overview_type">元</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.TotalBonusUsed %>个</p>
+						
+						<p class="overview_count"><%=iMidudu.AdminTool.TotalBonusMoneyUsed %>元</p>
+						
 					</div>
 					<div class="overview_today">
 						<p class="overview_day">今天2元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,2,1) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,2,1) %>次</p> 
+						
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">今天50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,5,1) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,5,1) %>次</p> 
+						
 					</div>
 					<div class="overview_today">
 						<p class="overview_day">昨天2元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-1),2,1) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-1),2,1) %>次</p> 
+						
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">昨天50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-1),5,1) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-1),5,1) %>次</p> 
+						
 					</div>
                     
 					<div class="overview_today">
 						<p class="overview_day">最近一周2元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-7),2,7) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-7),2,7) %>次</p> 
+						
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">最近一周50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-7),5,7) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-7),5,7) %>次</p> 
+						
 					</div>
                     
 					<div class="overview_today">
 						<p class="overview_day">最近30天2元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-30),2,30) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-30),2,30) %>次</p> 
+						
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">最近30天50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-30),5,30) %></p> 
-						<p class="overview_type">次</p>
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-30),5,30) %>次</p> 
+					
 					</div>
 				</article> 
 				<div class="clear"></div>
