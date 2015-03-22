@@ -83,6 +83,7 @@
     <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
+    <Content Include="Admin\UserSearch.aspx" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
@@ -131,7 +132,6 @@
     <Content Include="Admin\js\jquery.equalHeight.js" />
     <Content Include="Admin\js\jquery.tablesorter.min.js" />
     <Content Include="Admin\login.aspx" />
-    <Content Include="Admin\UserSearch.aspx" />
     <Content Include="BounsUsed.aspx" />
     <Content Include="clear.aspx" />
     <Content Include="css\reset.css" />
