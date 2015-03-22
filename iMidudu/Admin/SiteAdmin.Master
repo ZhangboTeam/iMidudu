@@ -50,7 +50,7 @@
 </script>
 </head>
 <body>
-    <form runat="server">
+    <form runat="server" onsubmit="return false;">
         <header id="header">
             <hgroup>
                 <h1 class="site_title"><a href="/Admin/" class="logo">

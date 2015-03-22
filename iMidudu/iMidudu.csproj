@@ -38,8 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Deepleo.Weixin.SDK">
-      <HintPath>..\packages\Deepleo.Weixin.SDK.dll</HintPath>
+    <Reference Include="AspNetPager, Version=7.4.5.0, Culture=neutral, PublicKeyToken=fb0a0fe055d40fd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\AspNetPager.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3-beta1\lib\net45\EntityFramework.dll</HintPath>
@@ -84,6 +85,8 @@
     <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\UserSearch.aspx" />
+    <Content Include="bin\AspNetPager.dll" />
+    <Content Include="bin\AspNetPager.xml" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
@@ -290,13 +293,6 @@
     </Compile>
     <Compile Include="Admin\UserManage.aspx.designer.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\UserSearch.aspx.cs">
-      <DependentUpon>UserSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\UserSearch.aspx.designer.cs">
-      <DependentUpon>UserSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">

@@ -207,6 +207,27 @@ namespace SystemDAO
                     throw;
                 }
             }
+
+            public static SqlDataReader ExecuteReaderFromStoredProcedure(  string cmdText,   params  SqlParameter[] commandParameters)
+            {
+                SqlCommand cmd = new SqlCommand();
+                SqlConnection conn = new SqlConnection(connectionString);
+                // we use a try/catch here because if the method throws an exception we want to 
+                // close the connection throw code, because no datareader will exist, hence the 
+                // commandBehaviour.CloseConnection will not work
+                try
+                {
+                    PrepareCommand(cmd, conn, null,  CommandType.StoredProcedure, cmdText, commandParameters);
+                    SqlDataReader rdr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
+                    //cmd.Parameters.Clear();坑
+                    return rdr;
+                }
+                catch
+                {
+                    conn.Close();
+                    throw;
+                }
+            }
             #region//ExecuteDataSet方法
 
             /// <summary>
