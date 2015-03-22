@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
+﻿<%@ Page Title="领取金额TOP10" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
     <article class="module width_full">
             <header>
-                <h3 class="tabs_involved"> </h3>
+                <h3 class="tabs_involved">领取金额TOP10 </h3>
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">

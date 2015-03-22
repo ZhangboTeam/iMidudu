@@ -85,10 +85,10 @@
     <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
+    <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
-    <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\RedBagTotal.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\UserManage.aspx" />
