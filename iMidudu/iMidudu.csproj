@@ -86,7 +86,6 @@
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\UserSearch.aspx" />
     <Content Include="bin\AspNetPager.dll" />
-    <Content Include="bin\AspNetPager.xml" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
