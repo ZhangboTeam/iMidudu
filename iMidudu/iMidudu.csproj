@@ -77,11 +77,17 @@
     <Content Include="Admin\ActivityDividedSearch.aspx" />
     <Content Include="Admin\ActivityManage.aspx" />
     <Content Include="Admin\AdminManage.aspx" />
+    <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
+    <Content Include="Admin\css\style.css" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\images\arrow.png" />
+    <Content Include="Admin\images\bg.png" />
     <Content Include="Admin\images\iMidudu.png" />
+    <Content Include="Admin\js\jquery.min.js" />
     <Content Include="Admin\js\Login.js" />
+    <Content Include="Admin\js\login2.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
