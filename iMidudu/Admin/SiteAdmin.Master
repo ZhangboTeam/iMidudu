@@ -53,7 +53,7 @@
     <form runat="server">
         <header id="header">
             <hgroup>
-                <h1 class="site_title"><a href="/Admin/RedBagTotal.aspx" class="logo">
+                <h1 class="site_title"><a href="/Admin/" class="logo">
                     <img src="/Admin/images/iMidudu.png" /></a></h1>
                 <h2 class="section_title">后台数据管理平台</h2>
             </hgroup>
@@ -102,6 +102,7 @@
         </section>
             <footer>
                 <hr /> 
+                <p align="center">&copy 2015 www.suusee.com</p>
             </footer>
     </form>
 </body>
