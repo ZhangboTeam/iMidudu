@@ -5,7 +5,7 @@
     private string ky = "";
     private int totalCount;
     private int totalCount2;
-    private int totalCount5;
+    private int totalCount50;
     private int totalOpenId;
     private double totalMoney;
 
@@ -27,7 +27,7 @@
         var key2 = new System.Data.SqlClient.SqlParameter("@ky", ky == null ? "" : ky);
         var sptotalCount = new System.Data.SqlClient.SqlParameter("@totalCount",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
         var sptotalCount2 = new System.Data.SqlClient.SqlParameter("@totalCount2",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
-        var sptotalCount5 = new System.Data.SqlClient.SqlParameter("@totalCount5",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
+        var sptotalCount50 = new System.Data.SqlClient.SqlParameter("@totalCount5",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
         var sptotalOpenId = new System.Data.SqlClient.SqlParameter("@totalOpenId", System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output ,Size=4 };
         var sptotalMoney = new System.Data.SqlClient.SqlParameter("@totalMoney", System.Data.SqlDbType.Float) { Direction = System.Data.ParameterDirection.Output,Size=4  };
 
@@ -47,13 +47,13 @@
              ,
            new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
            new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
-           sptotalCount,sptotalCount2,sptotalCount5,sptotalOpenId,sptotalMoney
+           sptotalCount,sptotalCount2,sptotalCount50,sptotalOpenId,sptotalMoney
         });
         cn.Open();
         var dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
         this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%'", key);
         this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=2;", key);
-        this.totalCount5 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=5;", key);
+        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=50;", key);
         this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
         this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
         return dr;
@@ -83,7 +83,7 @@
         }
     </script>
     <div class="quick_search width_half_search">
-        <input type="text"  id="key" placeholder="按用户名查找">
+        <input type="text"  id="key" placeholder="按用户名查找"/>
         <input type="button" onclick="dosearch();" value="搜索"/>
     </div>
 
@@ -165,12 +165,12 @@
                 <label>元&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 2元的</label>
                 <label><%#totalCount2 %></label>
                 <label>份&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 50元的 </label>
-                <label><%#totalCount5 %></label>
+                <label><%#totalCount50 %></label>
                 <label>份</label>
 
             </div>
             <div class="submit_link">
-                <input type="submit" value="导出表格" class="alt_btn">
+                <input type="submit" value="导出表格" class="alt_btn"/>
             </div>
         </footer>
     </article>

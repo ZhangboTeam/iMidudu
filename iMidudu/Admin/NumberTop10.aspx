@@ -49,7 +49,7 @@
                     </table>
                         </FooterTemplate>
                                     </asp:Repeater>
-            </asp:Repeater>
+            
 
                     <footer>
                         <div class="submit_link">

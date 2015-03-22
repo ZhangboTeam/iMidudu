@@ -1,39 +1,65 @@
 ﻿<%@ Page Title="非法领取红包人的信息" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT MembershipInfo.UserName, MembershipInfo.Sex, MembershipInfo.Mobile, MembershipInfo.Country, MembershipInfo.Province, MembershipInfo.City, MembershipInfo.Nickname, MembershipInfo.RecentLoginDate, MembershipInfo.RegDate, Activity.ActivityName, BadBonusHistory.ReceiptDate, BadBonusHistory.BonusCode FROM BadBonusHistory INNER JOIN Activity ON BadBonusHistory.AcitvityId = Activity.AcitvityId INNER JOIN MembershipInfo ON BadBonusHistory.OpenId = MembershipInfo.OpenId"></asp:SqlDataSource>
             <article class="module width_full">
             <header>
                 <h3 class="tabs_involved">非法领取红包人的信息</h3>
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
-                    <table class="tablesorter" cellspacing="0">
+         <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            
+                    <HeaderTemplate>
+                           <table class="tablesorter" cellspacing="0">
                         <thead>
                             <tr>
+                            <th>非法码</th>
                             <th>用户名</th>
                             <th>微信用户名</th>
+                            <th>性别</th>
                             <th>手机</th>
                             <th>国家</th>
                             <th>省</th>
                             <th>市（区）</th>
                             <th>活动名称</th>
-                            <th>领取金额</th>
                             <th>领取时间</th>
+                            <th>最近登录时间</th>
+                            <th>注册时间</th>
                             </tr>
                         </thead>
+                        </HeaderTemplate>
+                        <ItemTemplate>
                         <tbody>
                             <tr>
+                            <td>       <%#Eval("BonusCode") %>   </td>
                             <td>       <%#Eval("UserName") %>   </td>
                             <td>       <%#Eval("Nickname") %>   </td>
+                            <td>       <%#Eval("Sex") %>   </td>
                             <td>       <%#Eval("Mobile") %>   </td>
                             <td>       <%#Eval("Country") %>   </td>
                             <td>       <%#Eval("Province") %>   </td>
                             <td>       <%#Eval("City") %>   </td>
                             <td>       <%#Eval("ActivityName") %>   </td>
-                            <td>       <%#Eval("Amount") %>   </td>
                             <td>       <%#Eval("ReceiptDate") %>   </td>
+                            <td>       <%#Eval("RecentLoginDate") %>   </td>
+                            <td>       <%#Eval("RegDate") %>   </td>
                             </tr>
                         </tbody>
+                        </ItemTemplate>
+                        <FooterTemplate>
+
+
+                        </tbody>
                     </table>
+                        </FooterTemplate>
+                                    </asp:Repeater>
+            
+
+                    <footer>
+                        <div class="submit_link">
+                            <input type="submit" value="导出表格" class="alt_btn">
+                        </div>
+                    </footer>
                 </div><!-- end of #tab1 -->
 
 
@@ -41,5 +67,4 @@
             </div><!-- end of .tab_container -->
 
         </article>
-
 </asp:Content>

@@ -77,7 +77,6 @@
     <Content Include="Admin\ActivityDividedSearch.aspx" />
     <Content Include="Admin\ActivityManage.aspx" />
     <Content Include="Admin\AdminManage.aspx" />
-    <Content Include="Admin\AllActivityUserSearch.aspx" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\Default.aspx" />
@@ -87,6 +86,7 @@
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
     <Content Include="Admin\IllegalInformation.aspx" />
+    <Content Include="Admin\AllActivityUserSearch.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\TimeSearch.aspx" />
@@ -222,13 +222,6 @@
     <Compile Include="Admin\AdminManage.aspx.designer.cs">
       <DependentUpon>AdminManage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\AllActivityUserSearch.aspx.cs">
-      <DependentUpon>AllActivityUserSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\AllActivityUserSearch.aspx.designer.cs">
-      <DependentUpon>AllActivityUserSearch.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -263,13 +256,6 @@
     </Compile>
     <Compile Include="Admin\UserManage.aspx.designer.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\IllegalInformation.aspx.cs">
-      <DependentUpon>IllegalInformation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\IllegalInformation.aspx.designer.cs">
-      <DependentUpon>IllegalInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">
