@@ -10,6 +10,6 @@
 namespace iMidudu.Admin {
     
     
-    public partial class IllegalInformation {
+    public partial class WebForm1 {
     }
 }

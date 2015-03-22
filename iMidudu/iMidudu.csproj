@@ -81,15 +81,14 @@
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\Default.aspx" />
-    <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
+    <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
-    <Content Include="Admin\RedBagTotal.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
@@ -237,13 +236,6 @@
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\IllegalInformation.aspx.cs">
-      <DependentUpon>IllegalInformation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\IllegalInformation.aspx.designer.cs">
-      <DependentUpon>IllegalInformation.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,13 +249,6 @@
     </Compile>
     <Compile Include="Admin\NumberTop10.aspx.designer.cs">
       <DependentUpon>NumberTop10.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\RedBagTotal.aspx.cs">
-      <DependentUpon>RedBagTotal.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\RedBagTotal.aspx.designer.cs">
-      <DependentUpon>RedBagTotal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
@@ -285,6 +270,13 @@
     </Compile>
     <Compile Include="Admin\UserManage.aspx.designer.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\IllegalInformation.aspx.cs">
+      <DependentUpon>IllegalInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\IllegalInformation.aspx.designer.cs">
+      <DependentUpon>IllegalInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">
