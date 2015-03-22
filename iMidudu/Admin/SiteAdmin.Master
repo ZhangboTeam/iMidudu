@@ -53,7 +53,7 @@
     <form runat="server" onsubmit="return false;">
         <header id="header">
             <hgroup>
-                <h1 class="site_title"><a href="/Admin/" class="logo">
+                <h1 class="site_title"><a href="/Admin/Default.aspx" class="logo">
                     <img src="/Admin/images/iMidudu.png" /></a></h1>
                 <h2 class="section_title">后台数据管理平台</h2>
             </hgroup>
@@ -89,7 +89,7 @@
                 <li class="icn_categories"><a href="/Admin/MoneyTop10.aspx">领取金额top10</a></li>
                 <li class="icn_categories"><a href="/Admin/NumberTop10.aspx">领取次数top10</a></li>
                 <li class="icn_settings"><a href="/Admin/AllActivityUserSearch.aspx">查看所有参加活动用户</a></li>
-                <li class="icn_categories"><a href="/Admin/RedBagTotal.aspx">红包统计</a></li>
+                <li class="icn_categories"><a href="/Admin/default.aspx">红包统计</a></li>
                 <li class="icn_settings"><a href="/Admin/IllegalInformation.aspx">非法领取人的信息</a></li>
 
             </ul>
