@@ -108,6 +108,7 @@
                             <th>用户ID</th>--%>
                             <th>用户名</th>
                             <th>微信用户名</th>
+                            <th>头像</th>
                             <th>手机</th>
                             <th>国家</th>
                             <th>省</th>
@@ -126,6 +127,7 @@
                             <td>       <%#Eval("OpenId") %>   </td>--%>
                             <td>       <%#Eval("UserName") %>   </td>
                             <td>       <%#Eval("Nickname") %>   </td>
+                            <td> <a href="<%#Eval("Pic") %>" target="_blank" ><img src='<%#Eval("Pic") %>' width="30" /> </a>  </td>
                             <td>       <%#Eval("Mobile") %>   </td>
                             <td>       <%#Eval("Country") %>   </td>
                             <td>       <%#Eval("Province") %>   </td>
@@ -142,7 +144,7 @@
                     </FooterTemplate>
                 </asp:Repeater>
 
-                <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList" 
+                <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList"  
                     FirstPageText="【首页】"
     LastPageText="【尾页】" NextPageText="【后页】"
         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】"   TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第"  HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="Page  <font color='red'><b>%CurrentPageIndex%</b></font> of  %PageCount%  Order %StartRecordIndex%-%EndRecordIndex%">
