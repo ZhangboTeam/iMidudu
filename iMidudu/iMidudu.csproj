@@ -85,6 +85,7 @@
     <Content Include="Admin\images\arrow.png" />
     <Content Include="Admin\images\bg.png" />
     <Content Include="Admin\images\iMidudu.png" />
+    <Content Include="Admin\images\Logo_login.png" />
     <Content Include="Admin\js\jquery.min.js" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\js\login2.js" />

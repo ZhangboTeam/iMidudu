@@ -60,7 +60,7 @@
 
 
 
-<h2 align="center">登陆界面</h2>
+<h2 align="center"><img  src="images/Logo_login.png"/></h2>
 
 <div class="login_frame"></div>
 
