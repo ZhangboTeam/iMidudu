@@ -84,10 +84,10 @@
     <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\images\iMidudu.png" />
     <Content Include="Admin\js\Login.js" />
+    <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
-    <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\RedBagTotal.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
@@ -250,13 +250,6 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\MoneyTop10.aspx.cs">
-      <DependentUpon>MoneyTop10.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\MoneyTop10.aspx.designer.cs">
-      <DependentUpon>MoneyTop10.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\NumberTop10.aspx.cs">
       <DependentUpon>NumberTop10.aspx</DependentUpon>
