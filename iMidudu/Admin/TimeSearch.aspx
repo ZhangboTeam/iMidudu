@@ -13,7 +13,7 @@
         base.OnLoad(e);
         if (!IsPostBack)
         {
-            if (string.IsNullOrEmpty(this.Request["key1"]) ||string.IsNullOrEmpty(this.Request["key1"]))
+            if (string.IsNullOrEmpty(this.Request["key1"]) ||string.IsNullOrEmpty(this.Request["key2"]))
             {
                 return;
             }
@@ -40,7 +40,10 @@
         });
         cn.Open();
         var dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-        string sql1 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'",this.Request["key1"],this.Request["key2"]);
+        var key4=this.Request["key2"];
+        DateTime key3 = Convert.ToDateTime(key4);
+        key3 = key3.AddDays(2);
+        string sql1 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'",this.Request["key1"],key3);
         this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql1);
 
         //this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)",key3,key4);
@@ -56,7 +59,7 @@
         {
             return;
         }
-        if (string.IsNullOrEmpty(this.Request["key1"]) ||string.IsNullOrEmpty(this.Request["key1"]))
+        if (string.IsNullOrEmpty(this.Request["key2"]) ||string.IsNullOrEmpty(this.Request["key2"]))
         {
             return;
         }
