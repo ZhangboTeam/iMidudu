@@ -14,7 +14,7 @@
     {
         base.OnLoad(e);
         key1 = this.Request["key1"];
-        key1 = this.Request["key2"];
+        key2 = this.Request["key2"];
         if (!IsPostBack)
         {
             this.LoadData();
@@ -25,8 +25,8 @@
 
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
-        var key3 = new System.Data.SqlClient.SqlParameter("@ky", key1 == null ? "" : key1);
-        var key4 = new System.Data.SqlClient.SqlParameter("@key", key2 == null ? "" : key2);
+        var key3 = new System.Data.SqlClient.SqlParameter("@key1", key1 == null ? "" : key1);
+        var key4 = new System.Data.SqlClient.SqlParameter("@key2", key2 == null ? "" : key2);
         var sptotalCount = new System.Data.SqlClient.SqlParameter("@totalCount",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
         var sptotalCount2 = new System.Data.SqlClient.SqlParameter("@totalCount2",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
         var sptotalCount50 = new System.Data.SqlClient.SqlParameter("@totalCount5",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
@@ -52,11 +52,11 @@
         });
         cn.Open();
         var dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)",key3,key4);
-        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=2 and cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
-        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=50 and cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
-        this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
-        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+  /*      this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)",key3,key4);
+        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=2 and cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=50 and cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+        this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);*/
         return dr;
     }
     public override void DataBind()
