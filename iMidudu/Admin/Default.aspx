@@ -15,10 +15,12 @@
 						<p class="overview_day">已用二维码总数</p>
 						<p class="overview_count"><%=iMidudu.AdminTool.TotalBonusUsed %>个</p>
 						
-						<p class="overview_count">共<%=iMidudu.AdminTool.TotalBonusMoneyUsed %>元</p>
-                        <p class="overview_count"></p>
-						
+						<p class="overview_day">总共领走</p>
+                        
+                        <p class="overview_count"><%=iMidudu.AdminTool.TotalBonusMoneyUsed %>元</p>
+
 					</div>
+
 					<div class="overview_today">
 						<p class="overview_day">今天2元领取</p>
 						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,2,1) %>次</p> 

@@ -94,9 +94,9 @@
     <Content Include="Admin\UserSearch.aspx" />
     <Content Include="Admin\IllegalInformation.aspx" />
     <Content Include="Admin\AllActivityUserSearch.aspx" />
+    <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
-    <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
     <Content Include="Admin\images\btn_submit.png" />
@@ -249,13 +249,6 @@
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Admin\TimeSearch.aspx.cs">
-      <DependentUpon>TimeSearch.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\TimeSearch.aspx.designer.cs">
-      <DependentUpon>TimeSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\UserManage.aspx.cs">
       <DependentUpon>UserManage.aspx</DependentUpon>
