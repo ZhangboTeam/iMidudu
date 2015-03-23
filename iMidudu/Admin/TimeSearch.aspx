@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="按时间查询" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
-
 <script runat="server"> 
 
     private int totalCount;
@@ -26,13 +25,13 @@
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
         var keyb = new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"]));
-        var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]));
-
+        var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]));;
+        Console.WriteLine(DateTime.Parse(this.Request["key2"]));
         var cmd = new System.Data.SqlClient.SqlCommand();
         var cn = new System.Data.SqlClient.SqlConnection(System.Web.Configuration.WebConfigurationManager.AppSettings["con"]);
         cmd.Connection = cn;
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        cmd.CommandText = "usp_UserSearchByDate";
+        cmd.CommandText = "usp_UserSearchByDate1";
         cmd.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
            new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
            new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
@@ -42,15 +41,20 @@
         var dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
         var key4=this.Request["key2"];
         DateTime key3 = Convert.ToDateTime(key4);
-        key3 = key3.AddDays(2);
-        string sql1 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'",this.Request["key1"],key3);
-        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql1);
+        key3 = key3.AddDays(1);
+        //string sql1 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql2 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql3 = string.Format("select  count(*) from ViewBonusHistory where Amount=2 and receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql4 = string.Format("select  count(*) from ViewBonusHistory where Amount=50 and receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql5 = string.Format("select  count(distinct([OpenId] )) from ViewBonusHistory  where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql6 = string.Format("select  SUM(amount) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        //this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql1);
 
-        //this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)",key3,key4);
-        // this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=2 and cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
-        // this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=50 and cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
-        // this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
-        // this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where cast( @key1 as datetime)>cast( ReceiptDate as datetime) and ( @key2 as datetime)<cast( ReceiptDate as datetime)", key3, key4); 
+        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql2);
+         this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql3);
+         this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql4);
+         this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql5);
+         this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql6); 
         return dr;
     }
     public override void DataBind()
@@ -86,13 +90,13 @@
             if (key2 == "" || key2 == null) {
                // return;
             }
-            window.location = "TimeSearch.aspx?key1=" + key1+"&key2="+key2;
+            window.location = "TimeSearch.aspx?key1=" + key1 + "&key2=" + key2;
         }
     </script>
      
         <div class="quick_search ">
             <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
-			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
+			<input type="text"id="key2" value="<%=DateTime.Today.AddDays(+1).ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
                 <input type="button" value="搜索" onclick="dosearch();" class="alt_btn"/>
 		</div> 
     <article class="module width_full">
