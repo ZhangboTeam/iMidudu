@@ -67,29 +67,13 @@
 <div class="LoginWindow">
 	<div>
 		<div class="login">
-			<p><input type="text" name="id" id="id" placeholder="用户名" value=""></p>
-			<p><input type="password" name="password" id="password" placeholder="密码" value=""></p>
-			<p class="login-submit"><button type="submit" class="login-button" id ="submit">登录</button></p>
+			<p><input type="text" name="id" id="UserName" placeholder="用户名" value=""/></p>
+			<p><input type="password" name="password" id="pwd" placeholder="密码" value=""/></p>
+			<p class="login-submit"><button type="submit" class="login-button" id ="ok">登录</button></p>
 		</div>
-	<p class="registration  btn" id="regiest"><a>快速注册</a></p>
 	</div>
 </div>
 	
-
-<div class="box">
-	<div class="regiest">
-		<p><input type="text" id="username" placeholder="用户名"></p>
-		<p><input type="text" id="nickname" placeholder="昵称" ></p>
-		<p><input type="password" id="password" placeholder="密码" ></p>
-		<p><input type="password" id="finalPWD" placeholder="确认密码"></p>
-		<div id="btn2">
-			<ul>
-				<li><input type="button" value="关闭" class="colse"/></li>
-				<li><input type="button" value="提交" class="sumbmit"/></li>
-			</ul>
-		</div>
-	</div>
-</div>
 
 
 
