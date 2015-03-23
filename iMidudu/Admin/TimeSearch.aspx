@@ -82,17 +82,16 @@
             window.location = "UserSearch.aspx?key=" + key;
         }
     </script>
-    <div class="quick_search width_half_search">
-        <input type="text"  id="key" placeholder="按用户名查找"/>
-        <input type="button" onclick="dosearch();" value="搜索"/>
-    </div>
+    
 		<form class="quick_search width_half_search">
 			<input type="text" value="按用户名查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
 		</form>
         <form class="quick_search width_half_search">
 			<input type="text" value="按电话查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
 		</form>
-
+        <div class="submit_link">
+                <input type="submit" value="搜索" class="alt_btn"/>
+            </div>
     <article class="module width_full">
         <header>
             <h3 class="tabs_involved">查询条件<%=ky ==null?"所有数据" :ky %></h3>
@@ -149,11 +148,11 @@
                     </FooterTemplate>
                 </asp:Repeater>
 
-                <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList"  
+                <webdiyer:aspnetpager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList"  
                     FirstPageText="【首页】"
     LastPageText="【尾页】" NextPageText="【后页】"
         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】"   TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第"  HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="Page  <font color='red'><b>%CurrentPageIndex%</b></font> of  %PageCount%  Order %StartRecordIndex%-%EndRecordIndex%">
-                </webdiyer:AspNetPager>
+                </webdiyer:aspnetpager>
             </div>
             <!-- end of #tab1 -->
 
