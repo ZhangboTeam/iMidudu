@@ -89,7 +89,7 @@
         <form class="quick_search width_half_search">
 			<input type="text" value="按电话查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
 		</form>
-        <div class="submit_link">
+         <div class="submit_link">
                 <input type="submit" value="搜索" class="alt_btn"/>
             </div>
     <article class="module width_full">
@@ -148,11 +148,11 @@
                     </FooterTemplate>
                 </asp:Repeater>
 
-                <webdiyer:aspnetpager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList"  
+                <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList"  
                     FirstPageText="【首页】"
     LastPageText="【尾页】" NextPageText="【后页】"
         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】"   TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第"  HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="Page  <font color='red'><b>%CurrentPageIndex%</b></font> of  %PageCount%  Order %StartRecordIndex%-%EndRecordIndex%">
-                </webdiyer:aspnetpager>
+                </webdiyer:AspNetPager>
             </div>
             <!-- end of #tab1 -->
 
