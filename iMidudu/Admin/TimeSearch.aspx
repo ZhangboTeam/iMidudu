@@ -83,12 +83,12 @@
         }
     </script>
     
-		 <form class="quick_search width_half_search">
+		 <div class="quick_search width_half_search">
 			<input type="text" value="按用户名查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
-		</form>
-        <form class="quick_search width_half_search">
+		</div>
+        <div class="quick_search width_half_search">
 			<input type="text" value="按电话查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
-		</form>
+		</div>
          <div class="submit_link">
                 <input type="submit" value="搜索" class="alt_btn"/>
             </div>
