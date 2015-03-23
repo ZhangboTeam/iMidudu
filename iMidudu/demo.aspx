@@ -136,17 +136,17 @@
         //   Response.Write(bouns);
         //   Response.End();
         //bouns += "1";//测试错误代码
-        var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", bouns);
+      //  var sql = string.Format("select count(*) from Bonus where BonusCode='{0}'", bouns);
         //Response.Write(sql);
         //Response.End();
-        var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
+     //   var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
 
-        if (!exists)
-        {
-            Response.Write("红包码非法！");
-            Response.End();
+       // if (!exists)
+       // {
+        //    Response.Write("红包码非法！");
+         //   Response.End();
 
-        }
+        //}
         if (string.IsNullOrEmpty(acitvity))
         {
             acitvity = System.Web.Configuration.WebConfigurationManager.AppSettings["defaultActivityId"];
