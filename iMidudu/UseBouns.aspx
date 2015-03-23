@@ -95,21 +95,36 @@
 
             var xml = "";
             var rrr =  WX.openBouns(this.Request["bouns"], this.Request["acitvity"], this.Request["openid"],out xml);
-            Response.Write(xml);
+           // Response.Write(xml);
             var amount = int.Parse(rrr);
-            if (amount > 0) {
+            if (amount == -3)
+            {
+                Response.Write("余额不足");
+                Response.End();
 
-                // alert("红包开出金额:" + amount);
-                // alert("转到公众号首页");
-                // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
-                if (amount == 2) {
-                    Response.Redirect( "/perfetti50.aspx");
-                } else {  Response.Redirect( "/perfetti2.aspx");
-                }
             }
-            else {
+            else
+            {
+                if (amount > 0)
+                {
 
-                Response.Write("红包领取失败,您可能下手慢了");
+                    // alert("红包开出金额:" + amount);
+                    // alert("转到公众号首页");
+                    // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+                    if (amount == 2)
+                    {
+                        Response.Redirect("/perfetti50.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("/perfetti2.aspx");
+                    }
+                }
+                else
+                {
+
+                    Response.Write("红包领取失败,您可能下手慢了");
+                }
             }
 
     %>
@@ -118,7 +133,7 @@
    <% //上限: %><%//=limit %>
         <br />
         <div>
-            <%=xml %>
+            <%//=xml %>
         </div>
         <script>
         </script>
@@ -167,22 +182,26 @@
 
 
                         var amount = parseFloat(r);
-                        if (amount > 0) {
+                        if (amount == 3) {
+                            
+                           
+                        } else {
+                            if (amount > 0) {
 
-                            // alert("红包开出金额:" + amount);
-                            // alert("转到公众号首页");
-                            // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
-                            if (amount == 2) {
-                                window.location = "/perfetti50.aspx";
-                            } else {
-                                window.location = "/perfetti2.aspx";
+                                // alert("红包开出金额:" + amount);
+                                // alert("转到公众号首页");
+                                // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+                                if (amount == 2) {
+                                    window.location = "/perfetti50.aspx";
+                                } else {
+                                    window.location = "/perfetti2.aspx";
+                                }
+                            }
+                            else {
+                                alert(r);
+                                alert("红包领取失败,您可能下手慢了");
                             }
                         }
-                        else {
-                            alert(r);
-                            alert("红包领取失败,您可能下手慢了");
-                        }
-
                     });
             } 
     </script>
