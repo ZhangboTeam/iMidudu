@@ -89,6 +89,7 @@
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\js\login2.js" />
     <Content Include="Admin\MoneyTop10.aspx" />
+    <Content Include="Admin\Morethan15.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
