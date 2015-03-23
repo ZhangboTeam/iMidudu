@@ -83,7 +83,7 @@
         }
     </script>
     
-		<form class="quick_search width_half_search">
+		 <form class="quick_search width_half_search">
 			<input type="text" value="按用户名查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
 		</form>
         <form class="quick_search width_half_search">
