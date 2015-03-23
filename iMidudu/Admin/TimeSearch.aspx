@@ -82,16 +82,11 @@
             window.location = "UserSearch.aspx?key=" + key;
         }
     </script>
-    
-		 <div class="quick_search width_half_search">
-			<input type="text" value="按用户名查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
-		</div>
-        <div class="quick_search width_half_search">
-			<input type="text" value="按电话查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
-		</div>
-         <div class="submit_link">
+     
+        <div class="quick_search "><input type="text" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
+			<input type="text" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
                 <input type="submit" value="搜索" class="alt_btn"/>
-            </div>
+		</div> 
     <article class="module width_full">
         <header>
             <h3 class="tabs_involved">查询条件<%=ky ==null?"所有数据" :ky %></h3>
