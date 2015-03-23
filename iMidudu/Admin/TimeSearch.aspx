@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
+﻿<%@ Page Title="按时间查询" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
 
 <script runat="server"> 
 
-    private string ky = "";
+    private string key1 = "";
+    private string key2 = "";
     private int totalCount;
     private int totalCount2;
     private int totalCount50;
@@ -12,7 +13,8 @@
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
-        ky = this.Request["key"];
+        key1 = this.Request["key1"];
+        key1 = this.Request["key2"];
         if (!IsPostBack)
         {
             this.LoadData();
@@ -23,8 +25,8 @@
 
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
-        var key = new System.Data.SqlClient.SqlParameter("@ky", ky == null ? "" : ky);
-        var key2 = new System.Data.SqlClient.SqlParameter("@ky", ky == null ? "" : ky);
+        var key3 = new System.Data.SqlClient.SqlParameter("@ky", key1 == null ? "" : key1);
+        var key4 = new System.Data.SqlClient.SqlParameter("@key", key2 == null ? "" : key2);
         var sptotalCount = new System.Data.SqlClient.SqlParameter("@totalCount",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
         var sptotalCount2 = new System.Data.SqlClient.SqlParameter("@totalCount2",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
         var sptotalCount50 = new System.Data.SqlClient.SqlParameter("@totalCount5",  System.Data.SqlDbType.Int) { Direction = System.Data.ParameterDirection.Output,Size=4  };
@@ -43,19 +45,18 @@
         cmd.Connection = cn;
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
         cmd.CommandText = "usp_UserSearch";
-        cmd.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {key2
-             ,
+        cmd.Parameters.AddRange(new System.Data.SqlClient.SqlParameter[] {
            new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
            new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
            sptotalCount,sptotalCount2,sptotalCount50,sptotalOpenId,sptotalMoney
         });
         cn.Open();
         var dr = cmd.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%'", key);
-        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=2;", key);
-        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=50;", key);
-        this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
-        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
+        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)",key3,key4);
+        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=2 and cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where Amount=50 and cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+        this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
+        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where cast( @key3 as datetime)>cast( ReceiptDate as datetime) and ( @key4 as datetime)<cast( ReceiptDate as datetime)", key3, key4);
         return dr;
     }
     public override void DataBind()
@@ -75,21 +76,26 @@
     <script>
 
         function dosearch() {
-            var key = $("#key").val();
-            if (key == "" || key == null) {
-                //  alert("输入查询条件"); return;
+            var key1 = $("#key1").val();
+            var key2 = $("#key2").val();
+            if (key1 == "" || key == null) {
+               // return;
             }
-            window.location = "UserSearch.aspx?key=" + key;
+            if (key2 == "" || key == null) {
+               // return;
+            }
+            window.location = "UserSearch.aspx?key1=" + key1+"&key2="+key2;
         }
     </script>
      
-        <div class="quick_search "><input type="text" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
-			<input type="text" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
-                <input type="submit" value="搜索" class="alt_btn"/>
+        <div class="quick_search ">
+            <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
+			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
+                <input type="button" value="搜索" onclick="dosearch();" class="alt_btn"/>
 		</div> 
     <article class="module width_full">
         <header>
-            <h3 class="tabs_involved">查询条件<%=ky ==null?"所有数据" :ky %></h3>
+            <h3 class="tabs_involved">按时间查询</h3>
 
         </header>
         <div class="tab_container">
