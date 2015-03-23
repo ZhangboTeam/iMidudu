@@ -76,6 +76,7 @@
   <ItemGroup>
     <Content Include="Admin\ActivityManage.aspx" />
     <Content Include="Admin\AdminManage.aspx" />
+    <Content Include="Admin\AdminManage1.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\ie.css" />
     <Content Include="Admin\css\layout.css" />
@@ -97,6 +98,7 @@
     <Content Include="Admin\AllActivityUserSearch.aspx" />
     <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\ActivityDividedSearch.aspx" />
+    <Content Include="Admin\WebForm1.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
@@ -209,6 +211,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminTool.cs" />
+    <Compile Include="Admin\AdminManage.aspx.cs">
+      <DependentUpon>AdminManage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AdminManage.aspx.designer.cs">
+      <DependentUpon>AdminManage.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -229,6 +238,13 @@
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.designer.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">

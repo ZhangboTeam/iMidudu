@@ -1,48 +1,48 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"%>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="AdminManage.aspx.cs" Inherits="iMidudu.Admin.AdminManage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-<script type="text/javascript">
-    $(function () {
-        $('.column').equalHeight();
-    });
+    <script type="text/javascript">
+        $(function () {
+            $('.column').equalHeight();
+        });
 
 
 
-    $("#submit").click(
-       function () {
-           var UserName = $("#username").val();
-           var Password = $("#password").val();
-           if (UserName == "") {
-               alert("请输入姓名"); return;
-           }
-           if (PassWord == "") {
-               alert("请输入密码"); return;
-           }
-           $.post("/WebService.asmx/UpdateManager",
-               {
-                   LoginName: UserName,
-                   Password: Password,
-               }, function (data) {
+        $("#submit").click(
+           function () {
+               var UserName = $("#username").val();
+               var Password = $("#password").val();
+               if (UserName == "") {
+                   alert("请输入姓名"); return;
+               }
+               if (PassWord == "") {
+                   alert("请输入密码"); return;
+               }
+               $.post("/WebService.asmx/UpdateManager",
+                   {
+                       LoginName: UserName,
+                       Password: Password,
+                   }, function (data) {
 
-               });
-           var r = $(data).text();
-           if (r == "OK") {
-               window.location = "/AdminManage.aspx";
-           }
-           else {
-               alert(r);
-           }
+                   });
+               var r = $(data).text();
+               if (r == "OK") {
+                   window.location = "/AdminManage.aspx";
+               }
+               else {
+                   alert(r);
+               }
 
-       });
+           });
 
 </script>
-
-<section id="main" class="column">
+    <section id="main" class="column">
 		
         <article class="module width_full">
 		<header><h3 class="tabs_involved"></h3>
 		<ul class="tabs">
    			<li><a href="#tab1">Show</a></li>
     		<li><a href="#tab2">Edit</a></li>
+            <a href="WebForm1.aspx" target="_blank">Edit</a>
 		</ul>
 		</header>
 
@@ -72,17 +72,20 @@
 			<table class="tablesorter" cellspacing="0"> 
 			    <fieldset>
                                 <label>用户名</label>
-                                <input type="text" id="username" style="width:30%"><br /><br />
+                                <br />
+                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                <br />
                                 <p></p>
                                 <p></p>
                                 <label>密码</label>
-                                <input type="text"id="password" style="width:30%">
+                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
                             </fieldset>
 
 
                             <footer>
                                 <div class="submit_link">
-                                    <input type="submit" id="submit" value="确定" class="alt_btn">
+                                    <asp:Button ID="Button1" runat="server" Text="修改" OnClick="Button1_Click1" />
+                                 
                                 </div>
                             </footer> 
 			</table>
@@ -94,5 +97,4 @@
 		</article><!-- end of content manager article -->
 		
 	</section>
-
 </asp:Content>

@@ -117,7 +117,7 @@ namespace iMidudu
                 try
                 {
 
-                    SystemDAO.SqlHelper.ExecteNonQueryText("update SystemUser set LoginName=@UserName，Password=@Password where id='1')",
+                    SystemDAO.SqlHelper.ExecteNonQueryText("update SystemUser set LoginName=@UserName,Password=@Password where id='1')",
                     new System.Data.SqlClient.SqlParameter("@UserName", UserName),
                     new System.Data.SqlClient.SqlParameter("@Password", Password));
                 }
