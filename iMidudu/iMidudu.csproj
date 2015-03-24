@@ -101,6 +101,7 @@
     <Content Include="Admin\TimeSearch.aspx" />
     <Content Include="Admin\ActivityDividedSearch.aspx" />
     <Content Include="Admin\WebForm1.aspx" />
+    <Content Include="Admin\Blacklist.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="Admin\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Blacklist.aspx.cs">
+      <DependentUpon>Blacklist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Blacklist.aspx.designer.cs">
+      <DependentUpon>Blacklist.aspx</DependentUpon>
     </Compile>
     <Compile Include="Biz.cs" />
     <Compile Include="BounsUsed.aspx.cs">

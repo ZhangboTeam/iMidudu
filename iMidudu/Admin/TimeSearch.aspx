@@ -54,7 +54,14 @@
          this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql3);
          this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql4);
          this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql5);
-         this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql6); 
+         try
+         {
+             this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql6);
+         }
+         catch
+         {
+             this.totalMoney = 0;
+         }
         return dr;
     }
     public override void DataBind()
