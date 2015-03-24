@@ -25,7 +25,7 @@
     private System.Data.SqlClient.SqlDataReader LoadData()
     {
         var keyb = new System.Data.SqlClient.SqlParameter("@beginDate", DateTime.Parse(this.Request["key1"]));
-        var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]));;
+        var keye = new System.Data.SqlClient.SqlParameter("@endDate", DateTime.Parse(this.Request["key2"]).AddDays(1));;
         Console.WriteLine(DateTime.Parse(this.Request["key2"]));
         var cmd = new System.Data.SqlClient.SqlCommand();
         var cn = new System.Data.SqlClient.SqlConnection(System.Web.Configuration.WebConfigurationManager.AppSettings["con"]);
