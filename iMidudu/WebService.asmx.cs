@@ -125,6 +125,15 @@ namespace iMidudu
 		}
 
         [WebMethod(EnableSession = true)]
+        public bool Logout()
+        {
+            System.Web.HttpContext.Current.Session["UserName"] = null;
+                return true;
+        }
+
+
+
+        [WebMethod(EnableSession = true)]
         public string UpdateManager( string UserName, string Password)
         {
                 try
