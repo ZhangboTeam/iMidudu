@@ -55,7 +55,14 @@
         this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=2;", key);
         this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewBonusHistory where username like '%' + @ky + '%' and Amount=50;", key);
         this.totalOpenId = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(distinct([OpenId] )) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
-        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
+        try
+        {
+            this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(amount) from ViewBonusHistory where username like '%' + @ky + '%' ", key);
+        }
+        catch
+        {
+            this.totalMoney = 0;
+        }
         return dr;
     }
     public override void DataBind()
