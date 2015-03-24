@@ -63,14 +63,16 @@
    			<li><a href="#tab1">Show</a></li>
     		<li><a href="#tab2">Create</a></li>
 		</ul>
-		    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
-            </asp:Repeater>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT [AcitvityId], [BonusGroupId], [BonusLimit], [ActivityName], [BeginDate], [EndDate] FROM [Activity]"></asp:SqlDataSource>
+
+            
 		</header>
 
 		<div class="tab_container">
 			<div id="tab1" class="tab_content">
-			<table class="tablesorter" cellspacing="0"> 
+                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT [AcitvityId], [BonusGroupId], [BonusLimit], [ActivityName], [BeginDate], [EndDate] FROM [Activity]"></asp:SqlDataSource>
+		    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                <HeaderTemplate>			
+                <table class="tablesorter" cellspacing="0"> 
 			<thead> 
 				<tr> 
     				<th>活动ID</th> 
@@ -81,19 +83,26 @@
                     <th>结束时间</th>
 				</tr> 
 			</thead> 
+                        </HeaderTemplate>
+                        <ItemTemplate>
 			<tbody> 
 				<tr> 
-    				<td>XXXXX</td> 
-    				<td>XXXXX</td> 
-    				<td>XXXXX</td> 
-                    <td>XXXXX</td> 
-                    <td>XXXXX</td>
-                    <td>XXXXX</td> 
+    				<td><%#Eval("AcitvityId") %></td> 
+    				<td><%#Eval("BonusGroupId") %></td> 
+    				<td><%#Eval("BonusLimit") %></td> 
+                    <td><%#Eval("ActivityName") %></td> 
+                    <td><%#Eval("BeginDate") %></td>
+                    <td><%#Eval("EndDate") %></td> 
     			
 				</tr> 
-		
-			</tbody> 
-			</table>
+                        </ItemTemplate>
+                        <FooterTemplate>
+
+
+                        </tbody>
+                    </table>
+                        </FooterTemplate>
+                                    </asp:Repeater>
 			</div><!-- end of #tab1 -->
 			
 			<div id="tab2" class="tab_content">
