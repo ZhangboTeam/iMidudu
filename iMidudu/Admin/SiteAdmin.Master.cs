@@ -16,5 +16,11 @@ namespace iMidudu.Admin
 				this.Response.Redirect("~/Admin/Login.aspx");
 			}
         }
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            System.Web.HttpContext.Current.Session["UserName"] = null;
+            this.Response.Redirect("~/Admin/Login.aspx");
+
+        }
     }
 }

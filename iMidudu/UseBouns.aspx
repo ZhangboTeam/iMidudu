@@ -77,146 +77,48 @@
             var limit = iMidudu.Biz.BounsLimt(this.Request["acitvity"]);
             var usedCount = iMidudu.Biz.CountByAcitivtyAndOpenId(this.Request["acitvity"], this.Request["openid"]);
 
-
-            //var rr = WX.getOpenId(this.Request["code"]);
-            //var r = WX.getUserInfo(rr);// WX.getOpenId(); 
-            // var r = (UserInfo)this.Session["r"];
-
-
-            // iMidudu.Biz.Log(sql2);
-            //iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText(sql2);
-            //    iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("update MembershipInfo set Country=@Country,Province=@Province,City=@City,NickName=@NickName,Pic=@Pic where OpenId=@OpenId",
-            //new System.Data.SqlClient.SqlParameter("@Country", Server.UrlDecode(this.Request["C"])) { SqlDbType = System.Data.SqlDbType.NVarChar },
-            //new System.Data.SqlClient.SqlParameter("@Province", Server.UrlDecode(this.Request["P"])) { SqlDbType = System.Data.SqlDbType.NVarChar },
-            //new System.Data.SqlClient.SqlParameter("@City", Server.UrlDecode(this.Request["City"])) { SqlDbType = System.Data.SqlDbType.NVarChar },
-            //new System.Data.SqlClient.SqlParameter("@NickName", Server.UrlDecode(this.Request["Nickname"]) + "ttttt") { SqlDbType = System.Data.SqlDbType.NVarChar },
-            //new System.Data.SqlClient.SqlParameter("@Pic", this.Request["Pic"]) { SqlDbType = System.Data.SqlDbType.NVarChar },
-            //new System.Data.SqlClient.SqlParameter("@OpenId", this.Request["openid"]));
-
-            var xml = "";
-            var rrr =  WX.openBouns(this.Request["bouns"], this.Request["acitvity"], this.Request["openid"],out xml);
-           // Response.Write(xml);
-            var amount = int.Parse(rrr);
-            if (amount == -3)
+            if (usedCount < limit)
             {
-                Response.Write("余额不足");
-                Response.End();
-
-            }
-            else
-            {
-                if (amount > 0)
+                var xml = "";
+                var rrr = WX.openBouns(this.Request["bouns"], this.Request["acitvity"], this.Request["openid"], out xml);
+                // Response.Write(xml);
+                var amount = int.Parse(rrr);
+                if (amount == -3)
                 {
+                    Response.Write("余额不足");
+                    Response.End();
 
-                    // alert("红包开出金额:" + amount);
-                    // alert("转到公众号首页");
-                    // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
-                    if (amount == 2)
-                    {
-                        Response.Redirect("/perfetti50.aspx");
-                    }
-                    else
-                    {
-                        Response.Redirect("/perfetti2.aspx");
-                    }
                 }
                 else
                 {
+                    if (amount > 0)
+                    {
 
-                    Response.Write("红包领取失败,您可能下手慢了");
+                        // alert("红包开出金额:" + amount);
+                        // alert("转到公众号首页");
+                        // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
+                        if (amount == 2)
+                        {
+                            Response.Redirect("/perfetti50.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("/perfetti2.aspx");
+                        }
+                    }
+                    else
+                    {
+
+                        Response.Write("红包领取失败,您可能下手慢了");
+                    }
                 }
             }
-
-    %>
-        <%//=sql2 %>
-           
-   <% //上限: %><%//=limit %>
-        <br />
-        <div>
-            <%//=xml %>
-        </div>
-        <script>
-        </script>
-        <% //已领取:%> <%//=usedCount %>
-        <%if (usedCount < limit)
-            {%>
-   <% // 没有超出领取上限%>
-       
-        <%
-          //  var canUse = iMidudu.Biz.BounsCanUse(this.Request["bouns"]);
-          //  if (canUse)
-          //  {
-
-                // Response.Redirect("/perfetti2.aspx");
-                // Response.End();
-                %>
-        <%--  红包可用--%>
-        <input type="button" id="openBouns" value="打开红包" hidden />
-
-        <script>
-            // window.location = "/perfetti50.aspx";               
-            //  window.location = "/perfetti2.aspx"; 
-            //   return;
-            $(function () {
-              // tikeIt();
-            });
-
-            function tikeIt() {
-
-                var bouns = $("#bouns").val();
-                var acitvity = $("#acitvity").val();
-               // alert(acitvity);
-                var openid = $("#openid").val();
-                //alert(openid);
-                //alert(acitvity);
-                //alert(bouns);
-                //return false;
-                $.post("/WebService.asmx/openBouns",
-                    {
-                        bouns: bouns,
-                        acitvity: acitvity,
-                        openid: openid
-                    }, function (data) {
-                        var r = $(data).text();
-
-
-
-                        var amount = parseFloat(r);
-                        if (amount == 3) {
-                            
-                           
-                        } else {
-                            if (amount > 0) {
-
-                                // alert("红包开出金额:" + amount);
-                                // alert("转到公众号首页");
-                                // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
-                                if (amount == 2) {
-                                    window.location = "/perfetti50.aspx";
-                                } else {
-                                    window.location = "/perfetti2.aspx";
-                                }
-                            }
-                            else {
-                                alert(r);
-                                alert("红包领取失败,您可能下手慢了");
-                            }
-                        }
-                    });
-            } 
-    </script>
-        <%//}
-         //   else
-          //  {%>                
-        <%//}
-
-
-            }
             else
-            {%>
-        <% Response.Redirect("/limit.aspx");  %>
-        <%}
+            {
+                Response.Redirect("/limit.aspx");
+            }
     %>
+        <br />
     </form>
 </body>
 </html>

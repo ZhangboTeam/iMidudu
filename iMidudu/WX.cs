@@ -248,41 +248,24 @@ public class WX
             }
             //  return amount.ToString();
             //想openid打入真的钱
-            //string r; 
-            //var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r, out responseXML);
-            //if (postXML.Contains("success"))
-            //{
-            //    iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
-            //     new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
-            //     new System.Data.SqlClient.SqlParameter("@OpenId", openid),
-            //     new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
-            //     new System.Data.SqlClient.SqlParameter("@Amount", amount)
-            //    );
-            //    return amount.ToString();
-            //}
-            //else
-            //{
-            //    amount = -3;
-            //    return amount.ToString();
-                
-            //}
-
-
-            // return responseXML;
-            iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
-                         new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
-                         new System.Data.SqlClient.SqlParameter("@OpenId", openid),
-                         new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
-                         new System.Data.SqlClient.SqlParameter("@Amount", amount)
-                        );
-
-            //  return amount.ToString();
-            //想openid打入真的钱
-            string r;
+            string r; 
             var postXML = WX.SendBounsToOpenId(openid, (int)amount, WX.newBillNo(), Guid.Parse(acitvity), out r, out responseXML);
-            return amount.ToString();
-            
-
+            if (postXML.Contains("success"))
+            {
+                iMidudu.SystemDAO.SqlHelper.ExecteNonQueryText("insert into BonusHistory(BonusCode,OpenId,AcitvityId,Amount,ReceiptDate) values (@BonusCode,@OpenId,@AcitvityId,@Amount,getdate())",
+                 new System.Data.SqlClient.SqlParameter("@BonusCode", bouns),
+                 new System.Data.SqlClient.SqlParameter("@OpenId", openid),
+                 new System.Data.SqlClient.SqlParameter("@AcitvityId", acitvity),
+                 new System.Data.SqlClient.SqlParameter("@Amount", amount)
+                );
+                return amount.ToString();
+            }
+            else
+            {
+                amount = -3;
+                return amount.ToString();
+                
+            }
         }
         catch (Exception ex)
         {
