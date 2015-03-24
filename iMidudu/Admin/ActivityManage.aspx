@@ -57,15 +57,15 @@
 </script>
 
     <section id="main" class="column">
-            <div class="quick_search width_half_search">
-			<input type="text" value="按活动名称查找" onfocus="if(!this._haschanged){this.value=''};this._haschanged=true;"/>
-            </div>
 		<article class="module width_full">
 		<header>
 		<ul class="tabs">
    			<li><a href="#tab1">Show</a></li>
     		<li><a href="#tab2">Create</a></li>
 		</ul>
+		    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+            </asp:Repeater>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT [AcitvityId], [BonusGroupId], [BonusLimit], [ActivityName], [BeginDate], [EndDate] FROM [Activity]"></asp:SqlDataSource>
 		</header>
 
 		<div class="tab_container">

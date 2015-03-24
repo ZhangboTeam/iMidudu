@@ -97,7 +97,7 @@
                         // alert("红包开出金额:" + amount);
                         // alert("转到公众号首页");
                         // window.location.href = "http://mp.weixin.qq.com/s?__biz=MzAxNzIwNjE3OQ==&mid=208231695&idx=1&sn=53351b0f3592d82509d8bc8be170fae4#rd";
-                        if (amount == 2)
+                        if (amount == 50)
                         {
                             Response.Redirect("/perfetti50.aspx");
                         }

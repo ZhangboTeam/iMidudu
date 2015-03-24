@@ -50,7 +50,7 @@ namespace iMidudu
 
         public static double GenerateRandomAmount()
         {
-            return new Random().Next(0, 4) == 0 ? 2 : 1;
+            //return new Random().Next(0, 4) == 0 ? 2 : 1;
 
 
 
