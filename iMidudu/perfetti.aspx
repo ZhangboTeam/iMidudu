@@ -25,6 +25,8 @@
         Response.Write("0点到8点之间不能领取红包,请先休息一下");
         Response.End();
     }
+    Response.Write("活动未开始");
+    Response.End();
     //this.Response.Write("未开启活动");
     //this.Response.End();
     var url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx8cabe7121f5369a3&redirect_uri=" + System.Web.Configuration.WebConfigurationManager.AppSettings["Domain"] +"/demo.aspx&response_type=code&scope=snsapi_base&state=" + Request["bonus"];
