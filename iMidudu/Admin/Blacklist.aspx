@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="黑名单" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-<section id="main" class="column">
+
 		<article class="module width_full">
 		<header>
 		<ul class="tabs">
@@ -82,5 +82,5 @@
 		
 		</article><!-- end of content manager article -->
 		
-	</section>
+
 </asp:Content>

@@ -56,7 +56,7 @@
            });
 </script>
 
-    <section id="main" class="column">
+
 		<article class="module width_full">
 		<header>
 		<ul class="tabs">
@@ -147,7 +147,7 @@
 		
 		</article><!-- end of content manager article -->
 		
-	</section>
+
 
 
 </asp:Content>

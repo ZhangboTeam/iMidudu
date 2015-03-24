@@ -3,7 +3,7 @@
 
 
 
-   <section id="main" class="column">
+
         <div class="submit_link2">
 					<select>
 						<option>不凡帝</option>
@@ -73,7 +73,7 @@
 
             </div><!-- end of .tab_container -->
 		
-	</section>
+
 
         </article>
 
