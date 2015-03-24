@@ -96,7 +96,7 @@
      
         <div class="quick_search ">
             <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
-			<input type="text"id="key2" value="<%=DateTime.Today.AddDays(+1).ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
+			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
                 <input type="button" value="搜索" onclick="dosearch();" class="alt_btn"/>
 		</div> 
     <article class="module width_full">

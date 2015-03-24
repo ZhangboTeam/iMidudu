@@ -23,9 +23,11 @@
                 success: function (result) {
                     if (result.d) {
                         alert("ok");
+                        window.location.href = "/Admin/Default.aspx"
                     }
                     else {
                         alert("no");
+                        window.location.href = "/Admin/ChangePassword.aspx"
                     }
                 }
             });
