@@ -29,10 +29,10 @@
            );
          
         this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewAllMembership  where TotalCount>0");
-        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount2) from ViewAllMembership  " );
-        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount50) from ViewAllMembership  ");
-        
-        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(totalamount) from ViewAllMembership ");
+        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount2) from ViewAllMembership   where TotalCount>0");
+        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount50) from ViewAllMembership   where TotalCount>0");
+
+        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(totalamount) from ViewAllMembership  where TotalCount>0");
         return dr;
     }
     public override void DataBind()

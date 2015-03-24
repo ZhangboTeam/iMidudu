@@ -23,16 +23,17 @@
     {
 
 
-        var dr = iMidudu.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("eusp_AllMembershipV2", 
+        var dr = iMidudu.SystemDAO.SqlHelper.ExecuteReaderFromStoredProcedure("eusp_AllMembershipByName",
            new System.Data.SqlClient.SqlParameter("@startIndex", AspNetPager1.StartRecordIndex),
-           new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex) 
+           new System.Data.SqlClient.SqlParameter("@endIndex", AspNetPager1.EndRecordIndex),
+           new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]) 
            );
-         
-        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewAllMembership ");
-        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount2) from ViewAllMembership  " );
-        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount50) from ViewAllMembership  ");
-        
-        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  SUM(totalamount) from ViewAllMembership ");
+
+        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewAllMembership where  UserName like '%" + this.Request["key"] + "%'");
+        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount2) from ViewAllMembership where  UserName like '%" + this.Request["key"] + "%'");
+        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount50) from ViewAllMembership where  UserName like '%" + this.Request["key"] + "%'");
+
+        this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  isnull(SUM(totalamount),0) from ViewAllMembership where  UserName like '%" + this.Request["key"] + "%'");
         return dr;
     }
     public override void DataBind()
@@ -62,23 +63,7 @@
             window.location.href = "UserMangeByTel.aspx?key=" + k;
         }
         function deleteUser(openid) {
-            //alert(openid);
-            var data={
-                OpenId:openid
-            };
-            $.ajax({
-                type: "POST",
-                contentType: "application/json",
-                url: "/Webservice.asmx/DeleteUser",
-                data: JSON.stringify(data),
-                dataType: 'json',
-                success: function (result) {                  
-                    window.location.reload();
-                },
-                error:function(err){
-                    alert(err);
-                }
-            });
+            alert(openid);
         }
         function blockUser(openid) {
     

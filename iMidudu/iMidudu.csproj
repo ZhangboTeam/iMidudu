@@ -102,6 +102,7 @@
     <Content Include="Admin\ActivityDividedSearch.aspx" />
     <Content Include="Admin\WebForm1.aspx" />
     <Content Include="Admin\Blacklist.aspx" />
+    <Content Include="Admin\UserMangeByTel.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
@@ -186,6 +187,7 @@
     <Content Include="userInfo.txt" />
     <Content Include="WebService.asmx" />
     <Content Include="Admin\SiteAdmin.Master" />
+    <Content Include="Admin\UserMangeByName.aspx" />
     <None Include="Properties\PublishProfiles\iMidudu.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
