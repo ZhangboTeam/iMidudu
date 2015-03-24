@@ -43,11 +43,11 @@
         DateTime key3 = Convert.ToDateTime(key4);
         key3 = key3.AddDays(1);
         //string sql1 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
-        string sql2 = string.Format("select  count(*) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
-        string sql3 = string.Format("select  count(*) from ViewBonusHistory where Amount=2 and receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
-        string sql4 = string.Format("select  count(*) from ViewBonusHistory where Amount=50 and receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
-        string sql5 = string.Format("select  count(distinct([OpenId] )) from ViewBonusHistory  where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
-        string sql6 = string.Format("select  SUM(amount) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql2 = string.Format("select  isnull(count(*),0) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql3 = string.Format("select  isnull(count(*),0) from ViewBonusHistory where Amount=2 and receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql4 = string.Format("select  isnull(count(*),0) from ViewBonusHistory where Amount=50 and receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql5 = string.Format("select  isnull(count(distinct([OpenId] )),0) from ViewBonusHistory  where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
+        string sql6 = string.Format("select  isnull(SUM(amount),0) from ViewBonusHistory where receiptdate >='{0}' and receiptdate <'{1}'", this.Request["key1"], key3);
         //this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql1);
 
         this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText(sql2);

@@ -29,9 +29,9 @@
            new System.Data.SqlClient.SqlParameter("@key", this.Request["key"]) 
            );
 
-        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  count(*) from ViewAllMembership  where  Mobile like '%" + this.Request["key"] + "%'");
-        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount2) from ViewAllMembership   where  Mobile like '%" + this.Request["key"] + "%'");
-        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  sum(totalcount50) from ViewAllMembership  where  Mobile like '%" + this.Request["key"] + "%'");
+        this.totalCount = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  isnull(count(*),0) from ViewAllMembership  where  Mobile like '%" + this.Request["key"] + "%'");
+        this.totalCount2 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  isnull(sum(totalcount2),0) from ViewAllMembership   where  Mobile like '%" + this.Request["key"] + "%'");
+        this.totalCount50 = (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  isnull(sum(totalcount50),0) from ViewAllMembership  where  Mobile like '%" + this.Request["key"] + "%'");
 
         this.totalMoney = (double)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select  isnull(SUM(totalamount),0) from ViewAllMembership  where  Mobile like '%" + this.Request["key"] + "%'");
         return dr;

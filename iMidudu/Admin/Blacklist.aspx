@@ -7,13 +7,16 @@
    			<li><a href="#tab1">Show</a></li>
     		<li><a href="#tab2">Create</a></li>
 		</ul>
-<%--		    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
-            </asp:Repeater>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT [AcitvityId], [BonusGroupId], [BonusLimit], [ActivityName], [BeginDate], [EndDate] FROM [Activity]"></asp:SqlDataSource>--%>
+
+
+
 		</header>
 
 		<div class="tab_container">
 			<div id="tab1" class="tab_content">
+
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT TMembershipInfo.OpenId, MembershipInfo.UserName, MembershipInfo.Mobile, MembershipInfo.Nickname, MembershipInfo.RecentLoginDate FROM TMembershipInfo INNER JOIN MembershipInfo ON TMembershipInfo.OpenId = MembershipInfo.OpenId"></asp:SqlDataSource>                		                        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                <HeaderTemplate>
 			<table class="tablesorter" cellspacing="0"> 
 			<thead> 
 				<tr> 
@@ -22,50 +25,35 @@
     				<th>微信名</th> 
                     <th>电话</th>
                     <th>最近登录时间</th>
-                    <th>结束时间</th>
 				</tr> 
 			</thead> 
+                </HeaderTemplate>
+                <ItemTemplate>
 			<tbody> 
 				<tr> 
-    				<td>XXXXX</td> 
-    				<td>XXXXX</td> 
-    				<td>XXXXX</td> 
-                    <td>XXXXX</td> 
-                    <td>XXXXX</td>
-                    <td>XXXXX</td> 
+    				<td><%#Eval("OpenId") %></td> 
+    				<td><%#Eval("UserName") %></td> 
+    				<td><%#Eval("Nickname") %></td> 
+                    <td><%#Eval("Mobile") %></td> 
+                    <td><%#Eval("RecentLoginDate") %></td>
     			
 				</tr> 
-		
-			</tbody> 
-			</table>
+                        </ItemTemplate>
+                        <FooterTemplate>
+
+
+                        </tbody>
+                    </table>
+                        </FooterTemplate>
+                                    </asp:Repeater>
 			</div><!-- end of #tab1 -->
 			
 			<div id="tab2" class="tab_content">
 			<table class="tablesorter2" cellspacing="0"> 
 			    
                 <fieldset>
-                                <label>活动ID</label>
+                                <label>OpenID</label>
                                 <input type="text" id="AcitvityId"style="width:30%"/><br /><br />
-                                <p></p>
-                                <p></p>
-                                <label>红包分组</label>
-                                <input type="text"id="BonusGroupId" style="width:30%"/><br /><br />
-                                <p></p>
-                                <p></p>
-                                <label>活动名称</label>
-                                <input type="text"id="BonusLimit" style="width:30%"/><br /><br />
-                                 <p></p>
-                                <p></p>
-                                <label>限令次数</label>
-                                <input type="text"id="ActivityName" style="width:30%"/><br /><br />
-                                 <p></p>
-                                <p></p>
-                                <label>开始时间</label>
-                                <input type="text"id="BeginDate" style="width:30%"/><br /><br />
-                                 <p></p>
-                                <p></p>
-                                <label>结束时间</label>
-                                <input type="text"id="EndDate" style="width:30%"/><br /><br />
                             </fieldset>
 
 
@@ -82,5 +70,4 @@
 		
 		</article><!-- end of content manager article -->
 		
-
 </asp:Content>

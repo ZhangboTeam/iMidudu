@@ -97,7 +97,7 @@
             <h3>数据管理</h3>
             <ul class="toggle">
                 <li class="icn_profile"><a href="/Admin/ChangePassword.aspx">管理员修改密码</a></li>
-                <li class="icn_view_users"><a href="/Admin/UserManage.aspx">用户员管理</a></li>
+                <li class="icn_view_users"><a href="/Admin/UserManage.aspx">验证过的用户</a></li>
                 <li class="icn_tags"><a href="/Admin/ActivityManage.aspx">活动管理</a></li>
                 <li class="icn_tags"><a href="/Admin/ActivityDividedSearch.aspx">活动分组查看</a></li>
                 <li class="icn_tags"><a href="/Admin/Blacklist.aspx">黑名单管理</a></li>
