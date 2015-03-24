@@ -56,7 +56,7 @@
                 <h1 class="site_title"><a href="/Admin/Default.aspx" class="logo">
                     <img src="/Admin/images/iMidudu.png" /></a></h1>
                 <h2 class="section_title">后台数据管理平台</h2>
-                <asp:Button ID="Button1" runat="server" Text="退出登录" />
+                <asp:Button ID="Button1" runat="server" Text="退出登录" OnClick="Button1_Click"/>
             </hgroup>
         </header>
         <!-- end of header bar -->
