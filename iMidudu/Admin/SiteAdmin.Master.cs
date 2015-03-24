@@ -11,7 +11,10 @@ namespace iMidudu.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+			if ( System.Web.HttpContext.Current.Session["UserName"]  == null)
+			{
+				this.Response.Redirect("~/Admin/Login.aspx");
+			}
         }
     }
 }
