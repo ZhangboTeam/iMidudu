@@ -63,7 +63,22 @@
             window.location.href = "UserMangeByTel.aspx?key=" + k;
         }
         function deleteUser(openid) {
-            alert(openid);
+            var data={
+                OpenId:openid
+            };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/DeleteUser",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {                  
+                    window.location.reload();
+                },
+                error:function(err){
+                    alert(err);
+                }
+            });
         }
         function blockUser(openid) {
     

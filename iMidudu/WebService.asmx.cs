@@ -156,7 +156,7 @@ namespace iMidudu
             try
             {
 
-                SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo where OpenId=@OpenId)",
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo where OpenId=@OpenId",
                 new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
             }
             catch (Exception ex)
@@ -264,6 +264,7 @@ namespace iMidudu
                  new System.Data.SqlClient.SqlParameter("@Province", Province),
                  new System.Data.SqlClient.SqlParameter("@City", City),
                  new System.Data.SqlClient.SqlParameter("@Pic", Pic),
+                 new System.Data.SqlClient.SqlParameter("@NickName", NickName),
                  new System.Data.SqlClient.SqlParameter("@UserName", UserName),
                  new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
                  new System.Data.SqlClient.SqlParameter("@Sex", Sex),
@@ -273,8 +274,8 @@ namespace iMidudu
             try
             {
 
-                SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo where OpenId=@OpenId)",
-                new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+                //SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo where OpenId=@OpenId)",
+                //new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
             }
             catch (Exception ex)
             {
