@@ -172,7 +172,7 @@ namespace iMidudu
             try
             {
 
-                SystemDAO.SqlHelper.ExecteNonQueryText("delete from Blacklist where OpenId=@OpenId)",
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from Blacklist where OpenId=@OpenId",
                 new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
             }
             catch (Exception ex)

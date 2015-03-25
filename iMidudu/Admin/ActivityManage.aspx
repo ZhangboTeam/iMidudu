@@ -26,7 +26,7 @@
                    alert("请输入活动名称"); return;
                }
                if (PassWord == "") {
-                   alert("请输入限令次数"); return;
+                   alert("请输入限领次数"); return;
                }
                if (UserName == "") {
                    alert("请输入开始时间"); return;
@@ -78,7 +78,7 @@
     				<th>活动ID</th> 
     				<th>红包分组</th> 
     				<th>活动名称</th> 
-                    <th>限令次数</th>
+                    <th>限领次数</th>
                     <th>开始时间</th>
                     <th>结束时间</th>
 				</tr> 
@@ -121,7 +121,7 @@
                                 <input type="text"id="BonusLimit" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
-                                <label>限令次数</label>
+                                <label>限领次数</label>
                                 <input type="text"id="ActivityName" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
