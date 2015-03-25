@@ -82,7 +82,23 @@
         }
         function blockUser(openid) {
     
-            alert(openid);
+            var data={
+                OpenId:openid
+            };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/joinBlacklist",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {                  
+                    window.location.reload();
+                },
+                error:function(err){
+                    alert(err);
+                }
+            });
+
         }
     </script>
      <div class="quick_search ">
@@ -132,8 +148,8 @@
                                 <td>   <%#Eval("TotalCount") %> </td>
                                 <td><%#Eval("RecentLoginDate")%></td>
                                 <td><%#Eval("RegDate")%></td>
-                                   <td><input type="image" src="images/icn_trash.png" id="delete" title="删除用户" onclick="deleteUser('<%#Eval("OpenId") %>');">
-                                       <input type="image" src="images/icn_logout.png" id="block" title="加入黑名单" onclick="blockUser('<%#Eval("OpenId") %>');"></td>
+                                   <td><input type="image" src="images/icn_trash.png"  title="删除用户" onclick="deleteUser('<%#Eval("OpenId") %>');">
+                                       <input type="image" src="images/icn_logout.png"  title="加入黑名单" onclick="blockUser('<%#Eval("OpenId") %>');"></td>
                            
                             </tr>
                     </ItemTemplate>

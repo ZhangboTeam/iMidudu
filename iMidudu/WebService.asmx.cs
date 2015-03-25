@@ -166,6 +166,126 @@ namespace iMidudu
             return "OK";
         }
 
+        [WebMethod(EnableSession = true)]
+        public string MoveOutOfBlickList(string OpenId)
+        {
+            try
+            {
+
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from Blacklist where OpenId=@OpenId)",
+                new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "OK";
+        }
+
+        [WebMethod(EnableSession = true)]
+        public string joinBlacklist(string OpenId)
+        {
+            string Country = null;
+            string Province = null;
+            string City = null;
+            string NickName = null;
+            string Pic = null;
+            string UserName = null;
+            string Mobile = null;
+            int Sex = 1;
+
+            try
+            {
+                Country = SystemDAO.SqlHelper.ExecuteScalarText("select Country from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                 Country = null;
+            }
+            try
+            {
+             Province = SystemDAO.SqlHelper.ExecuteScalarText("select Province from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                 Province = null;
+            }
+            try
+            {
+             City = SystemDAO.SqlHelper.ExecuteScalarText("select City from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                City = null;
+            }
+            try
+            {
+            NickName = SystemDAO.SqlHelper.ExecuteScalarText("select NickName from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                 NickName = null;
+            }
+            try
+            {
+             Pic = SystemDAO.SqlHelper.ExecuteScalarText("select Pic from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                 Pic = null;
+            }
+            try
+            {
+             UserName = SystemDAO.SqlHelper.ExecuteScalarText("select UserName from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                 UserName = null;
+            }
+            try
+            {
+             Mobile = SystemDAO.SqlHelper.ExecuteScalarText("select Mobile from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)).ToString();
+            }
+            catch
+            {
+                 Mobile = null;
+            }
+            try
+            {
+             Sex = (int)SystemDAO.SqlHelper.ExecuteScalarText("select Sex from MembershipInfo where OpenId=@OpenId", new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+            }
+            catch
+            {
+                 Sex = 1;
+            }
+
+            SystemDAO.SqlHelper.ExecteNonQueryText("insert into Blacklist(Country,Province,City,NickName,Pic,UserName,Mobile,Sex,OpenId) values (@Country,@Province,@City,@NickName,@Pic,@UserName,@Mobile,@Sex,@OpenId)",
+                 new System.Data.SqlClient.SqlParameter("@Country", Country),
+                 new System.Data.SqlClient.SqlParameter("@Province", Province),
+                 new System.Data.SqlClient.SqlParameter("@City", City),
+                 new System.Data.SqlClient.SqlParameter("@Pic", Pic),
+                 new System.Data.SqlClient.SqlParameter("@UserName", UserName),
+                 new System.Data.SqlClient.SqlParameter("@Mobile", Mobile),
+                 new System.Data.SqlClient.SqlParameter("@Sex", Sex),
+                 new System.Data.SqlClient.SqlParameter("@OpenId", OpenId)
+                );
+
+            try
+            {
+
+                SystemDAO.SqlHelper.ExecteNonQueryText("delete from MembershipInfo where OpenId=@OpenId)",
+                new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return "OK";
+        }
+
+
+
+
 
         [WebMethod(EnableSession = true)]
         public string UpdateActivity(string AcitvityId, string BonusGroupId, string BonusLimit, string ActivityName, string BeginDate, string EndDate)
