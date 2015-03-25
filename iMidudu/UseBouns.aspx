@@ -62,6 +62,7 @@
             var bounscode = this.Request["bouns"];
             var activityid = this.Request["acitvity"];
 
+            activityid = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select AcitvityId from Bonus where BonusCode=@BonusCode", new System.Data.SqlClient.SqlParameter("@BonusCode", bounscode)).ToString();
             if (!exists)
             {
                 //insert bad.....
