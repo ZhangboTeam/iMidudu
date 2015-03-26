@@ -71,8 +71,13 @@
     <%
         var rr = WX.getOpenId(this.Request["code"]);
         var r = WX.getUserInfo(rr);// WX.getOpenId();
-
-
+        var sql2 = string.Format("select count(*) from Blacklist where OpenId='{0}'", rr.openid);
+        var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql2);
+        if (exists)
+        {
+            Response.Write("你被拉进黑名单不可领取红包！");
+            Response.End();
+        }
         if (string.IsNullOrEmpty(r.nickname))
         {
 
