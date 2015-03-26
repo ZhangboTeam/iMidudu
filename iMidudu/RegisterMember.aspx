@@ -47,29 +47,34 @@
             $("#sendValidCode").click(
                 function () {
                     var m = $("#Mobile").val();
-                    $.post("/WebService.asmx/sendSMSValid", { mobile: m }, function (data) {
-                        var r = $(data).text();
-                        var rr = JSON.parse(r);
+                    $.post("/WebService.asmx/sendSMSValid",
+                        { mobile: m }, function (data) {
+                            if ($(data).text() == "take") {
+                                alert("手机号被占用！")
+                            } else {
+                                var r = $(data).text();
+                                var rr = JSON.parse(r);
 
-                        if (rr.code == 0) {
-                            $("#r").html("短信验证码已发送到手机:" + m);
-                            var count = 0;
+                                if (rr.code == 0) {
+                                    $("#r").html("短信验证码已发送到手机:" + m);
+                                    var count = 0;
 
-                            $("#sendValidCode").hide();
+                                    $("#sendValidCode").hide();
 
-                            var iii = setInterval(function () {
-                                $("#r").html(60 - ++count);
-                                if (count >= 60) {
-                                    $("#sendValidCode").show();
-                                    clearInterval(iii); $("#r").html("");
+                                    var iii = setInterval(function () {
+                                        $("#r").html(60 - ++count);
+                                        if (count >= 60) {
+                                            $("#sendValidCode").show();
+                                            clearInterval(iii); $("#r").html("");
+                                        }
+                                    }, 1000);
+                                    // alert("短信验证码已发送到手机:" + m);
+
                                 }
-                            }, 1000);
-                            // alert("短信验证码已发送到手机:" + m);
-
-                        }
-                        else {
-                            alert(rr.msg);
-                        }
+                                else {
+                                    alert(rr.msg);
+                                }
+                            }
                     });
                 });
 

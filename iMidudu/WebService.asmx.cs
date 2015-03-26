@@ -20,7 +20,17 @@ namespace iMidudu
         [WebMethod(EnableSession =true)]
         public string sendSMSValid(string mobile)
         {
-            return SMS.SendValidCode(mobile);
+            var sql = string.Format("select count(*) from MembershipInfo where Mobile='{0}'", mobile);
+             var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql);
+
+             if (!exists)
+             {
+                 return SMS.SendValidCode(mobile);
+             }
+             else
+             {
+                 return "take";
+             }
         }
 
         [WebMethod(EnableSession =true)]

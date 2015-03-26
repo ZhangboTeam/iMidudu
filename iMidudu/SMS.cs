@@ -96,7 +96,7 @@ namespace iMidudu
             var apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["smsAppKey"];
             var code = new Random().Next(1000, 9999).ToString();
             System.Web.HttpContext.Current.Session["smsCode"] = code;
-           var str =  sendSms(apiKey, string.Format("【米嘟嘟】您的验证码是#{0}#", code), toMobile);
+           var str =  sendSms(apiKey, string.Format("【米嘟嘟】您的验证码是{0}", code), toMobile);
             str += "";
             return str;
         }
