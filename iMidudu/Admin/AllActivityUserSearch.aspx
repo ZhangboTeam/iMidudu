@@ -67,12 +67,12 @@
                         <thead>
                             <tr>
 
-                                <th>用户名</th>
-                                <th>昵称</th>
+                                <th>验证用户名</th>
+                                <th>微信昵称</th>
                                 <th>手机</th>
                                 <th>国家</th>
                                 <th>省</th>
-                                <th>区</th> 
+                                <th>市（区）</th> 
                                 <th>领取金额</th>
                                 <th>领取数量</th>
                                 <th>最近登录时间</th>

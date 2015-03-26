@@ -14,8 +14,8 @@
                         <thead>
                             <tr>
                             <th>非法码</th>
-                            <th>用户名</th>
-                            <th>微信用户名</th>
+                            <th>验证用户名</th>
+                            <th>微信昵称</th>
                             <th>性别</th>
                             <th>手机</th>
                             <th>国家</th>
@@ -34,7 +34,7 @@
                             <td>       <%#Eval("BonusCode") %>   </td>
                             <td>       <%#Eval("UserName") %>   </td>
                             <td>       <%#Eval("Nickname") %>   </td>
-                            <td>       <%#Eval("Sex") %>   </td>
+                            <td>       <%#Eval("Sex").ToString()=="1"?"男":"女" %>  </td>
                             <td>       <%#Eval("Mobile") %>   </td>
                             <td>       <%#Eval("Country") %>   </td>
                             <td>       <%#Eval("Province") %>   </td>

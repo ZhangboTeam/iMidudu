@@ -14,15 +14,15 @@
                         <thead>
                             <tr>
                                 <th>排名</th> 
-                                <th>用户名</th>
-                                <th>微信用户名</th>
+                                <th>验证用户名</th>
+                                <th>微信昵称</th>
                                 <th>手机</th>
                                 <th>国家</th>
                                 <th>省</th>
                                 <th>市(区)</th>
                                 <th>活动名称</th>
                                 <th>领取总金额</th>
-                                <th>领取次数</th>
+                                <th>领取总次数</th>
                             </tr>
                         </thead>
                         <tbody>

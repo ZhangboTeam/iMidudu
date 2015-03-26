@@ -109,7 +109,6 @@
     <article class="module width_full">
         <header>
             <h3 class="tabs_involved">按时间查询</h3>
-
         </header>
         <div class="tab_container">
             <div id="tab1" class="tab_content">
@@ -124,8 +123,9 @@
 
                           <%--  <th>红包码</th>
                             <th>用户ID</th>--%>
-                            <th>用户名</th>
-                            <th>微信用户名</th>
+                            <th>验证用户名</th>
+                            <th>微信昵称</th>
+                            <th>性别</th>
                             <th>头像</th>
                             <th>手机</th>
                             <th>国家</th>
@@ -145,6 +145,7 @@
                             <td>       <%#Eval("OpenId") %>   </td>--%>
                             <td>       <%#Eval("UserName") %>   </td>
                             <td>       <%#Eval("Nickname") %>   </td>
+                            <td>       <%#Eval("Sex").ToString()=="1"?"男":"女" %>  </td>
                             <td> <a href="<%#Eval("Pic") %>" target="_blank" ><img src='<%#Eval("Pic") %>' width="30" /> </a>  </td>
                             <td>       <%#Eval("Mobile") %>   </td>
                             <td>       <%#Eval("Country") %>   </td>

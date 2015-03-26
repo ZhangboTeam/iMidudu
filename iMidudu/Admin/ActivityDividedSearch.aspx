@@ -6,7 +6,7 @@
 
         <div class="submit_link2">
 					<select>
-						<option>不凡帝</option>
+						<option>不凡帝1</option>
 						
 					</select>
 					
@@ -31,11 +31,11 @@
                             <tr>
 
                                 <th>用户分组</th>
-                                <th>用户姓名</th>
-                                <th>电话</th>
+                                <th>验证用户名</th>
+                                <th>手机</th>
                                 <th>登录时间</th>
-                                <th>获取红包金额</th>
-                                <th>获取时间</th>
+                                <th>领取金额</th>
+                                <th>领取时间</th>
 
                             </tr>
                         </thead>

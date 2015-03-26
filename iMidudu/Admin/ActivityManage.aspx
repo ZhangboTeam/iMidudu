@@ -89,8 +89,8 @@
 				<tr> 
     				<td><%#Eval("AcitvityId") %></td> 
     				<td><%#Eval("BonusGroupId") %></td> 
-    				<td><%#Eval("BonusLimit") %></td> 
-                    <td><%#Eval("ActivityName") %></td> 
+    				<td><%#Eval("ActivityName") %></td> 
+                    <td><%#Eval("BonusLimit") %></td> 
                     <td><%#Eval("BeginDate") %></td>
                     <td><%#Eval("EndDate") %></td> 
     			
@@ -118,11 +118,11 @@
                                 <p></p>
                                 <p></p>
                                 <label>活动名称</label>
-                                <input type="text"id="BonusLimit" style="width:30%"/><br /><br />
+                                <input type="text"id="ActivityName" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
                                 <label>限领次数</label>
-                                <input type="text"id="ActivityName" style="width:30%"/><br /><br />
+                                <input type="text"id="BonusLimit" style="width:30%"/><br /><br />
                                  <p></p>
                                 <p></p>
                                 <label>开始时间</label>

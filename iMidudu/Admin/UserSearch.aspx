@@ -90,14 +90,14 @@
         }
     </script>
     <div class="quick_search width_half_search">
-        <input type="text"  id="key" placeholder="按用户名查找"/>
+        <input type="text"  id="key" placeholder="按验证用户名查找"/>
         <input type="button" onclick="dosearch();" value="搜索"/>
     </div>
 
 
     <article class="module width_full">
         <header>
-            <h3 class="tabs_involved">查询条件<%=ky ==null?"所有数据" :ky %></h3>
+            <h3 class="tabs_involved">查询条件：<%=ky ==null?"所有数据" :ky %></h3>
 
         </header>
         <div class="tab_container">
@@ -113,8 +113,9 @@
 
                           <%--  <th>红包码</th>
                             <th>用户ID</th>--%>
-                            <th>用户名</th>
-                            <th>微信用户名</th>
+                            <th>验证用户名</th>
+                            <th>微信昵称</th>
+                            <th>性别</th>
                             <th>头像</th>
                             <th>手机</th>
                             <th>国家</th>
@@ -134,6 +135,7 @@
                             <td>       <%#Eval("OpenId") %>   </td>--%>
                             <td>       <%#Eval("UserName") %>   </td>
                             <td>       <%#Eval("Nickname") %>   </td>
+                            <td>       <%#Eval("Sex").ToString()=="1"?"男":"女" %>  </td>
                             <td> <a href="<%#Eval("Pic") %>" target="_blank" ><img src='<%#Eval("Pic") %>' width="30" /> </a>  </td>
                             <td>       <%#Eval("Mobile") %>   </td>
                             <td>       <%#Eval("Country") %>   </td>

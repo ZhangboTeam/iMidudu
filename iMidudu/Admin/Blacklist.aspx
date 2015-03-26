@@ -37,9 +37,9 @@
 			<thead> 
 				<tr> 
     				<th>OpenID</th> 
-    				<th>用户名</th> 
-    				<th>微信名</th> 
-                    <th>电话</th>
+    				<th>验证用户名</th> 
+    				<th>微信昵称</th> 
+                    <th>手机</th>
                     <th>头像</th>
                     <th>国家</th>
                     <th>城市</th>

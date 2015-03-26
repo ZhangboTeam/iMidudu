@@ -75,7 +75,7 @@
                      window.location.reload();
                 },
                 error:function(err){
-                    alert(err);
+                    alert("不能删除已经领取过红包的用户");
                 }
             });
         }
@@ -118,12 +118,13 @@
                         <thead>
                             <tr>
 
-                                <th>用户名</th>
-                                <th>昵称</th>
+                                <th>验证用户名</th>
+                                <th>微信昵称</th>
+                                <th>性别</th>
                                 <th>手机</th>
                                 <th>国家</th>
                                 <th>省</th>
-                                <th>区</th> 
+                                <th>市（区）</th> 
                                 <th>领取金额</th>
                                 <th>领取数量</th>
                                 <th>最近登录时间</th>
@@ -138,6 +139,7 @@
 
                             <td>       <%#Eval("UserName") %>   </td>
                             <td>       <%#Eval("Nickname") %>   </td>
+                            <td>       <%#Eval("Sex").ToString()=="1"?"男":"女" %>  </td>
                             <td>       <%#Eval("Mobile") %>   </td>
                             <td>       <%#Eval("Country") %>   </td>
                             <td>       <%#Eval("Province") %>   </td>
