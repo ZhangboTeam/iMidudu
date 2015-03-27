@@ -45,7 +45,9 @@
     <script>
         $(function () {
             $("#sendValidCode").click(
+               
                 function () {
+                    $("#sendValidCode").hide();
                     var m = $("#Mobile").val();
                     $.post("/WebService.asmx/sendSMSValid",
                         { mobile: m }, function (data) {
