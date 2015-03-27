@@ -45,6 +45,7 @@
     <script>
         $(function () {
             $("#sendValidCode").click(
+               
                 function () {
                     $("#sendValidCode").hide();
                     var m = $("#Mobile").val();
