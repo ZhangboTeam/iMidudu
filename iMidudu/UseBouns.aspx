@@ -75,7 +75,7 @@
                 //   Response.End();
 
             }
-            var limit = iMidudu.Biz.BounsLimt(this.Request["acitvity"]);
+            var limit = 30;
             var usedCount = iMidudu.Biz.CountByAcitivtyAndOpenId(this.Request["acitvity"], this.Request["openid"]);
 
             if (usedCount < limit)

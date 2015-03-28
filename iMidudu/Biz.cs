@@ -25,12 +25,27 @@ namespace iMidudu
 
         public static int CountByAcitivtyAndOpenId(string activityId,string openId)
         {
-            var r = SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from  BonusHistory where AcitvityId = @AcitvityId and OpenId = @OpenId", new System.Data.SqlClient.SqlParameter("@AcitvityId", activityId), new System.Data.SqlClient.SqlParameter("@OpenId", openId));
-            if (r == null)
+            int count=0;
+            string r = SystemDAO.SqlHelper.ExecuteScalarText("select  ReceiptDate from  BonusHistory where AcitvityId = @AcitvityId and OpenId = @OpenId", 
+                new System.Data.SqlClient.SqlParameter("@AcitvityId", activityId), 
+                new System.Data.SqlClient.SqlParameter("@OpenId", openId)).ToString();
+            foreach (var s in r)
             {
-                return 0;
+                if (s != null)
+                {
+                    DateTime d = Convert.ToDateTime(s);
+
+                    if (d.Month == DateTime.Now.Month)
+                    {
+                        count++;
+                    }
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            return (int)r;
+            return count;
 
         }
 
