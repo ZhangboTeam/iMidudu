@@ -52,6 +52,16 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">红包历史查看</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">查看参加所有活动用户</a>
+                </article>
+            </div>
+        </section>
 
             <article class="module width_full">
             <header>

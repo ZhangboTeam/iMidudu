@@ -1,5 +1,15 @@
 ﻿<%@ Page Title="领取金额TOP10" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master"  %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">红包历史查看</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">领取金额TOP10</a>
+                </article>
+            </div>
+        </section>
     <article class="module width_full">
             <header>
                 <h3 class="tabs_involved">领取金额TOP10 </h3>

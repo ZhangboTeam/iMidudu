@@ -1,6 +1,15 @@
 ﻿<%@ Page Title="领取次数TOP10" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
-            
+            <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">红包历史查看</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">领取次数TOP10</a>
+                </article>
+            </div>
+        </section>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="Data Source=121.40.166.159\SQLExpress;Initial Catalog=iMidudu;User ID=sa;Password=123456" ProviderName="System.Data.SqlClient" SelectCommand="SELECT top 10 [Nickname], [UserName], [Mobile], [Country], [Province], [City], [ActivityName], [TotalAmount], [TotalCount] FROM [ViewMembershipInfo] ORDER BY [TotalCount] DESC"></asp:SqlDataSource>
             <article class="module width_full">
             <header>

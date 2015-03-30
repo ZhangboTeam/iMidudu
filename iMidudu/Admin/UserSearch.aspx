@@ -89,6 +89,16 @@
             window.location = "UserSearch.aspx?key=" + key;
         }
     </script>
+    <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">红包历史查看</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">按用户名查询</a>
+                </article>
+            </div>
+        </section>
     <div class="quick_search width_half_search">
         <input type="text"  id="key" placeholder="按验证用户名查找"/>
         <input type="button" onclick="dosearch();" value="搜索"/>

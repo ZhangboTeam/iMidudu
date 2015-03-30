@@ -1,5 +1,15 @@
 ﻿<%@ Page Title="非法领取红包人的信息" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">红包历史查看</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">非法领取人的信息</a>
+                </article>
+            </div>
+        </section>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT MembershipInfo.UserName, MembershipInfo.Sex, MembershipInfo.Mobile, MembershipInfo.Country, MembershipInfo.Province, MembershipInfo.City, MembershipInfo.Nickname, MembershipInfo.RecentLoginDate, MembershipInfo.RegDate, Activity.ActivityName, BadBonusHistory.ReceiptDate, BadBonusHistory.BonusCode FROM BadBonusHistory INNER JOIN Activity ON BadBonusHistory.AcitvityId = Activity.AcitvityId INNER JOIN MembershipInfo ON BadBonusHistory.OpenId = MembershipInfo.OpenId"></asp:SqlDataSource>
             <article class="module width_full">
             <header>
