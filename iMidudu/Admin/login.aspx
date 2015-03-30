@@ -52,7 +52,15 @@
                     }
                 }
             });
-        } 
+        }
+
+        function KeyDown() {
+            if (event.keyCode == 13) {
+                event.returnValue = false;
+                event.cancel = true;
+                $("#ok").click();
+            }
+        }
     </script>
 </head>
 <body>
@@ -66,7 +74,7 @@
 
 <div class="LoginWindow">
 	<div>
-		<div class="login">
+		<div class="login" >
 			<p><input type="text" name="id" id="UserName" placeholder="用户名" value=""/></p>
 			<p><input type="password" name="password" id="pwd" placeholder="密码" value=""/></p>
 			<p class="login-submit"><button type="submit" class="login-button" id ="ok">登录</button></p>
