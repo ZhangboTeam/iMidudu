@@ -101,6 +101,16 @@
 
         }
     </script>
+    <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">数据管理</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">验证过的用户</a>
+                </article>
+            </div>
+        </section>
      <div class="quick_search ">
             <input type="text" id="key1"   style="width:auto;"  />
                 <input type="submit" value="按用户名搜索" onclick="dosearchByName();" class="alt_btn"/> 

@@ -55,7 +55,16 @@
 
            });
 </script>
+    <section id="secondary_bar">
 
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">数据管理</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">活动管理</a>
+                </article>
+            </div>
+        </section>
 
 		<article class="module width_full">
 		<header>

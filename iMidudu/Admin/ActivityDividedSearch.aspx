@@ -1,7 +1,16 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
 
+    <section id="secondary_bar">
 
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">数据管理</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">活动分组查看</a>
+                </article>
+            </div>
+        </section>
 
 
         <div class="submit_link2">
