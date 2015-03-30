@@ -75,21 +75,15 @@
                     <img src="/Admin/images/iMidudu.png" /></a></h1>
                 <h2 class="section_title">后台数据管理平台</h2>
              </hgroup>   
-            <input type="button" value="退出登录" onclick="return logout();"/>
+
+                <input type="submit" value="退出登录" class="login" onclick="return logout();"/>
+
+
+            
         </header>
         <!-- end of header bar -->
 
-        <section id="secondary_bar">
-            <div class="user">
-            </div>
-            <div class="breadcrumbs_container">
-                <article class="breadcrumbs">
-                    <a class="current">Website Admin</a>
-                    <div class="breadcrumb_divider"></div>
-                    <a class="current2">汇总</a>
-                </article>
-            </div>
-        </section>
+        
         <!-- end of secondary bar -->
 
         <aside id="sidebar" class="column">

@@ -1,5 +1,15 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="iMidudu.Admin.Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+    <section id="secondary_bar">
+
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs">
+                    <a class="current">红包历史查看</a>
+                    <div class="breadcrumb_divider"></div>
+                    <a class="current2">红包统计</a>
+                </article>
+            </div>
+        </section>
   <article class="module width_full">
 			<header><h3>汇总</h3></header>
 			<div class="module_content"> 

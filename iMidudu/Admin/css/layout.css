@@ -39,7 +39,7 @@ width: 100%;
 background: #222222 url(../images/header_bg.png) repeat-x;
 }
 
-header#header h1.site_title, header#header h2.section_title {
+header#header h1.site_title, header#header h2.section_title,header#header.login{
 float: left;
 margin: 0;
 font-size: 22px;
@@ -64,6 +64,7 @@ text-align: center;
 text-indent: 4.5%;
 width: 68%;
 background: url(../images/header_shadow.png) no-repeat left top;
+font-weight:bolder;
 }
 
 .btn_view_site {
@@ -935,4 +936,28 @@ overflow: hidden;
 line-height: 3.9em;
 overflow: hidden;
     margin-left:10px;
+}
+
+input[type=submit].login {
+background: #D0D1D4 url(../images/btn_submit_2.png) repeat-x;
+border: 1px solid#30B0C8;
+-webkit-box-shadow: 0 1px 0 #fff;
+-moz-box-shadow: 0 1px 0 #fff;
+box-shadow: 0 1px 0 #fff;
+font-weight: bold;
+height: 22px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+padding: 0 10px;
+color: #003E49;
+text-shadow: 0 1px 0 #6CDCF9;
+cursor: pointer;
+margin-top:15px;
+margin-bottom:10px;
+
+}
+
+input[type=submit].login:hover {
+color: #001217;
 }
