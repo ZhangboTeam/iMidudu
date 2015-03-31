@@ -12,7 +12,7 @@ namespace iMidudu
         {
             get
             {
-                return (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Bonus");
+                return (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from Bonus where AcitvityId  in (select AcitvityId from Activity where ActivityName='不凡帝1')");
             }
         }
         public static int TotalBonusUsed

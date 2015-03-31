@@ -39,17 +39,24 @@
 <!--	<link rel="apple-touch-icon" sizes="57x57" href="images/apple-touch-icon-57x57.png">-->
 <!--	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">-->
 <!--	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
+    <script src="js/jquery.min.js"></script>
     <script type ="text/javascript">
         function closewindow(){
             window.close();
         }
-        function guanzhu() {
-            window.location.href = "http://mp.weixin.qq.com/s?__biz=MjM5MDAwMzQ5OA==&mid=204358087&idx=1&sn=8a896c7665e658e9962969fd5949ab8a#rd";
-        }
+        //function guanzhu() {
+        //    window.location.href = "http://mp.weixin.qq.com/s?__biz=MjM5MDAwMzQ5OA==&mid=204358087&idx=1&sn=8a896c7665e658e9962969fd5949ab8a#rd";
+        //}
+        $(function () {
+            $("body").click(function () {
+                window.location.href = "http://mp.weixin.qq.com/s?__biz=MjM5MDAwMzQ5OA==&mid=204358087&idx=1&sn=8a896c7665e658e9962969fd5949ab8a#rd";
+                
+            });
+        });
     </script>
 </head>
-<body>
-<div class="wrap">
+<body  >
+<div class="wrap" >
     <header>
         <a href="#" class="logo logo01"><img src="images/logo-01.png" alt=""></a>
         <a href="#" class="logo logo02"><img src="images/logo-02.png" alt=""></a>
@@ -62,7 +69,7 @@
                 <div class="bagCon"><img src="images/price-01.png" alt=""></div>
                 <h3 class="tc">第二重：“幸运超级大礼-IPHONE 6”</h3>
                 <p class="txt">每月超级大奖公布情况，敬请关注</p>
-                <p class="txt">不凡帝官方微信号<span><input type="button" id="guanzhu" value="“PVM中国”" onclick="guanzhu()"/></span>！</p>
+                <p class="txt">不凡帝官方微信号“PVM中国”！</p>
             </div>
           <%   //<input type="button" id="close" value="关闭" onclick="closewindow()"/>%>
         </div>
