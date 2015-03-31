@@ -184,8 +184,8 @@
                     </div>
                     <div class="formList">
                         <input type="text" id="ValidCode" class="txt txt02" placeholder="请输入验证码" />
-                        <a href="#" class="txt code" id="sendValidCode">获取验证码</a>
-                        <p class="codeTips">验证码将在10分钟内发送到手机上</p>
+                        <a href="#" class="txt code" id="sendValidCode">获取验证码</a>                                        <p class="codeTips">验证码将在10分钟内发送到手机上，如果10分钟后没有收到验证码请重新获取验证码</p>
+            <p class="logTips"><span>请注意：</span>请务必填写您真实准确的姓名及手机号码第二重好礼的兑奖需要提供与您填写的信息一致的证明文件，否则您将无法获得奖品</p>
                     </div>
                     <input type="button" class="btn" id="ok" value="" />
                 </div>

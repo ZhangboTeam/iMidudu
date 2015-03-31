@@ -317,6 +317,29 @@ namespace iMidudu
                 return ex.Message;
             }
             return "OK";
-        }   
+        }
+
+
+        [WebMethod(EnableSession = true)]
+        public string Lottery()
+        {
+
+
+             int c=(int)SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from MembershipInfo");
+             int i=new Random().Next(1, c+1);
+             int j = i - 1;
+             var OpenId = SystemDAO.SqlHelper.ExecuteScalarText("select top(" + i + ") OpenId from MembershipInfo where (OpenId not in (select top("+ j +") OpenId from MembershipInfo ))");
+             var sql = string.Format("select count(*) from Lottery where OpenId='{0}'", OpenId);
+             var exists= SystemDAO.SqlHelper.Exists(sql);
+             if (exists)
+             {
+                 OpenId = Lottery();
+             }
+             else {
+                 SystemDAO.SqlHelper.ExecteNonQueryText("insert into Lottery(OpenId) values (@OpenId)",
+                     new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+             }
+                 return OpenId.ToString();
+        }
     }
 }

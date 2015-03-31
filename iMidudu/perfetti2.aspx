@@ -60,7 +60,6 @@
                 <p class="tips tc">恭喜您获得不凡帝红包</p>
                 <i class="tips-bg"></i>
                 <div class="bagCon"><img src="images/price-01.png" alt=""></div>
-                <p class="txt">点击钱包 --  微信红包--- 我的红包  --收到的红包，即可查询</p>
                 <h3 class="tc">第二重：“幸运超级大礼-IPHONE 6”</h3>
                 <p class="txt">每月超级大奖公布情况，敬请关注</p>
                 <p class="txt">不凡帝官方微信号<span><input type="button" id="guanzhu" value="“PVM中国”" onclick="guanzhu()"/></span>！</p>
@@ -69,7 +68,8 @@
         </div>
     </section>
     <footer>
-        <img src="images/foot-bg.png" alt="">
+                <img src="images/foot-bg.png" alt="">
+        <p class="txt_tips">点击钱包-微信红包-我的红包-收到的红包即可查询</p>
     </footer>
 </div>
 <script src="js/jquery.min.js"></script>
