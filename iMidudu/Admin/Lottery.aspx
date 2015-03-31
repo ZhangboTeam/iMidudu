@@ -8,70 +8,26 @@
                  $("#doLottery").hide();
                  $.post("/WebService.asmx/Lottery",
                       function (data) {
-                          var OpenId1 = $(data).text().toString();
+                          var OpenId = data.OpenId;
+                          var UserName = data.UserName;
+                          var Sex = data.Sex;
+                          var Mobile = data.Mobile;
+                          var RegDate = data.RegDate;
+                          var Country = data.Country;
+                          var Province = data.Province;
+                          var City = data.City;
+                          var Nickname = data.Nickname;
+                          var Pic = data.Pic;
+                          var RecentLoginDate = data.RecentLoginDate;
+                          $("#u").html("OpenId:" + OpenId + "验证用户名:" + UserName + "微信昵称:" + Nickname + "性别:" + Sex + "手机" + Mobile + "国家" + Country + "省" + Province + "市（区）" + City + "注册时间" + RegDate + "最近登录时间" + RecentLoginDate);
                           window.location.reload();
                       });
              });
         })
 </script>
     <input type="submit" value="抽奖" id="doLottery"  class="alt_btn"/>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT * FROM [MembershipInfo] WHERE ([OpenId] = @OpenId)">
-        <SelectParameters>
-            <asp:SessionParameter Name="OpenId" SessionField="OpenId" Type="String" />
-        </SelectParameters>
-    </asp:SqlDataSource>
 
-    
-      <article class="module width_full">
-            <header>
-                <h3 class="tabs_involved">中奖用户</h3>
 
-            </header>
-            <div class="tab_container">
-                <div id="tab1" class="tab_content">
-
-                <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
-                    <HeaderTemplate>
-                    <table class="tablesorter" cellspacing="0">
-                        <thead>
-                            <tr>
-
-                                <th>验证用户名</th>
-                                <th>微信昵称</th>
-                                <th>性别</th>
-                                <th>手机</th>
-                                <th>国家</th>
-                                <th>省</th>
-                                <th>市（区）</th> 
-                                <th>最近登录时间</th>
-                                <th>注册时间</th>
-                            </tr>
-                        </thead>
-                    </HeaderTemplate>
-                    <ItemTemplate>
-                        <tbody>
-                            <tr>
-
-                            <td>       <%#Eval("UserName") %>   </td>
-                            <td>       <%#Eval("Nickname") %>   </td>
-                            <td>       <%#Eval("Sex").ToString()=="1"?"男":"女" %>  </td>
-                            <td>       <%#Eval("Mobile") %>   </td>
-                            <td>       <%#Eval("Country") %>   </td>
-                            <td>       <%#Eval("Province") %>   </td>
-                            <td>       <%#Eval("City") %>   </td> 
-                                <td><%#Eval("RecentLoginDate")%></td>
-                                <td><%#Eval("RegDate")%></td>
-                           
-                            </tr>
-                    </ItemTemplate>
-                    <FooterTemplate>
-                        
-                    </tbody>
-                </table>
-                    </FooterTemplate>
-           </asp:Repeater>
-
-        </article>
-
-&nbsp;
+<div id="u">
+</div>
 </asp:Content>

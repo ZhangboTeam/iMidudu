@@ -321,7 +321,7 @@ namespace iMidudu
 
 
         [WebMethod(EnableSession = true)]
-        public string Lottery()
+        public object Lottery()
         {
 
 
@@ -339,7 +339,22 @@ namespace iMidudu
                  SystemDAO.SqlHelper.ExecteNonQueryText("insert into Lottery(OpenId) values (@OpenId)",
                      new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
              }
-                 return OpenId.ToString();
+             var info = SystemDAO.SqlHelper.GetTableText("select * from MembershipInfo where OpenId=@OpenId",
+                 new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
+            var row = info[0].Rows[0];
+             return new { 
+                OpenId=row["OpenId"],
+                UserName=row["UserName"],
+                Sex = row["Sex"],
+                Mobile = row["Mobile"],
+                RegDate = row["RegDate"],
+                Country = row["Country"],
+                Province = row["Province"],
+                City = row["City"],
+                Nickname = row["Nickname"],
+                Pic = row["Pic"],
+                RecentLoginDate = row["RecentLoginDate"]
+             };
         }
     }
 }
