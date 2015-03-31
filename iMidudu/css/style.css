@@ -138,7 +138,7 @@ header{
     color: #e93c32;
     font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 .bagWrap .tips-bg{
     width: 17.8rem;
@@ -153,7 +153,7 @@ header{
 }
 .bagCon{
     width: 9.5rem;
-    margin: 3rem auto 2rem;
+    margin: 2rem auto;
 }
 .bagCon2{
     width:12.1rem;
@@ -279,8 +279,9 @@ header{
     width: 100%;
     clear: both;
     color: #f2f2f2;
-    text-align: right;
+    text-align: left;
     padding-top: 0.4rem;
+    line-height: 1.4rem;
 }
 footer{
     position: fixed;
@@ -291,4 +292,50 @@ footer{
 }
 footer img{
     width: 100%;
+}
+.txt_tips{
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    width: 100%;
+    color: #fff;
+    font-size: 0.9rem;
+    padding: 0 5rem;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 1.6rem;
+}
+.logTips{
+    margin-top: 2rem;
+    color: #fff;
+    line-height: 1.6rem;
+}
+.logTips span{
+    font-weight: bold;
+}
+@media (device-height:480px) and (-webkit-min-device-pixel-ratio:2){/* 兼容iphone4/4s */
+    header{
+        transform: scale(0.8,0.8);
+        margin-top: -1rem;
+    }
+    .mainWrap{
+        transform: scale(0.8,0.8);
+        margin-top: -3.5rem;
+    }
+    footer{
+        margin-bottom: -1rem;
+    }
+}
+.txtConOther dl dd{
+    position: relative;
+}
+.txtConOther dl:last-child .icoDot{
+    visibility: visible;
+}
+.txtConOther dl dd .icoDot{
+    position: absolute;
+    left: 0.3rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    top: 0.45rem;
 }

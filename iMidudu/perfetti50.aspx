@@ -62,11 +62,10 @@
         <div class="mainWrap">
             <div class="bagWrap">
                 <p class="tips tc">恭喜您获得不凡帝红包</p>
-                <i class="tips-bg"></i>
                 <div class="bagCon bagCon2" style=""><img src="images/price-02.png" alt=""></div>
-                <h3 class="tc">“幸运超级大礼-IPHONE 6”</h3>
+                <h3 class="tc">第二重“幸运超级大礼-IPHONE 6”</h3>
                 <p class="txt">每月超级大奖公布情况，敬请关注</p>
-                <p class="txt">不凡帝官方微信号“PVM中国”！</p>
+                <p class="txt">不凡帝官方微信号<span>“PVM中国”</span></p>
             </div>
      <%    //  <input type="button" id="close" value="关闭" onclick="closewindow()"/> %> 
         </div>
