@@ -321,7 +321,7 @@ namespace iMidudu
 
 
         [WebMethod(EnableSession = true)]
-        public object Lottery()
+        public UserInfo Lottery()
         {
 
 
@@ -336,25 +336,42 @@ namespace iMidudu
                  OpenId = Lottery();
              }
              else {
-                 SystemDAO.SqlHelper.ExecteNonQueryText("insert into Lottery(OpenId) values (@OpenId)",
+                 SystemDAO.SqlHelper.ExecteNonQueryText("insert into Lottery(OpenId,LotteryDate) values (@OpenId,getDate())",
                      new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
              }
-             var info = SystemDAO.SqlHelper.GetTableText("select * from MembershipInfo where OpenId=@OpenId",
+             var row = SystemDAO.SqlHelper.ExecuteReader(System.Web.Configuration.WebConfigurationManager.AppSettings["con"].ToString().Trim(), System.Data.CommandType.Text, "select * from MembershipInfo where OpenId=@OpenId",
                  new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
-            var row = info[0].Rows[0];
-             return new { 
-                OpenId=row["OpenId"],
-                UserName=row["UserName"],
-                Sex = row["Sex"],
-                Mobile = row["Mobile"],
-                RegDate = row["RegDate"],
-                Country = row["Country"],
-                Province = row["Province"],
-                City = row["City"],
-                Nickname = row["Nickname"],
-                Pic = row["Pic"],
-                RecentLoginDate = row["RecentLoginDate"]
-             };
+             var user = new UserInfo();
+             while (row.Read())
+             {
+                 user.OpenId = row["OpenId"].ToString();
+                 user.UserName = row["UserName"].ToString();
+                 user.Sex = row["Sex"].ToString();
+                 user.Mobile = row["Mobile"].ToString();
+                 user.RegDate = row["RegDate"].ToString();
+                 user.Country = row["Country"].ToString();
+                 user.Province = row["Province"].ToString();
+                 user.City = row["City"].ToString();
+                 user.Nickname = row["Nickname"].ToString();
+                 user.Pic = row["Pic"].ToString();
+                 user.RecentLoginDate = row["RecentLoginDate"].ToString();
+             }
+             return user;
         }
+    }
+    public class UserInfo
+    {
+        public string OpenId { get; set; }
+        public string UserName  { get; set; }
+        public string Sex { get; set; }
+        public string Mobile { get; set; }
+        public string RegDate { get; set; }
+        public string Country { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
+        public string Nickname { get; set; }
+        public string Pic { get; set; }
+        public string RecentLoginDate { get; set; }
+
     }
 }

@@ -70,7 +70,7 @@
                     <td><%#Eval("Country") %></td>
                     <td><%#Eval("Province") %></td>
                     <td><%#Eval("City") %></td>
-    	<td><input type="image" src="images/icn_trash.png"  title="移出黑名单" onclick="MoveOutBlickList('<%#Eval("OpenId") %>');">
+    	<td><input type="image" src="images/icn_trash.png"  title="移出黑名单" onclick="MoveOutBlickList('<%#Eval("OpenId") %>');"></td>
 				</tr> 
                         </ItemTemplate>
                         <FooterTemplate>
