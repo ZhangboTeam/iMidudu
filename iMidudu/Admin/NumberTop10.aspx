@@ -1,5 +1,32 @@
 ﻿<%@ Page Title="领取次数TOP10" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
+
+
+    <script>
+        function DownLoad() {
+            var content = $("#content").html();
+            var data = { body: content };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/ExcelContentSaveToTemp",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (fn) {
+
+                    var url = "/Admin/OutExcel.ashx?filename=领取次数TOP10.xls&ContentFile=" + fn.d;
+                    window.open(url, "_blank");
+                }
+            });
+
+
+        }
+    </script>
+
+
+
+
+
             <section id="secondary_bar">
 
             <div class="breadcrumbs_container">
@@ -17,6 +44,7 @@
             </header>                
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
+                    <div id="content">
                     <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                                                 <HeaderTemplate>
    <table class="tablesorter" cellspacing="0">
@@ -58,11 +86,11 @@
                     </table>
                         </FooterTemplate>
                                     </asp:Repeater>
-            
+            </div>
 
                     <footer>
                         <div class="submit_link">
-                            <input type="submit" value="导出表格" class="alt_btn">
+                            <input type="submit" value="导出表格"  class="alt_btn" onclick="DownLoad();">
                         </div>
                     </footer>
                 </div><!-- end of #tab1 -->

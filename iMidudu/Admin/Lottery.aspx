@@ -62,8 +62,9 @@
         });
     }
 </script>
+<center>
     <input type="submit" value="抽奖" id="doLottery1"  class="alt_btn"/>
-
+</center>
 
 <div id="u">
 </div>

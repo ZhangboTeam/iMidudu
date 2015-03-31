@@ -1,6 +1,28 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/SiteAdmin.Master" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
 
+        <script>
+            function DownLoad() {
+                var content = $("#content").html();
+                var data = { body: content };
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    url: "/Webservice.asmx/ExcelContentSaveToTemp",
+                    data: JSON.stringify(data),
+                    dataType: 'json',
+                    success: function (fn) {
+
+                        var url = "/Admin/OutExcel.ashx?filename=用户分组.xls&ContentFile=" + fn.d;
+                        window.open(url, "_blank");
+                    }
+                });
+
+
+            }
+    </script>
+
+
     <section id="secondary_bar">
 
             <div class="breadcrumbs_container">
@@ -32,7 +54,8 @@
             <SelectParameters>
                 <asp:Parameter DefaultValue="不凡帝1" Name="ActivityName" Type="String" />
             </SelectParameters>
-        </asp:SqlDataSource>               
+        </asp:SqlDataSource>   
+                    <div  id="content">            
           <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <HeaderTemplate>                 
                     <table class="tablesorter" cellspacing="0">
@@ -71,10 +94,10 @@
                         </FooterTemplate>
                                     </asp:Repeater>
                  
-                          
+                          </div>
                     <footer>
                         <div class="submit_link">
-                            <input type="submit" value="导出表格" class="alt_btn">
+                            <input type="submit" value="导出表格" class="alt_btn" onclick="DownLoad();">
                         </div>
                     </footer>              </div><!-- end of #tab1 -->
 

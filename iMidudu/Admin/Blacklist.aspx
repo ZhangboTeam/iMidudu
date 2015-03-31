@@ -20,7 +20,24 @@
             }
         });
     }
+    function DownLoad() {
+        var content = $("#content").html();
+        var data = { body: content };
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: "/Webservice.asmx/ExcelContentSaveToTemp",
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (fn) {
 
+                var url = "/Admin/OutExcel.ashx?filename=黑名单.xls&ContentFile=" + fn.d;
+                window.open(url, "_blank");
+            }
+        });
+
+
+    }
 
 </script>
     <section id="secondary_bar">
@@ -40,7 +57,7 @@
 
 		<div class="tab_container">
 			<div id="tab1" class="tab_content">
-
+                <div  id="content">
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:iMiduduConnectionString %>" SelectCommand="SELECT * FROM [Blacklist]"></asp:SqlDataSource>                		                        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                 <HeaderTemplate>
 			<table class="tablesorter" cellspacing="0"> 
@@ -80,6 +97,12 @@
                     </table>
                         </FooterTemplate>
                                     </asp:Repeater>
+                </div>
+                                <footer>
+                    <div class="submit_link">
+                        <input type="submit" value="导出表格" class="alt_btn" onclick="DownLoad();">
+                    </div>
+                </footer>
 			</div><!-- end of #tab1 -->				
 		</article><!-- end of content manager article -->
 		

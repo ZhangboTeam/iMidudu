@@ -100,6 +100,25 @@
             });
 
         }
+
+        function DownLoad() {
+            var content = $("#content").html();
+            var data = { body: content };
+            $.ajax({
+                type: "POST",
+                contentType: "application/json",
+                url: "/Webservice.asmx/ExcelContentSaveToTemp",
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (fn) {
+
+                    var url = "/Admin/OutExcel.ashx?filename=电话搜索.xls&ContentFile=" + fn.d;
+                    window.open(url, "_blank");
+                }
+            });
+
+
+        }
     </script>
      <div class="quick_search ">
             <input type="text" id="key1"   style="width:auto;"  />
@@ -113,7 +132,7 @@
             </header>
             <div class="tab_container">
                 <div id="tab1" class="tab_content">
-
+<div  id="content">
                 <asp:Repeater ID="Repeater1" runat="server">
                     <HeaderTemplate>
                     <table class="tablesorter" cellspacing="0">
@@ -160,12 +179,17 @@
                     </tbody>
                 </table>
                     </FooterTemplate>
-           </asp:Repeater>
+           </asp:Repeater></div>
                 <webdiyer:AspNetPager ID="AspNetPager1" runat="server" Width="100%" UrlPaging="true" ShowPageIndexBox="Always" PageIndexBoxType="DropDownList"  
                     FirstPageText="【首页】"
     LastPageText="【尾页】" NextPageText="【后页】"
         PrevPageText="【前页】" NumericButtonTextFormatString="【{0}】"   TextAfterPageIndexBox="页" TextBeforePageIndexBox="转到第"  HorizontalAlign="right" PageSize="10" OnPageChanged="AspNetPager1_PageChanged" EnableTheming="true" CustomInfoHTML="Page  <font color='red'><b>%CurrentPageIndex%</b></font> of  %PageCount%  Order %StartRecordIndex%-%EndRecordIndex%">
                 </webdiyer:AspNetPager>
+                 <footer>
+                    <div class="submit_link">
+                        <input type="submit" value="导出表格" class="alt_btn" onclick="DownLoad();">
+                    </div>
+                </footer>
             </div><!-- end of #tab1 -->
 
                 
@@ -183,9 +207,6 @@
                 <label><%#totalCount50 %></label>
                 <label>份</label>
 
-            </div>
-            <div class="submit_link">
-                <input type="submit" value="导出表格" class="alt_btn"/>
             </div>
         </footer>
 
