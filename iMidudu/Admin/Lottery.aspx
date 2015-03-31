@@ -2,25 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="PageBody" runat="server">
 <script>
-    //function doLottery() {
-
-    //        var data = {
-    //        };
-    //        $.ajax({
-    //            type: "POST",
-    //            contentType: "application/json",
-    //            url: "/Webservice.asmx/Lottery",
-    //            data: JSON.stringify(data),
-    //            dataType: 'json',
-    //            success: function (result) {
-    //                window.location.href = "/Admin/LotteryShow.aspx";
-    //            },
-    //            error: function (err) {
-    //                alert(err);
-    //            }
-    //        });
-
-    //    }
         $(function () {
             $("#doLottery").click(
              function () {
@@ -28,8 +9,6 @@
                  $.post("/WebService.asmx/Lottery",
                       function (data) {
                           var OpenId1 = $(data).text().toString();
-                          alert(OpenId1);
-                          System.Web.HttpContext.Current.Session["OpenId"] = OpenId1;
                           window.location.reload();
                       });
              });

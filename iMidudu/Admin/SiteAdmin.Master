@@ -121,8 +121,6 @@
             <asp:ContentPlaceHolder ID="PageBody" runat="server"></asp:ContentPlaceHolder>
         </section>
             <footer>
-                <hr /> 
-                <p align="center">&copy 2015 www.suusee.com</p>
             </footer>
     </form>
 </body>

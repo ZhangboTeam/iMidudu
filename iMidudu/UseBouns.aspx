@@ -78,6 +78,7 @@
             var limit = 30;
             var usedCount = iMidudu.Biz.CountByAcitivtyAndOpenId(this.Request["acitvity"], this.Request["openid"]);
 
+            Response.Write(openid);
             if (usedCount < limit)
             {
                 var xml = "";
