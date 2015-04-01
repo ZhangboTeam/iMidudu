@@ -47,7 +47,7 @@
             $("#sendValidCode").click(
                
                 function () {
-                    $("#sendValidCode").hide();
+                   // $("#sendValidCode").hide();
                     var m = $("#Mobile").val();
                     $.post("/WebService.asmx/sendSMSValid",
                         { mobile: m }, function (data) {
@@ -56,7 +56,32 @@
                             } else {
                                 var r = $(data).text();
                                 var rr = JSON.parse(r);
-
+                                //var countdown = 60;
+                                //function settime(val) {
+                                //    if (countdown == 0) {
+                                //        val.removeAttribute("disabled");
+                                //        val.value = "免费获取验证码";
+                                //        countdown = 60;
+                                //    } else {
+                                //        val.setAttribute("disabled", true);
+                                //        val.value = "重新发送(" + countdown + ")";
+                                //        countdown--;
+                                //    }
+                                //    setTimeout(function () {
+                                //        settime(val)
+                                //    }, 1000)
+                                //}
+                                //var count = 10;
+                                //var countdown = setInterval(CountDown, 1000);
+                                //function CountDown() {
+                                //    $("#sendValidCode").attr("disabled", true);
+                                //    $("#sendValidCode").val(count);
+                                //    if (count == 0) {
+                                //        $("#sendValidCode").val("重新获取验证码").removeAttr("disabled");
+                                //        clearInterval(countdown);
+                                //    }
+                                //    count--;
+                                //}
                                 if (rr.code == 0) {
                                     $("#r").html("短信验证码已发送到手机:" + m);
                                     var count = 0;
@@ -70,7 +95,7 @@
                                             clearInterval(iii); $("#r").html("");
                                         }
                                     }, 1000);
-                                    // alert("短信验证码已发送到手机:" + m);
+                                     alert("短信验证码已发送到手机:" + m);
 
                                 }
                                 else {
