@@ -43,67 +43,40 @@
     <!--	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
     <script src="/Scripts/jquery-2.1.3.min.js"></script>
     <script>
-        $(function () {
-            $("#sendValidCode").click(
-               
-                function () {
-                   // $("#sendValidCode").hide();
-                    var m = $("#Mobile").val();
-                    $.post("/WebService.asmx/sendSMSValid",
-                        { mobile: m }, function (data) {
-                            if ($(data).text() == "take") {
-                                alert("手机号被占用！")
-                            } else {
-                                var r = $(data).text();
-                                var rr = JSON.parse(r);
-                                //var countdown = 60;
-                                //function settime(val) {
-                                //    if (countdown == 0) {
-                                //        val.removeAttribute("disabled");
-                                //        val.value = "免费获取验证码";
-                                //        countdown = 60;
-                                //    } else {
-                                //        val.setAttribute("disabled", true);
-                                //        val.value = "重新发送(" + countdown + ")";
-                                //        countdown--;
-                                //    }
-                                //    setTimeout(function () {
-                                //        settime(val)
-                                //    }, 1000)
-                                //}
-                                //var count = 10;
-                                //var countdown = setInterval(CountDown, 1000);
-                                //function CountDown() {
-                                //    $("#sendValidCode").attr("disabled", true);
-                                //    $("#sendValidCode").val(count);
-                                //    if (count == 0) {
-                                //        $("#sendValidCode").val("重新获取验证码").removeAttr("disabled");
-                                //        clearInterval(countdown);
-                                //    }
-                                //    count--;
-                                //}
-                                if (rr.code == 0) {
-                                    $("#r").html("短信验证码已发送到手机:" + m);
-                                    var count = 0;
-
-                                    $("#sendValidCode").hide();
-
-                                    var iii = setInterval(function () {
-                                        $("#r").html(60 - ++count);
-                                        if (count >= 60) {
-                                            $("#sendValidCode").show();
-                                            clearInterval(iii); $("#r").html("");
-                                        }
-                                    }, 1000);
-                                     alert("短信验证码已发送到手机:" + m);
-
+        
+        function ssss(){
+            $("#sendValidCode").unbind("click");
+            var m = $("#Mobile").val();
+            $.post("/WebService.asmx/sendSMSValid",
+                { mobile: m }, function (data) {
+                    if ($(data).text() == "take") {
+                        alert("手机号被占用！")
+                    } else {
+                        var r = $(data).text();
+                        var rr = JSON.parse(r);
+                        if (rr.code == 0) {
+                            $("#r").html("短信验证码已发送到手机:" + m);
+                            var count = 60;
+                            var iii = setInterval(function () {
+                                $("#sendValidCode").unbind("click");
+                                $("#sendValidCode").html(count);
+                                $("#r").html(--count);
+                                if (count == 0) {
+                                    $("#sendValidCode").bind("click",ssss);
+                                    $("#sendValidCode").html("获取验证码");
+                                    clearInterval(iii); $("#r").html("");
                                 }
-                                else {
-                                    alert(rr.msg);
-                                }
-                            }
-                    });
+                            }, 1000);
+                        }
+                        else {
+                            alert(rr.msg);
+                        }
+                    }
                 });
+        }
+        $(function () {
+             $("#sendValidCode").click(ssss
+               );
 
 
             $("#ok").click(
@@ -209,7 +182,7 @@
                     </div>
                     <div class="formList">
                         <input type="text" id="ValidCode" class="txt txt02" placeholder="请输入验证码" />
-                        <a href="#" class="txt code" id="sendValidCode">获取验证码</a>                                        <p class="codeTips">验证码将在10分钟内发送到手机上，如果10分钟后没有收到验证码请重新获取验证码</p>
+                        <a href="#" class="txt code" id="sendValidCode" onclick="sendValid()">获取验证码</a>                                        <p class="codeTips">验证码将在10分钟内发送到手机上，如果10分钟后没有收到验证码请重新获取验证码</p>
             <p class="logTips"><span>请注意：</span>请务必填写您真实准确的姓名及手机号码第二重好礼的兑奖需要提供与您填写的信息一致的证明文件，否则您将无法获得奖品</p>
                     </div>
                     <input type="button" class="btn" id="ok" value="" />
