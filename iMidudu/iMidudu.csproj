@@ -103,6 +103,7 @@
     <Content Include="Admin\WebForm1.aspx" />
     <Content Include="Admin\Blacklist.aspx" />
     <Content Include="Admin\UserMangeByTel.aspx" />
+    <Content Include="AuthCallback.aspx" />
     <Content Include="bin\AspNetPager.dll" />
     <Content Include="js\queryString.js" />
     <Content Include="Admin\images\breadcrumb_divider.png" />
