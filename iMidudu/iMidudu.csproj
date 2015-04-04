@@ -77,6 +77,7 @@
     <Content Include="Admin\ActivityManage.aspx" />
     <Content Include="Admin\AdminManage.aspx" />
     <Content Include="Admin\AdminManage1.aspx" />
+    <Content Include="Admin\AwardRecord.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="Admin\css\animate.css" />
     <Content Include="Admin\css\ie.css" />
@@ -91,6 +92,7 @@
     <Content Include="Admin\js\json2.js" />
     <Content Include="Admin\js\Login.js" />
     <Content Include="Admin\js\login2.js" />
+    <Content Include="Admin\Lottery.aspx" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\Morethan15.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
@@ -189,6 +191,7 @@
     <Content Include="WebService.asmx" />
     <Content Include="Admin\SiteAdmin.Master" />
     <Content Include="Admin\UserMangeByName.aspx" />
+    <Content Include="Admin\OutExcel.ashx" />
     <None Include="Properties\PublishProfiles\iMidudu.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -244,6 +247,9 @@
     </Compile>
     <Compile Include="Admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OutExcel.ashx.cs">
+      <DependentUpon>OutExcel.ashx</DependentUpon>
     </Compile>
     <Compile Include="Admin\SiteAdmin.Master.cs">
       <DependentUpon>SiteAdmin.Master</DependentUpon>
