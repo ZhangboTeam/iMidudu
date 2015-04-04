@@ -45,12 +45,12 @@
     <script>
         
         function ssss(){
-            $("#sendValidCode").unbind("click");
+           // $("#sendValidCode").unbind("click");
             var m = $("#Mobile").val();
             $.post("/WebService.asmx/sendSMSValid",
                 { mobile: m }, function (data) {
                     if ($(data).text() == "take") {
-                        alert("手机号被占用！")
+                        alert("手机号被占用！");
                     } else {
                         var r = $(data).text();
                         var rr = JSON.parse(r);

@@ -22,6 +22,20 @@ namespace iMidudu
                 return (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select count(1) from BonusHistory");
             }
         }
+        public static int BonusUsed2
+        {
+            get
+            {
+                return (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select isnull(count(1),0) from BonusHistory where Amount=2");
+            }
+        }
+        public static int BonusUsed50
+        {
+            get
+            {
+                return (int)iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select isnull(count(1),0) from BonusHistory where Amount=50");
+            }
+        }
         public static double TotalBonusMoneyUsed
         {
             get
