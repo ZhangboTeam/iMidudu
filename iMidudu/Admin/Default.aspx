@@ -31,15 +31,6 @@
 
 					</div>
 
-                    <div class="overview_today">
-						<p class="overview_day">2元剩余</p>
-						<p class="overview_count"><%= 598758-iMidudu.AdminTool.BonusUsed2 %></p> 
-                    </div>
-                    <div class="overview_previous">
-						<p class="overview_day">50元剩余</p>
-						<p class="overview_count"><%= 6042-iMidudu.AdminTool.BonusUsed50 %></p> 
-					</div>
-
 					<div class="overview_today">
 						<p class="overview_day">今天2元领取</p>
 						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,2,1) %>次</p> 
