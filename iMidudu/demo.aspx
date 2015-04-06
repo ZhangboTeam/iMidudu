@@ -75,8 +75,7 @@
         var exists = iMidudu.SystemDAO.SqlHelper.Exists(sql2);
         if (exists)
         {
-            Response.Write("你被拉进黑名单不可领取红包！");
-            Response.End();
+            Response.Redirect("/limit.aspx");
         }
         if (string.IsNullOrEmpty(r.nickname))
         {
