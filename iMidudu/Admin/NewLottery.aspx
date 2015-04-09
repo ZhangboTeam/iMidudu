@@ -84,7 +84,7 @@
 
                         window.location.href = URL;
                     } else {
-                        alert("无用户满足抽奖条件");
+                        alert("所有的用户都已经被抽中过");
                     }
                     //var UserName = result.d.UserName;
                     //var Sex = result.d.Sex;

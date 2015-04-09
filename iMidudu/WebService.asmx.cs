@@ -335,7 +335,7 @@ namespace iMidudu
              int AllCount=(int)SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ViewLotteryMembership");
              int i=new Random().Next(1, AllCount+1);
              int j = i - 1;
-             if (j ==0) {
+             if (AllCount ==0) {
                  user.OpenId = null;
                  return user;
              
