@@ -67,7 +67,6 @@
     				<th>验证用户名</th> 
     				<th>微信昵称</th> 
                     <th>手机</th>
-                    <th>头像</th>
                     <th>国家</th>
                     <th>城市</th>
                     <th>市（区）</th>
@@ -83,7 +82,6 @@
     				<td><%#Eval("UserName") %></td> 
     				<td><%#Eval("Nickname") %></td> 
                     <td><%#Eval("Mobile") %></td> 
-                    <td><a href="<%#Eval("Pic") %>" target="_blank" ><img src='<%#Eval("Pic") %>' width="30" /> </a> </td>
                     <td><%#Eval("Country") %></td>
                     <td><%#Eval("Province") %></td>
                     <td><%#Eval("City") %></td>

@@ -28,7 +28,7 @@
                 <article class="breadcrumbs">
                     <a class="current">数据管理</a>
                     <div class="breadcrumb_divider"></div>
-                    <a class="current2">中奖查看</a>
+                    <a class="current2">抽中纪录</a>
                 </article>
             </div>
         </section>
@@ -52,7 +52,6 @@
     				<th>微信昵称</th> 
                     <th>手机</th>
                     <th>中奖时间</th>
-                    <th>头像</th>
                     <th>国家</th>
                     <th>城市</th>
                     <th>市（区）</th>
@@ -70,7 +69,6 @@
     				<td><%#Eval("Nickname") %></td> 
                     <td><%#Eval("Mobile") %></td> 
                     <td><%#Eval("LotteryDate") %></td>
-                    <td><a href="<%#Eval("Pic") %>" target="_blank" ><img src='<%#Eval("Pic") %>' width="30" /> </a> </td>
                     <td><%#Eval("Country") %></td>
                     <td><%#Eval("Province") %></td>
                     <td><%#Eval("City") %></td>

@@ -331,11 +331,16 @@ namespace iMidudu
         public UserInfo Lottery()
         {
 
-
-             int c=(int)SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from MembershipInfo");
-             int i=new Random().Next(1, c+1);
+            var user = new UserInfo();
+             int AllCount=(int)SystemDAO.SqlHelper.ExecuteScalarText("select count(*) from ViewLotteryMembership");
+             int i=new Random().Next(1, AllCount+1);
              int j = i - 1;
-             var OpenId = SystemDAO.SqlHelper.ExecuteScalarText("select top(" + i + ") OpenId from MembershipInfo where (OpenId not in (select top("+ j +") OpenId from MembershipInfo ))");
+             if (j ==0) {
+                 user.OpenId = null;
+                 return user;
+             
+             }
+             var OpenId = SystemDAO.SqlHelper.ExecuteScalarText("select top(" + i + ") OpenId from ViewLotteryMembership where (OpenId not in (select top(" + j + ") OpenId from ViewLotteryMembership ))");
              var sql = string.Format("select count(*) from Lottery where OpenId='{0}'", OpenId);
              var exists= SystemDAO.SqlHelper.Exists(sql);
              if (exists)
@@ -348,7 +353,7 @@ namespace iMidudu
              }
              var row = SystemDAO.SqlHelper.ExecuteReader(System.Web.Configuration.WebConfigurationManager.AppSettings["con"].ToString().Trim(), System.Data.CommandType.Text, "select * from MembershipInfo where OpenId=@OpenId",
                  new System.Data.SqlClient.SqlParameter("@OpenId", OpenId));
-             var user = new UserInfo();
+             //var user = new UserInfo();
              while (row.Read())
              {
                  user.OpenId = row["OpenId"].ToString();

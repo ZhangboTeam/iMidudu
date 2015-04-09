@@ -84,6 +84,7 @@
     <Content Include="Admin\css\layout.css" />
     <Content Include="Admin\css\style.css" />
     <Content Include="Admin\Default.aspx" />
+    <Content Include="Admin\GetPrize.aspx" />
     <Content Include="Admin\images\arrow.png" />
     <Content Include="Admin\images\bg.png" />
     <Content Include="Admin\images\iMidudu.png" />
@@ -95,6 +96,7 @@
     <Content Include="Admin\Lottery.aspx" />
     <Content Include="Admin\MoneyTop10.aspx" />
     <Content Include="Admin\Morethan15.aspx" />
+    <Content Include="Admin\NewLottery.aspx" />
     <Content Include="Admin\NumberTop10.aspx" />
     <Content Include="Admin\UserManage.aspx" />
     <Content Include="Admin\UserSearch.aspx" />
