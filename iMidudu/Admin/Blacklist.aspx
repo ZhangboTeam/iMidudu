@@ -21,6 +21,11 @@
         });
     }
     function DownLoad() {
+        var sql = "select OpenID,UserName as 验证用户名,Nickname as 微信昵称,Mobile as 手机, Country as 国家,Province as 省,City as 市 from Blacklist  where OpenId=OpenId and UserName=UserName and NickName=NickName and Mobile=Mobile and Country=Country and Province=Province and City=City ";
+        var url = "/Admin/OutExcelDown.ashx?filename=扫码用户<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
+         alert(sql);
+         window.open(url);
+         return;
         var content = $("#content").html();
         var data = { body: content };
         $.ajax({
