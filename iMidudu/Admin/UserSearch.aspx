@@ -125,7 +125,7 @@
             </div>
         </section>
     <div class="quick_search width_half_search">
-        <input type="text"  id="key" value="<%=this.Request["key"] %>">" placeholder="按验证用户名查找"/>
+        <input type="text"  id="key" value="<%=this.Request["key"] %>" placeholder="按验证用户名查找"/>
         <input type="button" onclick="dosearch();" value="搜索"/>
     </div>
 
