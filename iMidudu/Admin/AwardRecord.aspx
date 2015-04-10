@@ -3,6 +3,7 @@
 
     <script>
         function DownLoad() {
+
             var content = $("#content").html();
             var data = { body: content };
             $.ajax({
