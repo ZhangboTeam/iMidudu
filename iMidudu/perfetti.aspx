@@ -18,7 +18,7 @@
          Response.End();
 
     }
-    var sql1 = string.Format("select count(*) from Bonus where BonusCode='{0}' and ActivityId='{1}'", this.Request["bonus"] ,"53c9b412-d1a5-44a6-957f-b948cd54ce87");
+    var sql1 = string.Format(" select count(*) from Bonus where  AcitvityId='53c9b412-d1a5-44a6-957f-b948cd54ce87'and BonusCode='{0}'", this.Request["bonus"]);
 
     var exists1 = iMidudu.SystemDAO.SqlHelper.Exists(sql1);
 
