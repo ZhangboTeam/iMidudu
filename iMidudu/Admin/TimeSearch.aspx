@@ -103,7 +103,7 @@
         function DownLoad() {
             var k1 = $("#key1").val();
             var k2 = $("#key2").val();
-            var sql = "select UserName as 验证过的用户,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,ReceiptDate as 领取时间,Amount as 领取金额 from ViewBonusHistory  where  ReceiptDate >=' " + k1 + "'   and ReceiptDate <= '" + k2 + "'  ";
+            var sql = "select UserName as 验证过的用户,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,ReceiptDate as 领取时间,Amount as 领取金额 from ViewBonusHistory  where  ReceiptDate >=' " + k1 + "'   and ReceiptDate < '" + k2 + "'  ";
             var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
             alert(sql);
             window.open(url);
@@ -118,7 +118,7 @@
             dataType: 'json',
             success: function (fn) {
 
-                var url = "/Admin/OutExcel.ashx?filename=时间搜索用户.xls&ContentFile=" + fn.d;
+                var url = "/Admin/OutExcel.ashx?filename=时间搜索用户<%=DateTime.Now%>.xls&ContentFile=" + fn.d;
                 window.open(url, "_blank");
             }
         });
@@ -138,13 +138,26 @@
             </div>
         </section>
         <div class="quick_search ">
-            <input type="text" id="key1" value="<%=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd") %>" style="width:auto;" />
-			<input type="text"id="key2" value="<%=DateTime.Today.ToString("yyyy-MM-dd") %>"  style="width:auto;"/>
+            <%
+                var d1=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd");
+                var d2 = DateTime.Today.AddDays(0).ToString("yyyy-MM-dd");
+                if (Request["key1"] != null) {
+                    d1 = Request["key1"];
+                    
+                }
+                if (Request["key2"] != null)
+                {
+                    d2 = Request["key2"];
+
+                }
+                 %>
+            <input type="text" id="key1" value="<%=d1 %>" style="width:auto;" />
+			<input type="text"id="key2" value="<%=d2 %>"  style="width:auto;"/>
                 <input type="submit" value="搜索" onclick="dosearch();" class="alt_btn"/>
 		</div> 
     <article class="module width_full">
         <header>
-            <h3 class="tabs_involved">按时间查询</h3>
+            <h3 class="tabs_involved">按时间查询 <%=d1 %>--<%=d2 %></h3>
         </header>
         <div class="tab_container">
             <div id="tab1" class="tab_content">

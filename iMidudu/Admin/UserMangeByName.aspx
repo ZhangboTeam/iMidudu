@@ -100,6 +100,12 @@
         }
 
         function DownLoad() {
+            var k = $("#key1").val();
+            var sql = "select UserName as 验证过的用户,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市,TotalAmount as 领取金额,TotalCount as 领取数量,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewAllMembership where UserName = '" + k + "'";       
+            var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+            alert(sql);
+            window.open(url);
+            return;
             var content = $("#content").html();
             var data = { body: content };
             $.ajax({
@@ -110,7 +116,7 @@
                 dataType: 'json',
                 success: function (fn) {
 
-                    var url = "/Admin/OutExcel.ashx?filename=用户名搜索.xls&ContentFile=" + fn.d;
+                    var url = "/Admin/OutExcel.ashx?filename=用户名搜索<%=DateTime.Now%>.xls&ContentFile=" + fn.d;
                     window.open(url, "_blank");
                 }
             });
@@ -120,13 +126,14 @@
 
     </script>
      <div class="quick_search ">
-            <input type="text" id="key1"   style="width:auto;"  />
+    
+            <input type="text" id="key1" value="<%=this.Request["key"] %>"  style="width:auto;"  />
                 <input type="submit" value="按用户名搜索" onclick="dosearchByName();" class="alt_btn"/> 
                 <input type="submit" value="按电话搜索" onclick="dosearchByTel();" class="alt_btn"/>
 		</div> 
             <article class="module width_full">
             <header>
-                <h3 class="tabs_involved">所有用户</h3>
+                <h3 class="tabs_involved">所有用户+<%=this.Request["key"] %></h3>
 
             </header>
             <div class="tab_container">

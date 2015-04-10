@@ -102,6 +102,12 @@
         }
 
     function DownLoad() {
+        var k = $("#key1").val();
+        var sql = "select UserName as 验证过的用户,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市区,TotalAmount as 领取金额,TotalCount as 领取数量,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewAllMembership ";       
+        var url = "/Admin/OutExcelDown.ashx?filename=扫码用户.xls&sql=" + sql;
+        alert(sql);
+        window.open(url);
+        return;
         var content = $("#content").html();
         var data = { body: content };
         $.ajax({
@@ -112,7 +118,7 @@
             dataType: 'json',
             success: function (fn) {
 
-                var url = "/Admin/OutExcel.ashx?filename=所有用户.xls&ContentFile=" + fn.d;
+                var url = "/Admin/OutExcel.ashx?filename=所有用户<%=DateTime.Now%>.xls&ContentFile=" + fn.d;
                 window.open(url, "_blank");
             }
         });
