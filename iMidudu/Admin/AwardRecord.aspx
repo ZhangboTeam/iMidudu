@@ -5,7 +5,7 @@
         function DownLoad() {
             var sql = "select OpenId as OpenID,UserName as 验证用户名,Nickname as 微信昵称,Mobile as 手机,LotteryDate as 中奖时间,Country as 国家,Province as 省,City as 市 ,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewGetPrize ";
             var url = "/Admin/OutExcelDown.ashx?filename=扫码用户<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
-            alert(sql);
+            //alert(sql);
             window.open(url);
             return;
 

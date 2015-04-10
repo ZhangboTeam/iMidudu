@@ -7,7 +7,7 @@
         function DownLoad() {
             var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Mobile as 手机, Country as 国家,Province as 省,City as 市区,ActivityName as 活动名称,TotalAmount as 领取总金额,TotalCount as 领取总次数 from ViewMembershipInfo where TotalCount>=15 ";
             var url = "/Admin/OutExcelDown.ashx?filename=领取次数超过15次<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
-            alert(sql);
+           // alert(sql);
             window.open(url);
             return;
             var content = $("#content").html();
