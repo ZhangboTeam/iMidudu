@@ -39,7 +39,6 @@ namespace TisWeb.Admin
                 sb.AppendFormat("</tr>");
             }
             sb.AppendFormat("</table>");
-
             var res = context.Response;
             res.Clear();
             res.Buffer = true;
