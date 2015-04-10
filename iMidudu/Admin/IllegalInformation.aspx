@@ -4,6 +4,11 @@
 
     <script>
         function DownLoad() {
+            var sql = "select BonusCode as 非法码,UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机,Country as 国家,Province as 省,City as 市 ,ActivityName as 活动名称,ReceiptDate as 领取时间,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewIllegal ";
+            var url = "/Admin/OutExcelDown.ashx?filename=非法用户<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
+            //alert(sql);
+            window.open(url);
+            return;
             var content = $("#content").html();
             var data = { body: content };
             $.ajax({
