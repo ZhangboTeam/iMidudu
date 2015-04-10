@@ -18,7 +18,15 @@
          Response.End();
 
     }
+    var sql1 = string.Format("select count(*) from Bonus where BonusCode='{0}' and ActivityId='{1}'", this.Request["bonus"] ,"53c9b412-d1a5-44a6-957f-b948cd54ce87");
 
+    var exists1 = iMidudu.SystemDAO.SqlHelper.Exists(sql1);
+
+    if (exists1)
+    {
+        Response.Write("活动未开始");
+        Response.End();
+    }
     var now = DateTime.Now;
     if (now.Hour >= 0 && now.Hour < 8)
     {
