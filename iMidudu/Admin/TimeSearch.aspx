@@ -102,10 +102,13 @@
 
         function DownLoad() {
             var k1 = $("#key1").val();
-            var k2 = $("#key2").val();
-            var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,ReceiptDate as 领取时间,Amount as 领取金额 from ViewBonusHistory  where  ReceiptDate >=' " + k1 + "'   and ReceiptDate < '" + k2 + "'  ";
+            var k3 = $("#key3").val();
+            //var key4=k2;
+            //var key3 = Convert.ToDateTime(key4);
+            //key3 = key3.AddDays(1);
+            var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,ReceiptDate as 领取时间,Amount as 领取金额 from ViewBonusHistory  where  ReceiptDate >=' " + k1 + "'   and ReceiptDate < '"+k3+"'  ";
             var url = "/Admin/OutExcelDown.ashx?filename=按时段查询<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
-           // alert(sql);
+            alert(sql);
             window.open(url);
             return;
         var content = $("#content").html();
@@ -141,6 +144,7 @@
             <%
                 var d1=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd");
                 var d2 = DateTime.Today.AddDays(0).ToString("yyyy-MM-dd");
+                var d3 = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
                 if (Request["key1"] != null) {
                     d1 = Request["key1"];
                     
@@ -153,6 +157,7 @@
                  %>
             <input type="text" id="key1" value="<%=d1 %>" style="width:auto;" />
 			<input type="text"id="key2" value="<%=d2 %>"  style="width:auto;"/>
+            <input type="text"id="key3" value="<%=d3 %>"  style="width:auto;" hidden="hidden"/>
                 <input type="submit" value="搜索" onclick="dosearch();" class="alt_btn"/>
 		</div> 
     <article class="module width_full">
