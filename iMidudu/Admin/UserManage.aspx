@@ -103,7 +103,7 @@
 
     function DownLoad() {
         var k = $("#key1").val();
-        var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市区,TotalAmount as 领取金额,TotalCount as 领取数量,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewAllMembership ";       
+        var sql = "select UserName as 验证用户名,Nickname as 微信昵称,(case Sex when 1 then '男' else '女' end) as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市区,TotalAmount as 领取金额,TotalCount as 领取数量,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewAllMembership order by TotalCount desc";       
         var url = "/Admin/OutExcelDown.ashx?filename=验证过的用户<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
         //alert(sql);
         window.open(url);
