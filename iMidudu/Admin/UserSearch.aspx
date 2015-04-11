@@ -91,7 +91,7 @@
        <%-- '<%=this.Request["key"]%>' "--%>
         function DownLoad() {
             var k = $("#key").val();
-            var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,ReceiptDate as 领取时间,Amount as 领取金额 from BonusHistory,MembershipInfo,Activity  where MembershipInfo.OpenId=BonusHistory.OpenId and BonusHistory.AcitvityId=Activity.AcitvityId and UserName like '%" + k + "%' ";
+            var sql = "select UserName as 验证用户名,Nickname as 微信昵称, (case Sex when 1 then '男' else '女' end) as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,Amount as 领取金额,ReceiptDate as 领取时间 from BonusHistory,MembershipInfo,Activity  where MembershipInfo.OpenId=BonusHistory.OpenId and BonusHistory.AcitvityId=Activity.AcitvityId and UserName like '%" + k + "%' order by ReceiptDate desc";
             var url = "/Admin/OutExcelDown.ashx?filename=扫码用户<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
            // alert(sql);
             window.open(url);
