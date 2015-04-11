@@ -101,7 +101,7 @@
 
         function DownLoad() {
             var k = $("#key1").val();
-            var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市,TotalAmount as 领取金额,TotalCount as 领取数量,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewAllMembership where UserName like '<%=this.Request["key"]%>' ";
+            var sql = "select UserName as 验证用户名,Nickname as 微信昵称,Sex as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市,TotalAmount as 领取金额,TotalCount as 领取数量,RecentLoginDate as 最近登录时间,RegDate as 注册时间 from ViewAllMembership where UserName like '%" + k + "%' order by TotalCount desc ";
        
             var url = "/Admin/OutExcelDown.ashx?filename=按用户名搜索<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
             //alert(sql);
