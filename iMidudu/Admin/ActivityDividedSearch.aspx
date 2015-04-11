@@ -4,7 +4,7 @@
         <script>
             function DownLoad() {
                 var k = $("#key").val();
-                var sql = "select GroupName as 用户分组,UserName as 验证用户名,Mobile as 手机,RecentLoginDate as 最近登录时间,Amount as 领取金额,ReceiptDate as 领取时间 from ViewActivityGroup  ";
+                var sql = "select GroupName as 用户分组,UserName as 验证用户名,Mobile as 手机,RecentLoginDate as 登录时间,Amount as 领取金额,ReceiptDate as 领取时间 from ViewActivityGroup  ";
                 var url = "/Admin/OutExcelDown.ashx?filename=活动分组用户<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
                  //alert(sql);
             window.open(url);
