@@ -47,7 +47,7 @@
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">今天50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,5,1) %>次</p> 
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today,50,1) %>次</p> 
 						
 					</div>
 					<div class="overview_today">
@@ -57,7 +57,7 @@
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">昨天50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-1),5,1) %>次</p> 
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-1),50,1) %>次</p> 
 						
 					</div>
                     
@@ -68,7 +68,7 @@
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">最近一周50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-7),5,7) %>次</p> 
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-7),50,7) %>次</p> 
 						
 					</div>
                     
@@ -79,7 +79,7 @@
 					</div> 
 					<div class="overview_previous">
 						<p class="overview_day">最近30天50元领取</p>
-						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-30),5,30) %>次</p> 
+						<p class="overview_count"><%=iMidudu.AdminTool.CountBonusByDateAndAmount(DateTime.Today.AddDays(-30),50,30) %>次</p> 
 					
 					</div>
 				</article> 
