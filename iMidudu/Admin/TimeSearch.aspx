@@ -108,7 +108,7 @@
             //key3 = key3.AddDays(1);
             var sql = "select UserName as 验证用户名,Nickname as 微信昵称,(case Sex when 1 then '男' else '女' end) as 性别,Mobile as 手机, Country as 国家,Province as 省,City as 市, ActivityName as 活动名称,Amount as 领取金额,ReceiptDate as 领取时间 from ViewBonusHistory  where  ReceiptDate >=' " + k1 + "'   and ReceiptDate < '" + k3 + "' order by ReceiptDate desc ";
             var url = "/Admin/OutExcelDown.ashx?filename=按时段查询<%=DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")%>.xls&sql=" + sql;
-            alert(sql);
+            //alert(sql);
             window.open(url);
             return;
         var content = $("#content").html();
@@ -144,7 +144,7 @@
             <%
                 var d1=DateTime.Today.AddDays(-7).ToString("yyyy-MM-dd");
                 var d2 = DateTime.Today.AddDays(0).ToString("yyyy-MM-dd");
-                var d3 = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
+                DateTime d3 = Convert.ToDateTime(DateTime.Today.AddDays(1).ToString("yyyy-MM-dd"));
                 if (Request["key1"] != null) {
                     d1 = Request["key1"];
                     
@@ -152,6 +152,7 @@
                 if (Request["key2"] != null)
                 {
                     d2 = Request["key2"];
+                    d3=Convert.ToDateTime(d2).AddDays(1);
 
                 }
                  %>
