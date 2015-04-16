@@ -93,7 +93,6 @@
    <table class="tablesorter" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>排名</th> 
                                 <th>验证用户名</th>
                                 <th>微信昵称</th>
                                 <th>手机</th>
@@ -109,7 +108,6 @@
                         </HeaderTemplate>
                         <ItemTemplate>
                               <tr>
-                                <td><%# Container.ItemIndex+1 %></td> 
                                 <td>   <%#Eval("UserName") %> </td>
                                 <td>   <%#Eval("NickName") %> </td>
                                 <td>   <%#Eval("Mobile") %> </td>
