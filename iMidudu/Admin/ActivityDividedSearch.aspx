@@ -118,7 +118,7 @@
 		
          <article class="module width_full">
             <header>
-                <h3 class="tabs_involved">按活动查询/h3>
+                <h3 class="tabs_involved">按活动查询</h3>
 
             </header>
             <div class="tab_container">
