@@ -86,10 +86,21 @@
             </div>
         </section>
 
+    <div align="center">
 
-        <div class="submit_link2">
-            <td>
-                        <select name="" onchange="change();" id="Name"  class="form_select">
+             <td>
+          </td>
+           <%--<td>
+                        	<div class="smgSelectWrap" id="issueSmg">
+                        		<div class="smgSelectText f-toe f-usn"></div>
+                                <input type="hidden" />
+                                <div class="smgSelectListWrap">
+                                </div>
+                        	</div>
+          </td>--%>
+    </div>
+    <div align="center">
+    <select name="" onchange="change();" id="Name" class="form_select">
                             <option value="" selected="">请选择活动</option>
                             <%
                                 var data1 = iMidudu.SystemDAO.SqlHelper.ExecuteScalarText("select ActivityName from Activity where AcitvityId='53c9b412-d1a5-44a6-957f-b948cd54ce86'").ToString();
@@ -98,20 +109,16 @@
                               {%>
                             <option value="<%=data1%>"><%=data1%></option>
                             <option value="<%=data2%>"><%=data2%></option>
-                           <%--<option value="<%=item%>"><%=item%></option>--%>
                             <%} %>
                         </select>
-          </td>
-					<%--<select>
-						<option>不凡帝1</option>
-						
-					</select>--%>
-					
+    </div>
+        <div  class="submit_link2" >
+                        
 				</div>
 		
          <article class="module width_full">
             <header>
-                <h3 class="tabs_involved">Show</h3>
+                <h3 class="tabs_involved">按活动查询/h3>
 
             </header>
             <div class="tab_container">
