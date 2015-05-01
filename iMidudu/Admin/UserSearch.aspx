@@ -124,12 +124,11 @@
                 </article>
             </div>
         </section>
-    <div class="quick_search width_half_search">
+    <%--<div  class="quick_search width_half_search" >--%>
+    <div align="center">
         <input type="text"  id="key" value="<%=this.Request["key"] %>" placeholder="按验证用户名查找"/>
         <input type="button" onclick="dosearch();" value="搜索"/>
     </div>
-
-
     <article class="module width_full">
         <header>
             <h3 class="tabs_involved">查询条件：<%=ky ==null?"所有数据" :ky %></h3>
